@@ -404,30 +404,51 @@ code {
   text-decoration: none;
 }
 
-/* ---- The backdrop: the name, giant and a shade off the white, cut by the
-   bottom of the page. Only the top of the letters shows, and a mask fades
-   them out going down, so the name rises out of the page. ---- */
+/* ---- The backdrop: the ASCII wordmark, giant and a shade off the white,
+   fixed to the bottom of the window behind everything. Only its top rows
+   show, and a mask fades them out going down, so the name rises out of the
+   edge. The essay and the index sit above it. ---- */
 
 .telon {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  height: 2.6em;
   overflow: hidden;
-  height: 0.56em;
-  color: var(--blanco-hondo);
-  font-size: 23vw;
-  font-weight: 700;
-  line-height: 0.92;
-  letter-spacing: -0.045em;
-  text-align: center;
-  white-space: nowrap;
+  color: var(--gris-claro);
+  font-family: var(--mono);
+  font-size: 4.2vw;
+  line-height: 1.1;
   user-select: none;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, #000 10%, transparent 92%);
-  mask-image: linear-gradient(to bottom, #000 10%, transparent 92%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+}
+
+.telon pre {
+  margin: 0;
+  font: inherit;
+  white-space: pre;
+}
+
+.telon b {
+  font-weight: inherit;
+}
+
+.ensayo {
+  position: relative;
+  z-index: 1;
 }
 
 /* ---- Index ---- */
 
 .indice {
   position: fixed;
+  z-index: 1;
   top: 80px;
   left: 80px;
   width: 135px;

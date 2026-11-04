@@ -123,7 +123,11 @@ function Pagina() {
         <Ensayo />
       </main>
       <div className="telon" aria-hidden="true">
-        sightline.
+        <pre>
+          {MARCA}
+          <b>(_)</b>
+          {COLA}
+        </pre>
       </div>
     </>
   )
