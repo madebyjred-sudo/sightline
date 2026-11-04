@@ -122,6 +122,9 @@ function Pagina() {
         </header>
         <Ensayo />
       </main>
+      <div className="telon" aria-hidden="true">
+        sightline.
+      </div>
     </>
   )
 }

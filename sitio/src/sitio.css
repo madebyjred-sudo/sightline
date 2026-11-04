@@ -404,6 +404,26 @@ code {
   text-decoration: none;
 }
 
+/* ---- The backdrop: the name, giant and a shade off the white, cut by the
+   bottom of the page. Only the top of the letters shows, and a mask fades
+   them out going down, so the name rises out of the page. ---- */
+
+.telon {
+  overflow: hidden;
+  height: 0.56em;
+  color: var(--blanco-hondo);
+  font-size: 23vw;
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 10%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 10%, transparent 92%);
+}
+
 /* ---- Index ---- */
 
 .indice {
