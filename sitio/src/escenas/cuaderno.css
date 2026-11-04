@@ -1,0 +1,215 @@
+/* El ejemplo: Cuaderno as it is, in the page's frame (window 40/40, off the
+   right and bottom). The light is a 2px line in the palette's yellow that
+   walks the window; the card of what Taste sees is a satellite over the list. */
+
+.cdn .cdn-lead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cdn .cdn-titulo {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1d1d1f;
+}
+
+.cdn .cdn-boton,
+.cdn .cdn-icono,
+.cdn .cdn-ayuda {
+  position: relative;
+  transition: box-shadow var(--dur-media) ease, background-color var(--dur-media) ease;
+}
+
+.cdn .cdn-boton {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: #ececee;
+  color: #1d1d1f;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.cdn .cdn-icono {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #ececee;
+  color: #3d3e44;
+  font-size: 12px;
+  font-style: normal;
+}
+
+.cdn [data-visto] {
+  box-shadow: 0 0 0 2px var(--amarillo-hondo);
+  background-color: var(--amarillo-velo);
+}
+
+.cdn .cdn-num {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--amarillo);
+  color: var(--tinta);
+  font-family: 'Figtree Variable', system-ui, sans-serif;
+  font-size: 10.5px;
+  font-style: normal;
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(0.6);
+  will-change: transform;
+  transition: opacity var(--dur-media) ease, transform var(--dur-media) cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cdn [data-visto] > .cdn-num {
+  opacity: 1;
+  transform: none;
+}
+
+.cdn .cdn-body {
+  overflow: hidden;
+  background: #fff;
+}
+
+.cdn .cdn-lista {
+  padding: 14px 16px 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.cdn .cdn-ayuda {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #6e6f75;
+}
+
+.cdn .cdn-fila {
+  display: grid;
+  gap: 2px;
+  padding: 9px 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.cdn .cdn-fila__t {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.cdn .cdn-fila__d {
+  font-size: 12px;
+  color: #6e6f75;
+}
+
+/* ---- The light ---- */
+
+.cdn .cdn-luz {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  right: 0;
+  height: 2px;
+  background: var(--amarillo);
+  box-shadow: 0 0 12px 2px rgba(255, 205, 0, 0.45);
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform;
+}
+
+.cdn .cdn-luz[data-viaje] {
+  opacity: 1;
+  transition: transform var(--dur-viaje) cubic-bezier(0.45, 0, 0.55, 1), opacity var(--dur-media) ease;
+}
+
+.cdn .cdn-luz[data-linea='1'] {
+  transform: translateY(72px);
+}
+
+.cdn .cdn-luz[data-linea='2'] {
+  transform: translateY(130px);
+}
+
+.cdn .cdn-luz[data-linea='3'] {
+  transform: translateY(460px);
+}
+
+/* ---- What Taste sees ---- */
+
+.cdn .cdn-ve {
+  bottom: 40px;
+  left: 300px;
+  will-change: transform;
+  width: 210px;
+  padding: 14px 16px 10px;
+  font-family: 'Figtree Variable', system-ui, sans-serif;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--dur-media) ease, transform var(--dur-lenta) cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cdn .cdn-ve[data-show] {
+  opacity: 1;
+  transform: none;
+}
+
+.cdn .cdn-ve__t {
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+.cdn .cdn-ve__fila {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 12.5px;
+  line-height: 17px;
+  color: var(--tinta);
+}
+
+.cdn .cdn-ve__fila .cdn-num {
+  position: static;
+  flex-shrink: 0;
+  margin-top: 1px;
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Compact ---- */
+
+.cdn .ss-stage[data-layout='compact'] .cdn-luz {
+  left: 20px;
+}
+
+.cdn .ss-stage[data-layout='compact'] .cdn-luz[data-linea='1'] {
+  transform: translateY(52px);
+}
+
+.cdn .ss-stage[data-layout='compact'] .cdn-luz[data-linea='2'] {
+  transform: translateY(110px);
+}
+
+.cdn .ss-stage[data-layout='compact'] .cdn-luz[data-linea='3'] {
+  transform: translateY(360px);
+}
+
+.cdn .ss-stage[data-layout='compact'] .cdn-ve {
+  bottom: 20px;
+  left: 168px;
+  width: 196px;
+}

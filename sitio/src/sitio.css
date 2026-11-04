@@ -12,6 +12,7 @@
   --dur-corta: 0.25s;
   --dur-media: 0.3s;
   --dur-lenta: 0.5s;
+  --dur-viaje: 0.7s;
   --linea: rgba(35, 36, 38, 0.1);
   --columna: 550px;
   --mono: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;

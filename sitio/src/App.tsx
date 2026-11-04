@@ -6,6 +6,7 @@ import Nota from './escenas/nota'
 import Pila from './escenas/pila'
 import Mapa from './escenas/mapa'
 import Menos from './escenas/menos'
+import Cuaderno from './escenas/cuaderno'
 import { Llevar, Prompt, REPO } from './llevar'
 
 // The title in ASCII (figlet, Small Slant), its period in the accent
@@ -17,6 +18,7 @@ const MARCA = [
 ].join('\n')
 
 const SECCIONES = [
+  ['ejemplo', 'El ejemplo'],
   ['instalar', 'Instalar'],
   ['que-revisa', 'Qué revisa'],
   ['pila', 'La pila'],
@@ -98,6 +100,18 @@ export default function App() {
         <figure className="hero">
           <Hero />
           <figcaption>Hecho con Stageshow.</figcaption>
+        </figure>
+
+        <h2 id="ejemplo">El ejemplo: Cuaderno</h2>
+        <p>
+          Para mostrar qué hace Taste, esta página usa una app inventada: Cuaderno, una app de notas con su lista, su nota
+          abierta y su landing. Tiene los defectos que Taste encuentra en apps reales, y cada demo de aquí en adelante es
+          Taste trabajando sobre ella.
+        </p>
+
+        <figure className="demo" id="demo-cuaderno">
+          <Cuaderno />
+          <figcaption>Cuaderno tal como está. La luz recorre la ventana como Taste recorre una vista, y se enciende donde hay algo que arreglar.</figcaption>
         </figure>
 
         <h2 id="instalar">Instalar</h2>
