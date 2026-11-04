@@ -45,36 +45,38 @@ async function script(a: Act<S>) {
   await a.wait(300)
 }
 
-const NOTES = t(
-  [
-    ['Viaje a Oaxaca', 'Ayer'],
-    ['Lista del súper', 'Lunes'],
-    ['Ideas para el taller', '28 oct'],
-    ['Libros pendientes', '21 oct'],
-    ['Cumpleaños de Ana', '12 oct'],
-  ],
-  [
-    ['Oaxaca trip', 'Yesterday'],
-    ['Groceries', 'Monday'],
-    ['Workshop ideas', 'Oct 28'],
-    ['Books to read', 'Oct 21'],
-    ["Ana's birthday", 'Oct 12'],
-  ],
-)
+const NOTES = () =>
+  t(
+    [
+      ['Viaje a Oaxaca', 'Ayer'],
+      ['Lista del súper', 'Lunes'],
+      ['Ideas para el taller', '28 oct'],
+      ['Libros pendientes', '21 oct'],
+      ['Cumpleaños de Ana', '12 oct'],
+    ],
+    [
+      ['Oaxaca trip', 'Yesterday'],
+      ['Groceries', 'Monday'],
+      ['Workshop ideas', 'Oct 28'],
+      ['Books to read', 'Oct 21'],
+      ["Ana's birthday", 'Oct 12'],
+    ],
+  )
 
 // The criteria already in the list, under the one that drops in
-const OTHERS = t(
-  [
-    ['Tutea el botón Compartir', 'voseo-en-copy'],
-    ['Anima solo opacidad y posición', 'solo-opacity-y-transform'],
-    ['Agranda la zona de Ajustes', 'zona-tactil-menor-a-44'],
-  ],
-  [
-    ['Format the Share label', 'enums-crudos-nunca'],
-    ['Animate only opacity and position', 'solo-opacity-y-transform'],
-    ['Enlarge the Settings target', 'zona-tactil-menor-a-44'],
-  ],
-)
+const OTHERS = () =>
+  t(
+    [
+      ['Tutea el botón Compartir', 'voseo-en-copy'],
+      ['Anima solo opacidad y posición', 'solo-opacity-y-transform'],
+      ['Agranda la zona de Ajustes', 'zona-tactil-menor-a-44'],
+    ],
+    [
+      ['Format the Share label', 'enums-crudos-nunca'],
+      ['Animate only opacity and position', 'solo-opacity-y-transform'],
+      ['Enlarge the Settings target', 'zona-tactil-menor-a-44'],
+    ],
+  )
 
 export default function Criterio() {
   return (
@@ -121,7 +123,7 @@ export default function Criterio() {
                     <span>{t('Buscar', 'Search')}</span>
                   </div>
                   <div className="cri-list">
-                    {NOTES.map(([t, d]) => (
+                    {NOTES().map(([t, d]) => (
                       <div key={t} className="cri-row">
                         <span className="cri-row__t">{t}</span>
                         <span className="cri-row__d">{d}</span>
@@ -144,7 +146,7 @@ export default function Criterio() {
                       </div>
                     </div>
                   </Collapse>
-                  {OTHERS.map(([t, r]) => (
+                  {OTHERS().map(([t, r]) => (
                     <div key={t} className="cri-other">
                       <div className="cri-other__t">{t}</div>
                       <div className="cri-other__r">{r}</div>

@@ -14,14 +14,14 @@ import { t } from '../lang'
 
 type S = { capa: number }
 
-const CAPAS = [
+const CAPAS = () => [
   { n: 1, nombre: 'shadcn', aporta: t('El código y el foco: el anillo, los estados, ARIA.', 'The code and the focus: the ring, the states, ARIA.') },
   { n: 2, nombre: 'iOS', aporta: t('La interacción: hoja con agarre, filas de 44 pt.', 'The interaction: a sheet with a grabber, 44 pt rows.') },
   { n: 3, nombre: 'Material 3', aporta: t('El sistema: superficie tonal, escala, estados como capa.', 'The system: tonal surface, type scale, states as a layer.') },
   { n: 4, nombre: t('Marca', 'Brand'), aporta: t('Lo único que se ve: Figtree, el blanco, la luz amarilla.', 'The only thing you see: Figtree, the white, the yellow light.') },
 ]
 
-const ACCIONES = t(['Copiar enlace', 'Mensajes', 'Correo', 'Exportar PDF', 'Imprimir'], ['Copy link', 'Messages', 'Mail', 'Export PDF', 'Print'])
+const ACCIONES = () => t(['Copiar enlace', 'Mensajes', 'Correo', 'Exportar PDF', 'Imprimir'], ['Copy link', 'Messages', 'Mail', 'Export PDF', 'Print'])
 
 async function script(a: Act<S>) {
   await a.wait(1100)
@@ -68,7 +68,7 @@ export default function Pila() {
                 <div className="pil-hoja" data-capa={s.capa}>
                   <span className="pil-hoja__agarre" />
                   <div className="pil-hoja__t">{t('Compartir', 'Share')}</div>
-                  {ACCIONES.map((t, i) => (
+                  {ACCIONES().map((t, i) => (
                     <div key={t} className="pil-hoja__fila" data-primera={i === 0 || undefined}>
                       {t}
                     </div>
@@ -79,7 +79,7 @@ export default function Pila() {
           </div>
 
           <div className="pil-capas">
-            {CAPAS.map((c) => (
+            {CAPAS().map((c) => (
               <div
                 key={c.n}
                 className="pil-capa"
@@ -101,7 +101,7 @@ export default function Pila() {
               <States
                 align="start"
                 value={String(s.capa)}
-                states={Object.fromEntries(CAPAS.map((c) => [String(c.n), <span key={c.n}>{c.aporta}</span>]))}
+                states={Object.fromEntries(CAPAS().map((c) => [String(c.n), <span key={c.n}>{c.aporta}</span>]))}
               />
             </div>
           )}

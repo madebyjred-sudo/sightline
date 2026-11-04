@@ -478,3 +478,15 @@ code {
     margin: 32px 0 40px;
   }
 }
+
+/* ---- Language switch: the scenes fade in while the text morphs (morph.ts) ---- */
+
+html[data-morph] .ensayo figure {
+  animation: aparecer var(--dur-lenta) ease both;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0.35;
+  }
+}

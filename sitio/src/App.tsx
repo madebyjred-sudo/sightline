@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { t } from './lang'
+import { t, useIdioma, type Lang } from './lang'
+import { cambiarConMorph } from './morph'
 import { REPO } from './llevar'
 import EnsayoEs, { SECCIONES as SECCIONES_ES } from './ensayo.es'
 import EnsayoEn, { SECCIONES as SECCIONES_EN } from './ensayo.en'
@@ -14,13 +15,18 @@ const MARCA = [
 ].join('\n')
 const COLA = '\n      /___/'
 
-const SECCIONES = t<readonly (readonly [string, string])[]>(SECCIONES_ES, SECCIONES_EN)
-const Ensayo = t(EnsayoEs, EnsayoEn)
+const secciones = () => t<readonly (readonly [string, string])[]>(SECCIONES_ES, SECCIONES_EN)
 
-// The other language's page, kept on the section the reader is at
-const OTRO = t({ href: '/en/', nombre: 'English', lang: 'en' }, { href: '/', nombre: 'Español', lang: 'es' })
+// The other language: its address, its name in itself, its code
+const otro = () => t({ href: '/en/', nombre: 'English', lang: 'en' as Lang }, { href: '/', nombre: 'Español', lang: 'es' as Lang })
+
+const DESCRIPCION = {
+  es: 'Sightline audita la interfaz de una app web viva y propone cómo dejarla como la haría un diseñador exigente.',
+  en: 'Sightline audits the interface of a running web app and proposes how to leave it the way a demanding designer would.',
+}
 
 function Indice() {
+  const SECCIONES = secciones()
   const [activa, setActiva] = useState<string>('')
   useEffect(() => {
     const els = SECCIONES.map(([id]) => document.getElementById(id)).filter(Boolean) as HTMLElement[]
@@ -60,12 +66,29 @@ function Indice() {
 }
 
 export default function App() {
+  const lang = useIdioma()
   // The page renders after load, so the browser can't find the hash's section
-  // on its own; this takes the reader there (the language switch keeps it)
+  // on its own; this takes the reader there
   useEffect(() => {
     const id = decodeURIComponent(window.location.hash.slice(1))
     if (id) document.getElementById(id)?.scrollIntoView()
   }, [])
+  // Back and forward across the switch change the language the same way
+  useEffect(() => {
+    const volver = () => cambiarConMorph(window.location.pathname.startsWith('/en') ? 'en' : 'es')
+    window.addEventListener('popstate', volver)
+    return () => window.removeEventListener('popstate', volver)
+  }, [])
+  useEffect(() => {
+    document.querySelector('meta[name="description"]')?.setAttribute('content', DESCRIPCION[lang])
+  }, [lang])
+  // A new language mounts the page again, so every scene restarts in it
+  return <Pagina key={lang} />
+}
+
+function Pagina() {
+  const Ensayo = t(EnsayoEs, EnsayoEn)
+  const OTRO = otro()
   return (
     <>
       <Indice />
@@ -88,7 +111,9 @@ export default function App() {
               lang={OTRO.lang}
               onClick={(e) => {
                 e.preventDefault()
-                window.location.href = OTRO.href + window.location.hash
+                const hash = window.location.hash
+                cambiarConMorph(OTRO.lang)
+                window.history.pushState(null, '', OTRO.href + hash)
               }}
             >
               {OTRO.nombre}

@@ -13,37 +13,39 @@ import { t } from '../lang'
 
 type S = { linea: number; paso: number; viaje: boolean }
 
-const BOTON = t('Compartí', 'SHARE_NOTE')
+const BOTON = () => t('Compartí', 'SHARE_NOTE')
 
-const DEFECTOS = t(
-  [
-    { n: 1, t: 'Botón en voseo: «Compartí»' },
-    { n: 2, t: 'Ícono de 22 px, más chico que un dedo' },
-    { n: 3, t: 'Texto de ayuda bajo el título' },
-  ],
-  [
-    { n: 1, t: 'Raw enum: SHARE_NOTE' },
-    { n: 2, t: 'A 22 px icon, smaller than a finger' },
-    { n: 3, t: 'Helper text under the title' },
-  ],
-)
+const DEFECTOS = () =>
+  t(
+    [
+      { n: 1, t: 'Botón en voseo: «Compartí»' },
+      { n: 2, t: 'Ícono de 22 px, más chico que un dedo' },
+      { n: 3, t: 'Texto de ayuda bajo el título' },
+    ],
+    [
+      { n: 1, t: 'Raw enum: SHARE_NOTE' },
+      { n: 2, t: 'A 22 px icon, smaller than a finger' },
+      { n: 3, t: 'Helper text under the title' },
+    ],
+  )
 
-const NOTAS = t(
-  [
-    ['Viaje a Oaxaca', 'Ayer'],
-    ['Lista del súper', 'Hoy'],
-    ['Ideas para el taller', '28 oct'],
-    ['Libros pendientes', '21 oct'],
-    ['Cumpleaños de Ana', '12 oct'],
-  ],
-  [
-    ['Oaxaca trip', 'Yesterday'],
-    ['Groceries', 'Today'],
-    ['Workshop ideas', 'Oct 28'],
-    ['Books to read', 'Oct 21'],
-    ["Ana's birthday", 'Oct 12'],
-  ],
-)
+const NOTAS = () =>
+  t(
+    [
+      ['Viaje a Oaxaca', 'Ayer'],
+      ['Lista del súper', 'Hoy'],
+      ['Ideas para el taller', '28 oct'],
+      ['Libros pendientes', '21 oct'],
+      ['Cumpleaños de Ana', '12 oct'],
+    ],
+    [
+      ['Oaxaca trip', 'Yesterday'],
+      ['Groceries', 'Today'],
+      ['Workshop ideas', 'Oct 28'],
+      ['Books to read', 'Oct 21'],
+      ["Ana's birthday", 'Oct 12'],
+    ],
+  )
 
 async function script(a: Act<S>) {
   await a.wait(500)
@@ -88,7 +90,7 @@ export default function Cuaderno() {
               <span className="cdn-lead">
                 <span className="cdn-titulo">{t('Notas', 'Notes')}</span>
                 <span className="cdn-boton" data-visto={s.paso >= 1 || undefined}>
-                  {BOTON}
+                  {BOTON()}
                   <i className="cdn-num">1</i>
                 </span>
                 <span className="cdn-icono" data-visto={s.paso >= 2 || undefined} aria-hidden="true">
@@ -103,7 +105,7 @@ export default function Cuaderno() {
                 {t('Aquí puedes ver y organizar todas tus notas', 'Here you can see and organize all your notes')}
                 <i className="cdn-num">3</i>
               </div>
-              {NOTAS.map(([t, d]) => (
+              {NOTAS().map(([t, d]) => (
                 <div key={t} className="cdn-fila">
                   <span className="cdn-fila__t">{t}</span>
                   <span className="cdn-fila__d">{d}</span>
@@ -116,7 +118,7 @@ export default function Cuaderno() {
 
           <div className="marco-sat cdn-ve" data-show={s.paso >= 1 || undefined}>
             <div className="cdn-ve__t">{t('Lo que Sightline ve', 'What Sightline sees')}</div>
-            {DEFECTOS.map((d) => (
+            {DEFECTOS().map((d) => (
               <Collapse key={d.n} open={s.paso >= d.n}>
                 <div className="cdn-ve__fila">
                   <i className="cdn-num">{d.n}</i>

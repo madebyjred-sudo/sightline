@@ -19,7 +19,7 @@ type Line = { k: 'ok' | 'dim' | 'out' | 'cmd'; a: string; b?: string; wideOnly?:
 
 // What the terminal already shows when the scene starts
 // The views Cuaderno has, as the walk reports them
-const VISTAS: Line[] = [
+const VISTAS = (): Line[] => [
   { k: 'ok', a: '/', b: t('inicio', 'home') },
   { k: 'ok', a: t('/notas', '/notes'), b: t('página', 'page') },
   { k: 'ok', a: t('/notas/:id', '/notes/:id'), b: t('página', 'page') },
@@ -29,10 +29,10 @@ const VISTAS: Line[] = [
 const hallazgos = (n: number) => t(`${n} hallazgos`, `${n} findings`)
 const tiers = (a: number, aa: number, aaa: number) => `A ${decimal(a)} · AA ${decimal(aa)} · AAA ${decimal(aaa)}`
 
-const HISTORY: Line[] = [
+const HISTORY = (): Line[] => [
   { k: 'cmd', a: 'sightline auditar --repo ~/cuaderno' },
   { k: 'dim', a: t('servidor', 'server'), b: 'localhost:5173' },
-  ...VISTAS,
+  ...VISTAS(),
   { k: 'ok', a: 'transitions', b: hallazgos(9) },
   { k: 'ok', a: 'impeccable', b: hallazgos(14) },
   { k: 'ok', a: 'checks', b: hallazgos(11) },
@@ -41,9 +41,9 @@ const HISTORY: Line[] = [
   { k: 'ok', a: t('12 criterios', '12 criteria'), b: t('9 en sightline/limpieza', '9 in sightline/limpieza') },
 ]
 
-const LINES: Line[] = [
+const LINES = (): Line[] => [
   { k: 'dim', a: t('servidor', 'server'), b: 'localhost:5173', wideOnly: true },
-  ...VISTAS,
+  ...VISTAS(),
   { k: 'dim', a: t('ruido base', 'baseline noise'), b: t('0 vistas', '0 views'), wideOnly: true },
   { k: 'ok', a: 'transitions', b: hallazgos(6) },
   { k: 'ok', a: 'impeccable', b: hallazgos(9) },
@@ -54,7 +54,7 @@ const BEFORE = 72
 const SCORE = 81.4
 
 const initial: S = { cmd: '', run: false, lines: 0, card: false, score: BEFORE, dip: false }
-const poster: S = { cmd: COMMAND, run: true, lines: LINES.length, card: true, score: SCORE, dip: false }
+const poster: S = { cmd: COMMAND, run: true, lines: LINES().length, card: true, score: SCORE, dip: false }
 
 
 async function script(a: Act<S>) {
@@ -67,7 +67,7 @@ async function script(a: Act<S>) {
   await a.wait(400)
 
   a.mark('views')
-  for (let i = 1; i <= LINES.length; i++) {
+  for (let i = 1; i <= LINES().length; i++) {
     await a.set({ lines: i })
     await a.wait(i < 7 ? 380 : 300)
   }
@@ -114,14 +114,14 @@ export default function Auditar() {
       {(s, _rect, layout) => {
         const wide = layout === 'wide'
         const keep = (l: Line) => wide || !l.wideOnly
-        const shown = LINES.filter(keep)
-        const count = wide ? s.lines : LINES.slice(0, s.lines).filter(keep).length
+        const shown = LINES().filter(keep)
+        const count = wide ? s.lines : LINES().slice(0, s.lines).filter(keep).length
         return (
           <>
             <Window chrome="terminal" title="cuaderno · zsh" className="marco-win aud-term">
               <div className="aud-body">
                 <div className="aud-feed" data-dip={s.dip || undefined}>
-                  {HISTORY.filter(keep).map((l, i) => (
+                  {HISTORY().filter(keep).map((l, i) => (
                     <Row key={`h-${i}`} l={l} />
                   ))}
                   <Prompt path="~/cuaderno">

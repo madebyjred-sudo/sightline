@@ -14,28 +14,29 @@ type S = { quitada: boolean; muerta: number }
 const ANTES = 31
 const DESPUES = 18
 
-const SECCIONES = t(
-  [
-    { s: 'Portada', p: 'Decidir en tres segundos si probarlo' },
-    { s: 'Funciones', p: 'Saber qué hace sin instalar nada' },
-    { s: 'Testimonios', p: null },
-    { s: 'Precios', p: 'Elegir un plan' },
-    { s: 'Preguntas', p: 'Resolver dudas antes de pagar' },
-    { s: 'Descarga', p: 'Instalarlo en su equipo' },
-    { s: 'Integraciones', p: 'Conectarlo con lo que ya usa' },
-    { s: 'Pie', p: 'Encontrar ayuda y contacto' },
-  ],
-  [
-    { s: 'Hero', p: 'Decide in three seconds whether to try it' },
-    { s: 'Features', p: 'Know what it does without installing' },
-    { s: 'Testimonials', p: null },
-    { s: 'Pricing', p: 'Pick a plan' },
-    { s: 'FAQ', p: 'Clear up doubts before paying' },
-    { s: 'Download', p: 'Install it on their machine' },
-    { s: 'Integrations', p: 'Connect it to what they already use' },
-    { s: 'Footer', p: 'Find help and a contact' },
-  ],
-)
+const SECCIONES = () =>
+  t(
+    [
+      { s: 'Portada', p: 'Decidir en tres segundos si probarlo' },
+      { s: 'Funciones', p: 'Saber qué hace sin instalar nada' },
+      { s: 'Testimonios', p: null },
+      { s: 'Precios', p: 'Elegir un plan' },
+      { s: 'Preguntas', p: 'Resolver dudas antes de pagar' },
+      { s: 'Descarga', p: 'Instalarlo en su equipo' },
+      { s: 'Integraciones', p: 'Conectarlo con lo que ya usa' },
+      { s: 'Pie', p: 'Encontrar ayuda y contacto' },
+    ],
+    [
+      { s: 'Hero', p: 'Decide in three seconds whether to try it' },
+      { s: 'Features', p: 'Know what it does without installing' },
+      { s: 'Testimonials', p: null },
+      { s: 'Pricing', p: 'Pick a plan' },
+      { s: 'FAQ', p: 'Clear up doubts before paying' },
+      { s: 'Download', p: 'Install it on their machine' },
+      { s: 'Integrations', p: 'Connect it to what they already use' },
+      { s: 'Footer', p: 'Find help and a contact' },
+    ],
+  )
 
 async function script(a: Act<S>) {
   await a.wait(1200)
@@ -82,7 +83,7 @@ export default function Menos() {
               </span>
             </div>
             <div className="men-filas">
-              {SECCIONES.map((x) =>
+              {SECCIONES().map((x) =>
                 x.p ? (
                   <div key={x.s} className="men-fila">
                     <span className="men-fila__s">{x.s}</span>
