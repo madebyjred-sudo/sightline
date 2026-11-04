@@ -70,7 +70,7 @@ export function revisarBuild(arbol, base, sub = '') {
   let antes = { ok: null, errores: [] }
   let wt = null
   if (base) {
-    wt = join(mkdtempSync(join(tmpdir(), 'taste-base-')), 'wt')
+    wt = join(mkdtempSync(join(tmpdir(), 'sightline-base-')), 'wt')
     try {
       git(arbol, ['worktree', 'add', '--detach', wt, base])
       // node_modules: del arbol (que a su vez enlaza al original) en cada nivel que lo tenga.

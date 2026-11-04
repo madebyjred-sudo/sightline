@@ -14,7 +14,7 @@ export const MODOS = {
 export function textoTarea({ dir, modo, tier, perfil, arbol, rama, base, paquetes, pedido, bin }) {
   const estricto = perfil === 'estricto'
   return [
-    `# Tarea taste · ${modo} · tier ${tier} · perfil ${perfil}`, '',
+    `# Tarea sightline · ${modo} · tier ${tier} · perfil ${perfil}`, '',
     `> ${REGLA_MADRE}`, '',
     '## Rutas', '',
     `- corrida: ${dir}`,
@@ -26,8 +26,8 @@ export function textoTarea({ dir, modo, tier, perfil, arbol, rama, base, paquete
     `1. Lee cada paquete de ${join(dir, 'paquete')} (${paquetes.length} vistas) y mira sus capturas (rutas relativas a la corrida).`,
     `2. Escribe ${join(dir, 'criterios.json')}: una lista de criterios, uno por hallazgo o grupo de hallazgos de la misma regla, con al menos uno por vista donde haya algo que hacer en este modo.`,
     '   Claves: id (c-0001), vista, hallazgos (ids h-...), regla (id de reglas.json o inspo:ID), criterio (una frase imperativa), por_que (una frase con la fuente archivo:linea), ux, dx, ax (mejora | igual | empeora + 5 palabras), accion (quitar | cambiar | agregar | reemplazar-por-componente), componente (id de biblioteca o null), archivos (rutas relativas al arbol), estado (propuesto | aplicado | descartado), motivo_descarte (null o frase).',
-    '   Si ux, dx o ax empeora: estado descartado. taste lo fuerza igual.',
-    `3. Aplica en el arbol SOLO los criterios con estado aplicado. Un commit por criterio o grupo, mensaje «taste ${modo}: c-0001 ...». Nunca push.`,
+    '   Si ux, dx o ax empeora: estado descartado. sightline lo fuerza igual.',
+    `3. Aplica en el arbol SOLO los criterios con estado aplicado. Un commit por criterio o grupo, mensaje «sightline ${modo}: c-0001 ...». Nunca push.`,
     ...(estricto ? ['   Perfil estricto: nunca cambies tokens, marca ni agregues piezas.'] : []),
     '4. Antes de comparar corre en el arbol el chequeo de tipos o build que tenga (npx tsc --noEmit si hay tsconfig) y anota el resultado.',
     `5. Corre: ${bin} comparar --corrida ${dir}`,

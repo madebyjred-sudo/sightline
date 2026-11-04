@@ -1,0 +1,10 @@
+{
+  "name": "sightline",
+  "version": "0.1.0",
+  "description": "Walks a running web app view by view, measures each section and proposes how a demanding designer would polish it, in a clone with before and after captures.",
+  "author": { "name": "madebyjred", "url": "https://github.com/madebyjred-sudo" },
+  "homepage": "https://sightline.madebyjred.com",
+  "repository": "https://github.com/madebyjred-sudo/sightline",
+  "license": "MIT",
+  "keywords": ["ui", "design", "audit", "playwright", "frontend", "accessibility"]
+}

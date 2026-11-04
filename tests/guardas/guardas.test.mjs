@@ -9,7 +9,7 @@ import { revisar, diferencia } from '../../src/guardas.mjs'
 import { puntajeDeCorrida, puntaje, aprueba } from '../../src/puntaje.mjs'
 import { resolverPerfil, permiteModo } from '../../src/perfil.mjs'
 
-const tmp = () => mkdtempSync(join(tmpdir(), 'taste-guardas-'))
+const tmp = () => mkdtempSync(join(tmpdir(), 'sightline-guardas-'))
 const git = (d, ...a) => execFileSync('git', ['-C', d, ...a], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
 
 function png(f, w, h, pinta = () => false) {
@@ -129,8 +129,8 @@ test('el puntaje del tier no puede bajar', async () => {
   assert.match(r.motivos.join(' '), /puntaje AA baja de 100 a 98/)
 })
 
-const ONE = process.env.TASTE_CORRIDA_REAL ?? ''
-test('puntaje v1 sobre una corrida real da entre 1 y 99', { skip: !existsSync(ONE) && 'sin corrida real (TASTE_CORRIDA_REAL)' }, () => {
+const ONE = process.env.SIGHTLINE_CORRIDA_REAL ?? ''
+test('puntaje v1 sobre una corrida real da entre 1 y 99', { skip: !existsSync(ONE) && 'sin corrida real (SIGHTLINE_CORRIDA_REAL)' }, () => {
   const c = JSON.parse(readFileSync(ONE, 'utf8'))
   assert.equal(c.hallazgos.length, 529)
   const p = puntajeDeCorrida(c)

@@ -53,7 +53,7 @@ export const corto = (s, n = 80) => {
 };
 
 export function hallazgo(regla, ruta, src, idx, fragmento, mensaje, severidad, tier) {
-  return { regla, fuente: 'taste', severidad, tier, archivo: ruta, linea: lineaDe(src, idx), vista: null, fragmento: corto(fragmento), mensaje };
+  return { regla, fuente: 'sightline', severidad, tier, archivo: ruta, linea: lineaDe(src, idx), vista: null, fragmento: corto(fragmento), mensaje };
 }
 
 const ATRIBUTOS_VISIBLES = 'title|placeholder|aria-label|alt|label|description|aria-description|tooltip';

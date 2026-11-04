@@ -1,23 +1,26 @@
 ---
-name: taste
-description: Use when auditing or cleaning a web app's UI with taste.
+name: sightline
+description: Use when auditing or cleaning a web app's UI with sightline.
 ---
 
-# taste
+# sightline
 
 Audita una app web viva (capturas por vista, hallazgos con fuente, puntaje por tier, mapa vertical con
 puntaje por componente) y produce una contrapropuesta en un clon con rama propia, con informe antes y después.
 Nunca escribe en el repo analizado.
+
+Si el comando `sightline` no está en el PATH, instálalo una vez: clona https://github.com/madebyjred-sudo/sightline
+en `~/sightline` y corre `npm install`, `npx playwright install chromium` y `sh instalar.sh`.
 
 ## Cuándo usarlo
 - Te piden revisar, limpiar, corregir o mejorar la interfaz de un repo con servidor de desarrollo.
 - Quieres pruebas visuales de un cambio de UI antes de llevarlo al repo real.
 
 ## Perfiles y mundos
-- `perfiles/REPO.json` en el repo de taste: `mundo` (shift | personal), `perfil` (libre | estricto), `url`,
+- `perfiles/REPO.json` en el repo de sightline: `mundo` (shift | personal), `perfil` (libre | estricto), `url`,
   `arranque`, `lecturas_permitidas` (lista `{metodo, ruta}` de peticiones POST que solo leen; el resto se bloquea),
   `previo` (`{nombre, puerto, comando}`: lo que el servidor necesita antes de arrancar, p. ej. un túnel ssh a la
-  base de desarrollo; taste lo abre si el puerto está cerrado y cierra solo lo que abrió), `entorno` (variables
+  base de desarrollo; sightline lo abre si el puerto está cerrado y cierra solo lo que abrió), `entorno` (variables
   extra para el servidor: apaga trabajos de fondo que escriben, p. ej. un barrido periódico).
 - Una corrida solo lee `biblioteca/externa` y la biblioteca de su mundo. Nunca la del otro.
 - Estricto (productos de cliente con marca cerrada): nunca cambies tokens ni marca ni agregues piezas.
@@ -34,8 +37,8 @@ Nunca escribe en el repo analizado.
 | edicion | solo lo pedido en `--pedido TEXTO` |
 | creacion | pantalla o componente nuevo desde la biblioteca |
 
-## Antes de todo: los criterios (taste fundar)
-Un repo sin decisiones de diseño se funda primero: `taste fundar --repo RUTA [--tipo herramienta|vitrina|mixto]`.
+## Antes de todo: los criterios (sightline fundar)
+Un repo sin decisiones de diseño se funda primero: `sightline fundar --repo RUTA [--tipo herramienta|vitrina|mixto]`.
 - Deduce el tipo de producto por el código (tablas, formularios, barra lateral y sesión contra hero, imágenes y
   marketing; ignora kits de ilustración y pruebas). Si el dueño lo sabe, `--tipo` lo fija.
 - Escribe `perfiles/REPO.criterios.json` y `.md`: la pila (shadcn el código, macOS/iOS la interacción, Material 3 el
@@ -51,7 +54,7 @@ sección tiene un rol: golpe, condensado, saturado o **sin decidir** (el gris me
 - Cada componente de la sección tiene su puntaje: mitad calidad medida en el DOM (contraste, texto mínimo), mitad
   composición (en un golpe pesa el cine; en un condensado, la legibilidad de lo denso). Una sección sin decidir no
   pasa de 60.
-- Hallazgos (fuente `taste`, con `vista` y `seccion`): `seccion-sin-decidir`, `seccion-saturada`, `golpes-seguidos`,
+- Hallazgos (fuente `sightline`, con `vista` y `seccion`): `seccion-sin-decidir`, `seccion-saturada`, `golpes-seguidos`,
   `apertura-segun-el-producto`, `cine-donde-golpea`, `area-muerta`. Una vista interna con la misma composición que su
   padre (un ancla) no los repite.
 - `CORRIDA/mapa.html`: la tira de cada vista (el ancho de la barra es la fuerza, lo sin decidir en amarillo), con
@@ -60,18 +63,18 @@ sección tiene un rol: golpe, condensado, saturado o **sin decidir** (el gris me
   sección; la que no resuelve ninguno se propone quitar (`seccion-con-problema`). Menos, pero pensado.
 
 ## De punta a punta
-1. `taste MODO --repo RUTA --tier AA [--solo VISTA] [--agente ninguno|claude] [--pedido TEXTO]`
-   Audita, escribe `paquete/VISTA.md` por vista, clona a `CORRIDA/arbol` en la rama `taste/AAAAMMDD-HHMM-MODO`
+1. `sightline MODO --repo RUTA --tier AA [--solo VISTA] [--agente ninguno|claude] [--pedido TEXTO]`
+   Audita, escribe `paquete/VISTA.md` por vista, clona a `CORRIDA/arbol` en la rama `sightline/AAAAMMDD-HHMM-MODO`
    y escribe `CORRIDA/TAREA.md`. Con `ninguno` imprime la frase para pegar en tu agente.
 2. Lee `TAREA.md` y cada paquete (capturas, hallazgos por regla con archivo:línea, reglas que aplican, inspo y componentes del mismo patrón).
 3. Escribe `CORRIDA/criterios.json`: uno por hallazgo o grupo de la misma regla. Cada criterio lleva `regla`
    (id de reglas.json o `inspo:ID`), `criterio` (una frase imperativa), `por_que` (con la fuente archivo:línea),
    `ux`, `dx`, `ax` (mejora | igual | empeora + 5 palabras), `accion`, `componente`, `archivos`, `estado`, `motivo_descarte`.
-   - Si algo empeora UX, DX o AX, se descarta (taste lo fuerza).
+   - Si algo empeora UX, DX o AX, se descarta (sightline lo fuerza).
    - En limpieza, todo lo que no sea `quitar` queda `propuesto`.
 4. Aplica en el árbol solo los `aplicado`, un commit por criterio o grupo. Nunca push.
 5. Corre el chequeo de tipos del árbol (`npx tsc --noEmit` si hay tsconfig).
-6. `taste comparar --corrida CORRIDA`: levanta el árbol en puerto + 1, repite las mismas vistas, captura en
+6. `sightline comparar --corrida CORRIDA`: levanta el árbol en puerto + 1, repite las mismas vistas, captura en
    `capturas/despues`, re-detecta, corre guardas y genera `informe.html`.
 
 ## Ruido base
@@ -88,16 +91,16 @@ pasa a la vista siguiente.
 - Traer la rama: `git fetch CORRIDA/arbol RAMA`.
 
 ## Escenas: mostrar el producto (Stageshow)
-Taste limpia la app real; para **mostrarla** (hero de landing, tarjeta de feature, demo animada) se usa la skill
-`stageshow` de Benji Taylor tal cual, con las reglas de Taste encima. No es otro comando.
+Sightline limpia la app real; para **mostrarla** (hero de landing, tarjeta de feature, demo animada) se usa la skill
+`stageshow` de Benji Taylor tal cual, con las reglas de Sightline encima. No es otro comando.
 - Marco por defecto: el gold `finder-glass` (escenario 860 x 440, ventana en 40/40/780/480 que sangra por
   abajo; compacto 400 x 340, ventana en 20/20/460/400 que sangra a la derecha y abajo; radio 14; fondo de tres capas
   recoloreado a la marca). Geometría y capturas: `biblioteca/externa/golds/marco-finder-glass.md`.
 - Antes de construir, capturar la app real con sesión de prueba (solo lectura) y tomar sus tokens del CSS.
-- Escenas aprobadas = gold propio por mundo, en `biblioteca/<mundo>/escenas/` (o en `TASTE_BIBLIOTECA_SHIFT` para un
+- Escenas aprobadas = gold propio por mundo, en `biblioteca/<mundo>/escenas/` (o en `SIGHTLINE_BIBLIOTECA_SHIFT` para un
   segundo mundo de trabajo).
 - Ensayo: `film.mjs --gate` de Stageshow es pista, no veredicto (en sus propios golds pasa la mitad).
-- Después de limpiar con Taste, la escena se arma sobre la pantalla ya limpia: primero el producto, luego cómo se muestra.
+- Después de limpiar con Sightline, la escena se arma sobre la pantalla ya limpia: primero el producto, luego cómo se muestra.
 
 ## Trampas
 - Si una vista sale en error, mira `vista.error`: `bloqueada POST /api/...` indica una lectura POST que falta

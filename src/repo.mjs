@@ -4,7 +4,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, basename, resolve } from 'node:path'
 import { homedir } from 'node:os'
 
-const RAIZ_TASTE = resolve(new URL('..', import.meta.url).pathname)
+const RAIZ_SIGHTLINE = resolve(new URL('..', import.meta.url).pathname)
 
 function git(repo, args) {
   try { return execFileSync('git', ['-C', repo, ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() }
@@ -48,7 +48,7 @@ export function reconocer(repoArg) {
   const repo = resolve(repoArg)
   const nombre = basename(repo)
   const porcelain = git(repo, ['status', '--porcelain'])
-  const perfilArchivo = join(RAIZ_TASTE, 'perfiles', `${nombre}.json`)
+  const perfilArchivo = join(RAIZ_SIGHTLINE, 'perfiles', `${nombre}.json`)
   const perfil = leerJson(perfilArchivo)
   const notas = []
   let mundo = perfil?.mundo ?? mundoPorRuta(repo)

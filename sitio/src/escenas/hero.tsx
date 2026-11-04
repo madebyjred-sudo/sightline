@@ -2,7 +2,7 @@ import { Prompt, Stage, Window, ACENTO } from './ss'
 import './hero.css'
 import { decimal, t } from '../lang'
 
-// The hero under the intro, as on benji.org/stageshow: real pieces of Taste
+// The hero under the intro, as on benji.org/stageshow: real pieces of Sightline
 // composed as one bento picture, built with the kit. A still: no script.
 // Four tiles, four kinds (Stageshow's references/bento.md): the criterion
 // on the amber of demo 2, the score on the neutral tile, the terminal on the
@@ -41,7 +41,7 @@ export default function Hero() {
           <div className="hro-tile hro-c">
             <Window chrome="terminal" title="cuaderno · zsh" className="hro-term">
               <div className="hro-term__body">
-                <Prompt path="~/cuaderno">taste auditar</Prompt>
+                <Prompt path="~/cuaderno">sightline auditar</Prompt>
                 <div className="ss-term__line">
                   <span className="ok">✓ </span>{t('Ajustes', 'Settings')} <span className="dim">{t('diálogo', 'dialog')}</span>
                 </div>

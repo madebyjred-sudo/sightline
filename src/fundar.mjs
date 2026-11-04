@@ -1,4 +1,4 @@
-// taste fundar: los criterios de diseño de un repo antes de auditarlo (docs/COMPOSICION.md §1).
+// sightline fundar: los criterios de diseño de un repo antes de auditarlo (docs/COMPOSICION.md §1).
 // Deduce el tipo de producto, el peso de cada capa de la pila y que capa decide cada pieza.
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
 import { join, extname, resolve } from 'node:path'
@@ -140,14 +140,14 @@ export function criteriosDe(info, vistas = []) {
   const f = archivoCriterios(info.repo)
   if (existsSync(f)) { try { return JSON.parse(readFileSync(f, 'utf8')) } catch {} }
   const { tipo, razones } = tipoDeProducto(senales(info.ruta_repo), vistas)
-  return armarCriterios({ repo: info.ruta_repo, nombre: info.repo, tipo, razones, origen: 'deducido: corre taste fundar para fijarlo' })
+  return armarCriterios({ repo: info.ruta_repo, nombre: info.repo, tipo, razones, origen: 'deducido: corre sightline fundar para fijarlo' })
 }
 
 export function fundar(info, { tipo: forzado = null, vistas = [] } = {}) {
   const s = senales(info.ruta_repo)
   const t = tipoDeProducto(s, vistas)
   const tipo = forzado || t.tipo
-  const c = armarCriterios({ repo: info.ruta_repo, nombre: info.repo, tipo, razones: t.razones, origen: forzado ? 'fijado a mano' : 'deducido por taste fundar' })
+  const c = armarCriterios({ repo: info.ruta_repo, nombre: info.repo, tipo, razones: t.razones, origen: forzado ? 'fijado a mano' : 'deducido por sightline fundar' })
   const f = archivoCriterios(info.repo)
   writeFileSync(f, JSON.stringify(c, null, 2) + '\n')
   writeFileSync(f.replace(/\.json$/, '.md'), criteriosMd(c))

@@ -1,4 +1,4 @@
-// taste comparar: servidor del arbol en puerto + 1, mismas vistas, deteccion, guardas, informe.
+// sightline comparar: servidor del arbol en puerto + 1, mismas vistas, deteccion, guardas, informe.
 import { readFileSync, writeFileSync, existsSync, rmSync } from 'node:fs'
 import { join } from 'node:path'
 import { asegurarServidor } from '../servidor.mjs'

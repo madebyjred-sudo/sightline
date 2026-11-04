@@ -15,7 +15,7 @@ function png(ruta, distintos) {
 }
 
 test('el ruido base medido se suma al tope de las vistas no tocadas', () => {
-  const d = mkdtempSync(join(tmpdir(), 'taste-ruido-'))
+  const d = mkdtempSync(join(tmpdir(), 'sightline-ruido-'))
   png(join(d, 'a.png'), 0); png(join(d, 'b.png'), 300) // 3 % distinto
   const vista = (ruido) => ({ vistas: [{ id: 'v', capturas: { escritorio: 'a.png' }, ruido }] })
   const despues = { vistas: [{ id: 'v', capturas: { escritorio: 'b.png' } }] }

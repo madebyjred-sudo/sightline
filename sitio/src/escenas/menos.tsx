@@ -3,7 +3,7 @@ import './marco.css'
 import './menos.css'
 import { t } from '../lang'
 
-// Menos, pero pensado. Taste's panel for Cuaderno's landing: every section and,
+// Menos, pero pensado. Sightline's panel for Cuaderno's landing: every section and,
 // beside it, the problem it solves in one line, as the agent wrote it. One
 // section solves none. The cursor presses «Quitar» on it; the row closes, the
 // rest move up, the page drops a section and its dead area falls from 31 % to

@@ -63,7 +63,7 @@
   --ss-term-bg: var(--terminal);
 }
 
-/* Taste's own pieces speak Figtree; Cuaderno stays in the system font */
+/* Sightline's own pieces speak Figtree; Cuaderno stays in the system font */
 .aud .aud-card,
 .cri .cri-report,
 .hro .ss-stage {

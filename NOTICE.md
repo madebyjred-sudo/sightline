@@ -5,6 +5,6 @@
 - **transitions-agent**, de Jakub Antalik (MIT, según su `package.json`), en `vendor/transitions-agent/`: el escáner
   de movimiento. https://transitions.dev
 - **Skills de Emil Kowalski** (MIT), en `vendor/emil-skills/`, con su `LICENSE`.
-- **Impeccable**, de Paul Bakaus (Apache-2.0): no viene en el repo; Taste lo corre con `npx`. https://impeccable.style
+- **Impeccable**, de Paul Bakaus (Apache-2.0): no viene en el repo; Sightline lo corre con `npx`. https://impeccable.style
 - **shadcn/ui** (MIT): `biblioteca/externa/componentes.jsonl` indexa sus componentes por nombre y enlace, sin copiar
   su código.

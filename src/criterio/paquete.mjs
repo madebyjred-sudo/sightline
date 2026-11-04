@@ -11,7 +11,7 @@ const MAX = 6
 // Carpeta de biblioteca por mundo (ESPEC: externa + la del mundo del repo, nunca la del otro).
 export function carpetasBiblioteca(mundo, base = {}) {
   const externa = base.externa ?? join(RAIZ, 'biblioteca', 'externa')
-  const propio = mundo === 'shift' ? (base.shift ?? process.env.TASTE_BIBLIOTECA_SHIFT ?? join(homedir(), '.taste', 'biblioteca', 'shift'))
+  const propio = mundo === 'shift' ? (base.shift ?? process.env.SIGHTLINE_BIBLIOTECA_SHIFT ?? join(homedir(), '.sightline', 'biblioteca', 'shift'))
     : mundo === 'personal' ? (base.personal ?? join(RAIZ, 'biblioteca', 'personal')) : null
   return [externa, propio].filter(Boolean)
 }

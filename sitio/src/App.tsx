@@ -4,13 +4,15 @@ import { REPO } from './llevar'
 import EnsayoEs, { SECCIONES as SECCIONES_ES } from './ensayo.es'
 import EnsayoEn, { SECCIONES as SECCIONES_EN } from './ensayo.en'
 
-// The title in ASCII (figlet, Small Slant), its period in the accent
+// The title in ASCII (figlet, Small Slant), its period in the accent. The g's
+// descender is the last line, so it comes after the period.
 const MARCA = [
-  '  __           __',
-  ' / /____ ____ / /____',
-  '/ __/ _ `(_-</ __/ -_)',
-  '\\__/\\_,_/___/\\__/\\__',
+  '       _      __   __  ___',
+  '  ___ (_)__ _/ /  / /_/ (_)__  ___',
+  ' (_-</ / _ `/ _ \\/ __/ / / _ \\/ -_)',
+  '/___/_/\\_, /_//_/\\__/_/_/_//_/\\__',
 ].join('\n')
+const COLA = '\n      /___/'
 
 const SECCIONES = t<readonly (readonly [string, string])[]>(SECCIONES_ES, SECCIONES_EN)
 const Ensayo = t(EnsayoEs, EnsayoEn)
@@ -37,10 +39,11 @@ function Indice() {
         ↑ {t('Arriba', 'Top')}
       </a>
       <div className="indice__titulo">
-        <span className="solo-lectores">Taste</span>
+        <span className="solo-lectores">Sightline</span>
         <pre className="marca marca--chica" aria-hidden="true">
           {MARCA}
           <b>(_)</b>
+          {COLA}
         </pre>
       </div>
       <ul>
@@ -69,10 +72,11 @@ export default function App() {
       <main className="ensayo" id="top">
         <header className="cabeza">
           <h1>
-            <span className="solo-lectores">Taste</span>
+            <span className="solo-lectores">Sightline</span>
             <pre className="marca" aria-hidden="true">
               {MARCA}
               <b>(_)</b>
+              {COLA}
             </pre>
           </h1>
           <div className="cabeza__linea">

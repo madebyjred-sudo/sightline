@@ -30,7 +30,7 @@ export default function Ensayo() {
   return (
     <>
       <p>
-        Taste es una skill para tu agente que recorre la interfaz de una app web en marcha, vista por vista, y propone
+        Sightline es una skill para tu agente que recorre la interfaz de una app web en marcha, vista por vista, y propone
         cómo dejarla como la haría un diseñador exigente. Es para quien construye apps con agentes y quiere que la
         interfaz aguante esa mirada.
       </p>
@@ -44,14 +44,14 @@ export default function Ensayo() {
 
       <h2 id="ejemplo">El ejemplo: Cuaderno</h2>
       <p>
-        Para mostrar qué hace Taste, esta página usa una app inventada: Cuaderno, una app de notas con su lista, su nota
-        abierta y su landing. Tiene los defectos que Taste encuentra en apps reales, y cada demo de aquí en adelante es
-        Taste trabajando sobre ella.
+        Para mostrar qué hace Sightline, esta página usa una app inventada: Cuaderno, una app de notas con su lista, su nota
+        abierta y su landing. Tiene los defectos que Sightline encuentra en apps reales, y cada demo de aquí en adelante es
+        Sightline trabajando sobre ella.
       </p>
 
       <figure className="demo" id="demo-cuaderno">
         <Cuaderno />
-        <figcaption>Cuaderno tal como está. La luz recorre la ventana como Taste recorre una vista, y se enciende donde hay algo que arreglar.</figcaption>
+        <figcaption>Cuaderno tal como está. La luz recorre la ventana como Sightline recorre una vista, y se enciende donde hay algo que arreglar.</figcaption>
       </figure>
 
       <h2 id="instalar">Instalar</h2>
@@ -63,37 +63,37 @@ export default function Ensayo() {
           1{'\n'}2{'\n'}3{'\n'}4
         </span>
         <code>
-          <span className="c">git</span> clone {REPO} ~/taste{'\n'}
-          <span className="c">cd</span> ~/taste <span className="f">&amp;&amp;</span> <span className="c">npm</span> install{'\n'}
+          <span className="c">git</span> clone {REPO} ~/sightline{'\n'}
+          <span className="c">cd</span> ~/sightline <span className="f">&amp;&amp;</span> <span className="c">npm</span> install{'\n'}
           <span className="c">npx</span> playwright install chromium{'\n'}
-          <span className="c">sh</span> skill/instalar.sh
+          <span className="c">sh</span> instalar.sh
         </code>
       </pre>
       <p>
-        Eso deja la skill en Claude Code (y en Hermes, si lo usas) y el comando <code>taste</code> en{' '}
+        Eso deja la skill en Claude Code (y en Hermes, si lo usas) y el comando <code>sightline</code> en{' '}
         <code>~/.local/bin</code>. Después, desde cualquier carpeta:
       </p>
       <pre className="comando">
         <span className="n">1</span>
         <code>
-          <span className="c">taste</span> auditar <span className="f">--repo</span> ~/tu-app
+          <span className="c">sightline</span> auditar <span className="f">--repo</span> ~/tu-app
         </code>
       </pre>
 
       <figure className="demo" id="demo-auditar">
         <Auditar />
-        <figcaption>Cuaderno después de la limpieza: Taste vuelve a recorrer cada vista y el AA pasa de 72,0 a 81,4.</figcaption>
+        <figcaption>Cuaderno después de la limpieza: Sightline vuelve a recorrer cada vista y el AA pasa de 72,0 a 81,4.</figcaption>
       </figure>
 
       <h2 id="que-revisa">Qué revisa</h2>
       <p>
-        Taste levanta tu servidor de desarrollo y recorre todas las vistas que encuentra: rutas, pestañas, hojas y
+        Sightline levanta tu servidor de desarrollo y recorre todas las vistas que encuentra: rutas, pestañas, hojas y
         diálogos. Captura cada una en escritorio, a 1440 × 900, y en móvil, a 390 × 844. Lo hace dos veces, para medir
         cuánto cambia una vista sola y no confundir un reloj o un dato vivo con una regresión.
       </p>
       <p>
         Los hallazgos salen de tres fuentes: transitions-agent para el movimiento<sup><a href="#n2" id="r2">2</a></sup>,
-        Impeccable como detector<sup><a href="#n3" id="r3">3</a></sup> y los checks propios de Taste. Cada uno cae en una
+        Impeccable como detector<sup><a href="#n3" id="r3">3</a></sup> y los checks propios de Sightline. Cada uno cae en una
         de 178 reglas, y cada regla dice de dónde salió: el archivo y la línea de la corrección que la originó. 19
         tienen un check determinista; el resto es criterio.
       </p>
@@ -105,7 +105,7 @@ export default function Ensayo() {
 
       <h2 id="pila">La pila</h2>
       <p>
-        Taste no elige entre shadcn, macOS o Material 3: usa los tres, cada uno en lo suyo, y la marca encima. shadcn
+        Sightline no elige entre shadcn, macOS o Material 3: usa los tres, cada uno en lo suyo, y la marca encima. shadcn
         pone el código y la accesibilidad. macOS e iOS ponen la interacción: 44 puntos, hojas con agarre, resortes,
         teclado. Material 3 pone el sistema: roles de color, escala tipográfica, estados como capas. La marca es lo
         único que se ve.
@@ -147,7 +147,7 @@ export default function Ensayo() {
         </tbody>
       </table>
       <p>
-        Si un repo todavía no tiene estas decisiones, <code>taste fundar</code> las deduce del código y las escribe.
+        Si un repo todavía no tiene estas decisiones, <code>sightline fundar</code> las deduce del código y las escribe.
         Desde ahí, cada auditoría las usa como vara.
       </p>
 
@@ -166,7 +166,7 @@ export default function Ensayo() {
 
       <h2 id="mapa">El mapa vertical</h2>
       <p>
-        Taste corta cada vista en secciones, de arriba abajo, y a cada una le mide tres cosas: cuánto golpea, cuánta
+        Sightline corta cada vista en secciones, de arriba abajo, y a cada una le mide tres cosas: cuánto golpea, cuánta
         información carga y qué tan cinematográfica es. Con eso cada sección tiene un rol: golpe, condensado o sin
         decidir, el gris medio que nadie pensó.
       </p>
@@ -184,7 +184,7 @@ export default function Ensayo() {
 
       <h2 id="menos">Menos, pero pensado</h2>
       <p>
-        Lo que mueve a Taste es la Bauhaus: menos es más, pero entendido desde el problema que se resuelve. Antes de
+        Lo que mueve a Sightline es la Bauhaus: menos es más, pero entendido desde el problema que se resuelve. Antes de
         proponer, tu agente escribe en una frase qué problema resuelve cada sección. La que no resuelve ninguno se
         propone quitar.
       </p>
@@ -195,7 +195,7 @@ export default function Ensayo() {
       </figure>
 
       <p>
-        Taste también mide el área muerta, lo que no ocupa nada. En una herramienta, más de un 25 % es espacio perdido;
+        Sightline también mide el área muerta, lo que no ocupa nada. En una herramienta, más de un 25 % es espacio perdido;
         en una vitrina, el aire es intencional hasta el 60 %. Y siempre se prueba quitar antes de agregar.
       </p>
 
@@ -235,12 +235,12 @@ export default function Ensayo() {
       <p>
         Stageshow es de <a href="https://benji.org/stageshow">Benji Taylor</a>
         <sup><a href="#n1" id="r1">1</a></sup>, con licencia MIT, y su código está en{' '}
-        <a href="https://github.com/benjitaylor/skills">github.com/benjitaylor/skills</a>. Taste lo usa tal cual: su
+        <a href="https://github.com/benjitaylor/skills">github.com/benjitaylor/skills</a>. Sightline lo usa tal cual: su
         flujo de siete pasos, su kit, sus ejemplos de referencia y su ensayo filmado. Las demos de esta página están
         hechas con él.
       </p>
       <p>
-        Lo que agrega Taste es el orden y la memoria. La escena se arma sobre la pantalla ya limpia, con los tokens
+        Lo que agrega Sightline es el orden y la memoria. La escena se arma sobre la pantalla ya limpia, con los tokens
         reales del producto, y cada escena aprobada se guarda como referencia para la siguiente.
       </p>
 
@@ -257,7 +257,7 @@ export default function Ensayo() {
 
       <h2 id="limites">Límites</h2>
       <p>
-        Taste no inventa ideas: encuentra lo que sobra y lo que está mal, y propone con lo que ya existe. Tampoco
+        Sightline no inventa ideas: encuentra lo que sobra y lo que está mal, y propone con lo que ya existe. Tampoco
         reemplaza mirar; las capturas de antes y después están para que las mires tú. Y el ensayo de Stageshow es una
         pista, no un veredicto: en sus propios ejemplos de referencia pasa la mitad.
       </p>

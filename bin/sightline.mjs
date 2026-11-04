@@ -100,7 +100,7 @@ async function correr(modo, f, modoCorrida = 'auditoria') {
         vistas = rutas.map((r) => ({ id: r.id, ruta: r.ruta, nombre: r.nombre, tipo: 'pagina', padre: null, origen: 'router', pasos: [], capturas: { escritorio: null, movil: null }, error: 'sin servidor: no capturada' }))
       }
     }
-    // Mapa vertical por vista y criterios del repo (guardados por taste fundar o deducidos al vuelo).
+    // Mapa vertical por vista y criterios del repo (guardados por sightline fundar o deducidos al vuelo).
     if (vistas.some((v) => v.medida)) {
       const { componerVistas } = await import('../src/composicion/analizar.mjs')
       const { criteriosDe } = await import('../src/fundar.mjs')

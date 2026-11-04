@@ -1,4 +1,4 @@
-# Biblioteca de taste (externa)
+# Biblioteca de sightline (externa)
 
 Formato: docs/ESPEC.md (seccion Biblioteca). Patron `tokens` agregado y declarado.
 

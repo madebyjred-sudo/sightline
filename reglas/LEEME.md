@@ -1,6 +1,6 @@
 # reglas
 
-Catálogo de Taste: 169 reglas, 19 con check determinista. Formato: `docs/ESPEC.md`.
+Catálogo de Sightline: 178 reglas, 19 con check determinista. Formato: `docs/ESPEC.md`.
 Cada regla guarda el archivo y la línea de la corrección que la originó, en las notas privadas del autor (las de `docs/` sí vienen en este repo). La línea sirve para rastrearla.
 
 ## Extensiones al formato

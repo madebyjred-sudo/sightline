@@ -14,7 +14,7 @@ export function crearArbol({ repo, dirCorrida, rama }) {
   try { git(arbol, ['remote', 'remove', 'origin']) } catch {}
   const actual = git(arbol, ['branch', '--show-current'])
   if (actual !== rama) git(arbol, ['checkout', '-q', '-b', rama])
-  git(arbol, ['config', 'user.name', 'taste']); git(arbol, ['config', 'user.email', 'taste@localhost'])
+  git(arbol, ['config', 'user.name', 'sightline']); git(arbol, ['config', 'user.email', 'sightline@localhost'])
   const base = git(arbol, ['rev-parse', '--short', 'HEAD'])
   const nm = ['', ...(() => { try { return readdirSync(join(repo, 'packages')).map((p) => join('packages', p)) } catch { return [] } })()]
   for (const d of nm) {

@@ -5,7 +5,7 @@ import './criterio.css'
 import { decimal, t } from '../lang'
 
 // Demo 2 · Criterio y contrapropuesta, in the page's one frame. The window is
-// Taste's report in a browser; the rolling total a beat after the edit comes
+// Sightline's report in a browser; the rolling total a beat after the edit comes
 // from Stageshow's examples/table-edit.
 //
 // The story: the report shows Cuaderno's Notas view as it is, its helper text

@@ -1,6 +1,6 @@
 # Composición: la pila, el mapa vertical y ninguna sección sin pensar
 
-Lo que mueve a Taste, dicho por su autor el 3 de noviembre de 2026:
+Lo que mueve a Sightline, dicho por su autor el 3 de noviembre de 2026:
 
 > Lo que más me mueve es la Bauhaus: entender el menos es más, pero desde la perspectiva real de entender qué
 > problemas estamos resolviendo.
@@ -32,7 +32,7 @@ El peso de cada capa depende del tipo de producto:
 - Vitrina (landing, marca, portafolio): manda la marca; iOS solo pone las leyes táctiles.
 - Mixto: se decide por vista.
 
-`taste fundar` deduce el tipo, lo escribe con sus razones y deja la decisión por pieza en
+`sightline fundar` deduce el tipo, lo escribe con sus razones y deja la decisión por pieza en
 `perfiles/REPO.criterios.json`. Si el repo no tiene criterios, la auditoría los deduce igual y lo avisa.
 
 ## 2. El mapa vertical

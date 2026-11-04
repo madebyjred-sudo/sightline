@@ -1,6 +1,6 @@
 /* El ejemplo: Cuaderno as it is, in the page's frame (window 40/40, off the
    right and bottom). The light is a 2px line in the palette's yellow that
-   walks the window; the card of what Taste sees is a satellite over the list. */
+   walks the window; the card of what Sightline sees is a satellite over the list. */
 
 .cdn .cdn-lead {
   display: flex;
@@ -146,7 +146,7 @@
   transform: translateY(460px);
 }
 
-/* ---- What Taste sees ---- */
+/* ---- What Sightline sees ---- */
 
 .cdn .cdn-ve {
   bottom: 40px;

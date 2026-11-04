@@ -1,6 +1,6 @@
 # Criterios de diseño · sitio
 
-Tipo de producto: **vitrina** (deducido por taste fundar). En una vitrina manda la dirección artística; macOS/iOS solo pone las leyes táctiles.
+Tipo de producto: **vitrina** (deducido por sightline fundar). En una vitrina manda la dirección artística; macOS/iOS solo pone las leyes táctiles.
 
 - trabajo 5 (tablas 1, formularios 0, barra lateral 1, sesión 0)
 - vitrina 14 (hero 7, imágenes grandes 0, palabras de marketing 0)

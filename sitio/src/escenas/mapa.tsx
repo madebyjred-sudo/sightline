@@ -4,7 +4,7 @@ import './mapa.css'
 import { t } from '../lang'
 
 // Cada componente, su puntaje. Cuaderno's landing in a browser, and beside it
-// the vertical map Taste measures for it: one bar per section, its width the
+// the vertical map Sightline measures for it: one bar per section, its width the
 // section's strength, its color the role. One bar is yellow: a section nobody
 // decided. The cursor presses it; its numbers open under the map. A press on
 // «Condensar»: the section turns into three dense counts, its bar goes grey

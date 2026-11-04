@@ -22,6 +22,6 @@ Un tier aprueba si su puntaje es ≥ umbral, no tiene hallazgos major de su tier
 |---|---|---|
 | A | 85 | Lo objetivo debe quedar casi limpio: 85 deja ~18 de penalidad, una regla al tope como mucho. |
 | AA | 75 | La pila (shadcn, HIG, M3) admite deuda menor: ~33 de penalidad, dos reglas al tope. |
-| AAA | 70 | El taste se suma encima de AA y tiene más reglas de criterio; se tolera algo más. |
+| AAA | 70 | El criterio se suma encima de AA y tiene más reglas de criterio; se tolera algo más. |
 
 Esa app hoy: A 72,5 < 85 y tiene 4 major A, así que no aprueba ningún tier.

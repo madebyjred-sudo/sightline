@@ -5,7 +5,7 @@ import { join } from 'node:path'
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
 
-// Un color por rol, en la paleta de Taste: el golpe en tinta, lo condensado en grafito, lo que falta
+// Un color por rol, en la paleta de Sightline: el golpe en tinta, lo condensado en grafito, lo que falta
 // decidir en amarillo, que es donde hay que mirar.
 const ROL = {
   golpe: '#232426', 'golpe suave': '#53565a', condensado: '#8b8e92', 'condensado suave': '#b9bbbd',
@@ -42,7 +42,7 @@ img{width:100%;border:1px solid #e6e7e3;border-radius:6px;margin-top:12px}
 export function htmlMapa({ dir, corrida }) {
   const c = corrida.criterios
   const vistas = corrida.vistas.filter((v) => v.mapa?.secciones?.length)
-  const hs = corrida.hallazgos.filter((h) => h.fuente === 'taste' && h.vista && ['seccion-sin-decidir', 'seccion-saturada', 'golpes-seguidos', 'apertura-segun-el-producto', 'cine-donde-golpea', 'area-muerta'].includes(h.regla))
+  const hs = corrida.hallazgos.filter((h) => h.fuente === 'sightline' && h.vista && ['seccion-sin-decidir', 'seccion-saturada', 'golpes-seguidos', 'apertura-segun-el-producto', 'cine-donde-golpea', 'area-muerta'].includes(h.regla))
   const ley = Object.entries(ROL).map(([r, col]) => `<span><span class="rol" style="background:${col}"></span>${esc(r)}</span>`).join('')
   const bloques = vistas.map((v) => {
     const m = v.mapa

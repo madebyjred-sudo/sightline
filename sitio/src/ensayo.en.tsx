@@ -30,7 +30,7 @@ export default function Ensayo() {
   return (
     <>
       <p>
-        Taste is a skill for your agent that walks through the interface of a running web app, view by view, and
+        Sightline is a skill for your agent that walks through the interface of a running web app, view by view, and
         proposes how to leave it the way a demanding designer would. It's for people who build apps with agents and
         want the interface to hold up to that look.
       </p>
@@ -44,13 +44,13 @@ export default function Ensayo() {
 
       <h2 id="ejemplo">The example: Cuaderno</h2>
       <p>
-        To show what Taste does, this page uses a made-up app: Cuaderno, a notes app with its list, its open note and
-        its landing page. It has the flaws Taste finds in real apps, and every demo from here on is Taste working on it.
+        To show what Sightline does, this page uses a made-up app: Cuaderno, a notes app with its list, its open note and
+        its landing page. It has the flaws Sightline finds in real apps, and every demo from here on is Sightline working on it.
       </p>
 
       <figure className="demo" id="demo-cuaderno">
         <Cuaderno />
-        <figcaption>Cuaderno as it is. The light walks the window the way Taste walks a view, and lights up wherever there's something to fix.</figcaption>
+        <figcaption>Cuaderno as it is. The light walks the window the way Sightline walks a view, and lights up wherever there's something to fix.</figcaption>
       </figure>
 
       <h2 id="instalar">Install</h2>
@@ -62,37 +62,37 @@ export default function Ensayo() {
           1{'\n'}2{'\n'}3{'\n'}4
         </span>
         <code>
-          <span className="c">git</span> clone {REPO} ~/taste{'\n'}
-          <span className="c">cd</span> ~/taste <span className="f">&amp;&amp;</span> <span className="c">npm</span> install{'\n'}
+          <span className="c">git</span> clone {REPO} ~/sightline{'\n'}
+          <span className="c">cd</span> ~/sightline <span className="f">&amp;&amp;</span> <span className="c">npm</span> install{'\n'}
           <span className="c">npx</span> playwright install chromium{'\n'}
-          <span className="c">sh</span> skill/instalar.sh
+          <span className="c">sh</span> instalar.sh
         </code>
       </pre>
       <p>
-        That puts the skill in Claude Code (and in Hermes, if you use it) and the <code>taste</code> command in{' '}
+        That puts the skill in Claude Code (and in Hermes, if you use it) and the <code>sightline</code> command in{' '}
         <code>~/.local/bin</code>. Then, from any folder:
       </p>
       <pre className="comando">
         <span className="n">1</span>
         <code>
-          <span className="c">taste</span> auditar <span className="f">--repo</span> ~/your-app
+          <span className="c">sightline</span> auditar <span className="f">--repo</span> ~/your-app
         </code>
       </pre>
 
       <figure className="demo" id="demo-auditar">
         <Auditar />
-        <figcaption>Cuaderno after the cleanup: Taste walks every view again and AA goes from 72.0 to 81.4.</figcaption>
+        <figcaption>Cuaderno after the cleanup: Sightline walks every view again and AA goes from 72.0 to 81.4.</figcaption>
       </figure>
 
       <h2 id="que-revisa">What it checks</h2>
       <p>
-        Taste starts your dev server and walks every view it finds: routes, tabs, sheets and dialogs. It captures each
+        Sightline starts your dev server and walks every view it finds: routes, tabs, sheets and dialogs. It captures each
         one on desktop, at 1440 × 900, and on mobile, at 390 × 844. It does it twice, to measure how much a view changes
         on its own and not mistake a clock or live data for a regression.
       </p>
       <p>
         Findings come from three sources: transitions-agent for motion<sup><a href="#n2" id="r2">2</a></sup>, Impeccable
-        as a detector<sup><a href="#n3" id="r3">3</a></sup> and Taste's own checks. Each one falls under one of 178
+        as a detector<sup><a href="#n3" id="r3">3</a></sup> and Sightline's own checks. Each one falls under one of 178
         rules, and every rule says where it came from: the file and line of the correction that started it. 19 have a
         deterministic check; the rest is judgment.
       </p>
@@ -104,7 +104,7 @@ export default function Ensayo() {
 
       <h2 id="pila">The stack</h2>
       <p>
-        Taste doesn't choose between shadcn, macOS or Material 3: it uses all three, each for what it's good at, and the
+        Sightline doesn't choose between shadcn, macOS or Material 3: it uses all three, each for what it's good at, and the
         brand on top. shadcn brings the code and the accessibility. macOS and iOS bring the interaction: 44 points,
         sheets with a grabber, springs, keyboard. Material 3 brings the system: color roles, a type scale, states as
         layers. The brand is the only thing you see.
@@ -146,7 +146,7 @@ export default function Ensayo() {
         </tbody>
       </table>
       <p>
-        If a repo doesn't have these decisions yet, <code>taste fundar</code> deduces them from the code and writes them
+        If a repo doesn't have these decisions yet, <code>sightline fundar</code> deduces them from the code and writes them
         down. From then on, every audit measures against them.
       </p>
 
@@ -165,7 +165,7 @@ export default function Ensayo() {
 
       <h2 id="mapa">The vertical map</h2>
       <p>
-        Taste cuts each view into sections, top to bottom, and measures three things on each: how hard it hits, how
+        Sightline cuts each view into sections, top to bottom, and measures three things on each: how hard it hits, how
         much information it carries and how cinematic it is. That gives every section a role: a hit, condensed or
         undecided, the middle gray nobody thought about.
       </p>
@@ -183,7 +183,7 @@ export default function Ensayo() {
 
       <h2 id="menos">Less, but better</h2>
       <p>
-        What drives Taste is the Bauhaus: less is more, but understood from the problem being solved. Before proposing
+        What drives Sightline is the Bauhaus: less is more, but understood from the problem being solved. Before proposing
         anything, your agent writes in one sentence what problem each section solves. The one that solves none is
         proposed for removal.
       </p>
@@ -194,7 +194,7 @@ export default function Ensayo() {
       </figure>
 
       <p>
-        Taste also measures dead area, what holds nothing. In a tool, more than 25 % is wasted space; in a showcase, air
+        Sightline also measures dead area, what holds nothing. In a tool, more than 25 % is wasted space; in a showcase, air
         is intentional up to 60 %. And it always tries removing before adding.
       </p>
 
@@ -234,12 +234,12 @@ export default function Ensayo() {
       <p>
         Stageshow is by <a href="https://benji.org/stageshow">Benji Taylor</a>
         <sup><a href="#n1" id="r1">1</a></sup>, MIT licensed, and its code is at{' '}
-        <a href="https://github.com/benjitaylor/skills">github.com/benjitaylor/skills</a>. Taste uses it as is: its
+        <a href="https://github.com/benjitaylor/skills">github.com/benjitaylor/skills</a>. Sightline uses it as is: its
         seven-step flow, its kit, its reference examples and its filmed rehearsal. The demos on this page are made with
         it.
       </p>
       <p>
-        What Taste adds is order and memory. The scene is built on the screen once it's clean, with the product's real
+        What Sightline adds is order and memory. The scene is built on the screen once it's clean, with the product's real
         tokens, and every approved scene is kept as a reference for the next one.
       </p>
 
@@ -256,12 +256,12 @@ export default function Ensayo() {
 
       <h2 id="limites">Limits</h2>
       <p>
-        Taste doesn't invent ideas: it finds what's extra and what's wrong, and proposes with what already exists. Nor
+        Sightline doesn't invent ideas: it finds what's extra and what's wrong, and proposes with what already exists. Nor
         does it replace looking; the before and after captures are there for you to look at. And the Stageshow rehearsal
         is a hint, not a verdict: on its own reference examples, half pass.
       </p>
       <p>
-        Taste was written in Spanish. The commands and the rule names are in Spanish; your agent writes the criteria and
+        Sightline was written in Spanish. The commands and the rule names are in Spanish; your agent writes the criteria and
         the report in your language.
       </p>
 

@@ -8,7 +8,7 @@ import { validar } from '../src/criterio/criterios.mjs'
 import { htmlInforme, escribirInforme } from '../src/informe/informe.mjs'
 import { esLecturaPermitida } from '../src/recorrido/navegar.mjs'
 
-const tmp = () => mkdtempSync(join(tmpdir(), 'taste-c4-'))
+const tmp = () => mkdtempSync(join(tmpdir(), 'sightline-c4-'))
 const linea = (o) => JSON.stringify(o) + '\n'
 
 function bibliotecaFalsa() {
@@ -31,7 +31,7 @@ const REGLAS = [
 function corridaFalsa(mundo, perfil = 'libre') {
   return { repo: 'X', ruta_repo: null, mundo, perfil, tier: 'AA', stack: { framework: 'html' },
     vistas: [{ id: 'inicio--chat', ruta: '/', nombre: 'Chat', tipo: 'hoja', padre: 'inicio', pasos: [], capturas: { escritorio: 'capturas/antes/a.png', movil: null }, error: null }],
-    hallazgos: [{ id: 'h-0001', regla: 'taste:voseo', severidad: 'warn', tier: 'AA', archivo: 'app/page.tsx', linea: 3, vista: 'inicio--chat', mensaje: 'voseo' }] }
+    hallazgos: [{ id: 'h-0001', regla: 'sightline:voseo', severidad: 'warn', tier: 'AA', archivo: 'app/page.tsx', linea: 3, vista: 'inicio--chat', mensaje: 'voseo' }] }
 }
 
 test('reglas: filtra por perfil, modo y tier', () => {
@@ -91,7 +91,7 @@ test('informe: html con 2 vistas falsas, imagenes relativas y sin em-dash', () =
   const vista = (id, s) => ({ id, ruta: '/' + id, tipo: 'pagina', capturas: { escritorio: `capturas/${s}/${id}-escritorio.png`, movil: null }, error: null })
   const antes = { repo: 'Falso', rama: 'main', sha: 'abc', tier: 'AA', vistas: [vista('a', 'antes'), vista('b', 'antes')], puntaje: { A: 50, AA: 40, AAA: 30, por_vista: { a: { A: 50, AA: 40, AAA: 30 }, b: { A: 60, AA: 60, AAA: 60 } } } }
   const despues = { ...antes, vistas: [vista('a', 'despues'), vista('b', 'despues')], puntaje: { A: 55, AA: 48, AAA: 30, por_vista: { a: { A: 60, AA: 52, AAA: 30 }, b: { A: 60, AA: 60, AAA: 60 } } } }
-  const f = escribirInforme({ dir: d, antes, despues, criterios: [{ ...base, vista: 'a', criterio: 'Quita el eslogan \u2014 sobra.' }], guardas: { ok: true, motivos: ['guardas sin construir'], build: 'sin-build' }, propuesta: { modo: 'limpieza', tier: 'AA', rama: 'taste/x' } })
+  const f = escribirInforme({ dir: d, antes, despues, criterios: [{ ...base, vista: 'a', criterio: 'Quita el eslogan \u2014 sobra.' }], guardas: { ok: true, motivos: ['guardas sin construir'], build: 'sin-build' }, propuesta: { modo: 'limpieza', tier: 'AA', rama: 'sightline/x' } })
   const html = readFileSync(f, 'utf8')
   assert.ok(existsSync(f))
   assert.equal((html.match(/<section /g) || []).length, 2)

@@ -39,7 +39,7 @@ export function transitionsDeNotas(notas = []) {
   return null
 }
 
-// Firma que usa bin/taste.mjs: puntaje(hallazgos, vistas). Tercer argumento opcional
+// Firma que usa bin/sightline.mjs: puntaje(hallazgos, vistas). Tercer argumento opcional
 // { notas } o { transitions } para llenar referencias.transitions.
 export function puntaje(hallazgos, vistas = [], extra = {}) {
   const ids = vistasAnalizadas(hallazgos, vistas)

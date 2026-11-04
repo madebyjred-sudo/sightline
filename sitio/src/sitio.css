@@ -1,6 +1,6 @@
 /* The page: benji.org/stageshow's layout (one 550 column centered on the
    window, a fixed index on the left above 1100px, a flat type scale), in
-   Taste's own dress: Figtree, Pantone Bright White, grey for structure, yellow
+   Sightline's own dress: Figtree, Pantone Bright White, grey for structure, yellow
    as light and lime for what improved (paleta.css), and ASCII as the ornament. */
 
 @import '@fontsource-variable/figtree';
@@ -77,9 +77,9 @@ h2 {
 
 /* The same wordmark at index size, where the title used to be a word */
 .marca--chica {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
-  line-height: 9.5px;
+  line-height: 8.5px;
   -webkit-text-stroke: 0.25px currentColor;
 }
 

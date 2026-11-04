@@ -54,7 +54,7 @@ test('componerVistas: una vista interna igual a su padre no repite hallazgos', (
 })
 
 test('fundar: tipo de producto por señales del codigo y criterios por pieza', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'taste-fundar-'))
+  const dir = mkdtempSync(join(tmpdir(), 'sightline-fundar-'))
   try {
     mkdirSync(join(dir, 'app'))
     writeFileSync(join(dir, 'app', 'page.tsx'), '<Sidebar/><Table/><Table/><form><Input/><Input/></form> useSession()')

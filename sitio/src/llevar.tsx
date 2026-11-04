@@ -1,27 +1,27 @@
 import { useState } from 'react'
 import { t } from './lang'
 
-// Where Taste lives once published, and the two prompts that take it to
+// Where Sightline lives once published, and the two prompts that take it to
 // someone's own AI: the full one for a coding agent that can run commands
 // (copied), and a reading one for a chat that can only open links.
-export const REPO = 'https://github.com/madebyjred-sudo/taste'
+export const REPO = 'https://github.com/madebyjred-sudo/sightline'
 
 export const PROMPT_AGENTE = t(
   [
-    `Instala Taste en este equipo: clona ${REPO} en ~/taste, y dentro corre npm install, npx playwright install chromium y sh skill/instalar.sh.`,
-    'Después audita esta app con taste auditar --repo . y muéstrame el puntaje por tier y los hallazgos por vista, cada uno con su criterio.',
+    `Instala Sightline en este equipo: clona ${REPO} en ~/sightline, y dentro corre npm install, npx playwright install chromium y sh instalar.sh.`,
+    'Después audita esta app con sightline auditar --repo . y muéstrame el puntaje por tier y los hallazgos por vista, cada uno con su criterio.',
     'No cambies nada de la app sin preguntarme.',
   ],
   [
-    `Install Taste on this machine: clone ${REPO} into ~/taste, and inside it run npm install, npx playwright install chromium and sh skill/instalar.sh.`,
-    'Then audit this app with taste auditar --repo . and show me the score by tier and the findings by view, each with its criterion, in English.',
+    `Install Sightline on this machine: clone ${REPO} into ~/sightline, and inside it run npm install, npx playwright install chromium and sh instalar.sh.`,
+    'Then audit this app with sightline auditar --repo . and show me the score by tier and the findings by view, each with its criterion, in English.',
     "Don't change anything in the app without asking me.",
   ],
 ).join(' ')
 
 const PROMPT_CHAT = t(
-  `Lee ${REPO} y ayúdame a usar Taste con mi app: qué hace, qué necesito tener instalado y los pasos para la primera auditoría.`,
-  `Read ${REPO} and help me use Taste with my app: what it does, what I need installed and the steps for the first audit.`,
+  `Lee ${REPO} y ayúdame a usar Sightline con mi app: qué hace, qué necesito tener instalado y los pasos para la primera auditoría.`,
+  `Read ${REPO} and help me use Sightline with my app: what it does, what I need installed and the steps for the first audit.`,
 )
 
 const claude = `https://claude.ai/new?q=${encodeURIComponent(PROMPT_CHAT)}`

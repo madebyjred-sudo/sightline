@@ -1,0 +1,17 @@
+{
+  "name": "madebyjred",
+  "owner": {
+    "name": "madebyjred",
+    "url": "https://github.com/madebyjred-sudo"
+  },
+  "metadata": {
+    "description": "Skills by madebyjred, built from tools that run in production."
+  },
+  "plugins": [
+    {
+      "name": "sightline",
+      "source": "./",
+      "description": "Walks a running web app view by view, measures each section and proposes how a demanding designer would polish it."
+    }
+  ]
+}

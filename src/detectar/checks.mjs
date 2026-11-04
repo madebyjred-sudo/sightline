@@ -42,7 +42,7 @@ export async function correrChecks({ repo, perfil, dirReglas = REGLAS }) {
       const tier = regla?.tier ?? 'AA'
       const res = mod.run(ctx) || []
       corridos++
-      for (const h of res) hallazgos.push({ regla: h.regla ?? mod.id, fuente: 'taste', severidad: h.severidad ?? 'warn', tier: h.tier ?? tier,
+      for (const h of res) hallazgos.push({ regla: h.regla ?? mod.id, fuente: 'sightline', severidad: h.severidad ?? 'warn', tier: h.tier ?? tier,
         archivo: h.archivo ?? null, linea: h.linea ?? null, vista: h.vista ?? null, fragmento: h.fragmento ?? null, mensaje: h.mensaje ?? regla?.titulo ?? mod.id })
     } catch (e) { fallos.push(`${f}: ${String(e.message).slice(0, 120)}`) }
   }

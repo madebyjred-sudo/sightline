@@ -99,7 +99,7 @@ export function mapaVertical(medida) {
 export function hallazgosDeComposicion(vista, mapa, tipo = 'mixto') {
   const out = []
   if (mapa.igual_a) return out // misma composicion que su padre: ya se conto ahi
-  const h = (regla, sev, tier, seccion, mensaje) => out.push({ regla, fuente: 'taste', severidad: sev, tier, archivo: null, linea: null, vista: vista.id, seccion: seccion?.id ?? null, mensaje, fragmento: seccion?.etiqueta ?? null })
+  const h = (regla, sev, tier, seccion, mensaje) => out.push({ regla, fuente: 'sightline', severidad: sev, tier, archivo: null, linea: null, vista: vista.id, seccion: seccion?.id ?? null, mensaje, fragmento: seccion?.etiqueta ?? null })
   const S = mapa.secciones
   for (const s of S) if (s.rol === 'sin decidir') h('seccion-sin-decidir', 'warn', 'AA', s, `«${s.etiqueta}» ni golpea ni condensa (fuerza ${s.fuerza}, densidad ${s.densidad})`)
   for (const s of S) if (s.rol === 'saturado') h('seccion-saturada', 'warn', 'AA', s, `«${s.etiqueta}» golpea y carga a la vez (fuerza ${s.fuerza}, densidad ${s.densidad})`)

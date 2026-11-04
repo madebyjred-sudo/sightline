@@ -1,10 +1,10 @@
 {
-  "name": "taste",
+  "name": "sightline",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "bin": {
-    "taste": "bin/taste.mjs"
+    "sightline": "bin/sightline.mjs"
   },
   "scripts": {
     "test": "node --test 'tests/**/*.test.mjs'"

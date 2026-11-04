@@ -4,8 +4,8 @@ import './cuaderno.css'
 import { t } from '../lang'
 
 // El ejemplo: Cuaderno, the made-up notes app every demo on the page works on,
-// as it is before Taste touches it. A line of yellow light runs down the
-// window, the way Taste walks a view; where it passes, the defects light up and
+// as it is before Sightline touches it. A line of yellow light runs down the
+// window, the way Sightline walks a view; where it passes, the defects light up and
 // a card lists them: the Share button off-voice («Compartí», in voseo; in
 // English, a raw enum), a 22 px icon (less than a finger), the helper text
 // under the title. The same three the demos below fix. It holds, then the
@@ -115,7 +115,7 @@ export default function Cuaderno() {
           <span className="cdn-luz" data-linea={s.linea} data-viaje={s.viaje || undefined} />
 
           <div className="marco-sat cdn-ve" data-show={s.paso >= 1 || undefined}>
-            <div className="cdn-ve__t">{t('Lo que Taste ve', 'What Taste sees')}</div>
+            <div className="cdn-ve__t">{t('Lo que Sightline ve', 'What Sightline sees')}</div>
             {DEFECTOS.map((d) => (
               <Collapse key={d.n} open={s.paso >= d.n}>
                 <div className="cdn-ve__fila">

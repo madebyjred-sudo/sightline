@@ -15,7 +15,7 @@ const AQUI = dirname(fileURLToPath(import.meta.url))
 const DOCS = join(AQUI, '..', 'docs')
 
 test('rutas next app router desde un arbol falso', () => {
-  const raiz = mkdtempSync(join(tmpdir(), 'taste-rutas-'))
+  const raiz = mkdtempSync(join(tmpdir(), 'sightline-rutas-'))
   const pag = (p) => { mkdirSync(join(raiz, 'app', p), { recursive: true }); writeFileSync(join(raiz, 'app', p, 'page.tsx'), 'export default () => null') }
   for (const p of ['', 'conectar', '(marketing)/precios', 'blog/[slug]', 'node_modules/x']) pag(p)
   writeFileSync(join(raiz, 'package.json'), '{"dependencies":{"next":"15"}}')
@@ -77,7 +77,7 @@ test('recorrido del fixture: 3 pestanas = 3 vistas internas con captura doble', 
   })
   await new Promise((r) => srv.listen(0, '127.0.0.1', r))
   const url = `http://127.0.0.1:${srv.address().port}`
-  const dir = mkdtempSync(join(tmpdir(), 'taste-recorrido-'))
+  const dir = mkdtempSync(join(tmpdir(), 'sightline-recorrido-'))
   try {
     const vistas = await recorrer({ url, rutas: [{ id: 'inicio', ruta: '/', nombre: 'Inicio', dinamica: false }], dirCorrida: dir })
     const internas = vistas.filter((v) => v.origen === 'recorrido')

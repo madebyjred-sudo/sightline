@@ -13,7 +13,7 @@ import { decimal, t } from '../lang'
 
 type S = { cmd: string; run: boolean; lines: number; card: boolean; score: number; dip: boolean }
 
-const COMMAND = 'taste auditar --repo ~/cuaderno'
+const COMMAND = 'sightline auditar --repo ~/cuaderno'
 
 type Line = { k: 'ok' | 'dim' | 'out' | 'cmd'; a: string; b?: string; wideOnly?: boolean }
 
@@ -30,15 +30,15 @@ const hallazgos = (n: number) => t(`${n} hallazgos`, `${n} findings`)
 const tiers = (a: number, aa: number, aaa: number) => `A ${decimal(a)} · AA ${decimal(aa)} · AAA ${decimal(aaa)}`
 
 const HISTORY: Line[] = [
-  { k: 'cmd', a: 'taste auditar --repo ~/cuaderno' },
+  { k: 'cmd', a: 'sightline auditar --repo ~/cuaderno' },
   { k: 'dim', a: t('servidor', 'server'), b: 'localhost:5173' },
   ...VISTAS,
   { k: 'ok', a: 'transitions', b: hallazgos(9) },
   { k: 'ok', a: 'impeccable', b: hallazgos(14) },
   { k: 'ok', a: 'checks', b: hallazgos(11) },
   { k: 'out', a: tiers(86, 72, 66.3) },
-  { k: 'cmd', a: 'taste limpieza --repo ~/cuaderno' },
-  { k: 'ok', a: t('12 criterios', '12 criteria'), b: t('9 en taste/limpieza', '9 in taste/limpieza') },
+  { k: 'cmd', a: 'sightline limpieza --repo ~/cuaderno' },
+  { k: 'ok', a: t('12 criterios', '12 criteria'), b: t('9 en sightline/limpieza', '9 in sightline/limpieza') },
 ]
 
 const LINES: Line[] = [
