@@ -404,10 +404,10 @@ code {
   text-decoration: none;
 }
 
-/* ---- The backdrop: the ASCII wordmark, giant and a shade off the white,
-   fixed to the bottom of the window behind everything. Only its top rows
-   show, and a mask fades them out going down, so the name rises out of the
-   edge. The essay and the index sit above it. ---- */
+/* ---- The backdrop: the ASCII wordmark drawn with many small characters
+   (telon.tsx), fixed to the bottom of the window behind everything, a shade
+   off the white. Its height leaves only the top rows above the edge, and a
+   mask fades them out going down. The essay and the index sit above it. ---- */
 
 .telon {
   position: fixed;
@@ -417,12 +417,11 @@ code {
   z-index: 0;
   display: flex;
   justify-content: center;
-  height: 2.6em;
   overflow: hidden;
   color: var(--gris-claro);
-  font-family: var(--mono);
-  font-size: 4.2vw;
-  line-height: 1.1;
+  font-family: 'SF Mono', SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  line-height: 11px;
   user-select: none;
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
@@ -433,10 +432,6 @@ code {
   margin: 0;
   font: inherit;
   white-space: pre;
-}
-
-.telon b {
-  font-weight: inherit;
 }
 
 .ensayo {

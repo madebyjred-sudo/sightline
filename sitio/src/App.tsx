@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { t, useIdioma, type Lang } from './lang'
 import { cambiarConMorph } from './morph'
+import Telon from './telon'
 import { REPO } from './llevar'
 import EnsayoEs, { SECCIONES as SECCIONES_ES } from './ensayo.es'
 import EnsayoEn, { SECCIONES as SECCIONES_EN } from './ensayo.en'
@@ -122,13 +123,7 @@ function Pagina() {
         </header>
         <Ensayo />
       </main>
-      <div className="telon" aria-hidden="true">
-        <pre>
-          {MARCA}
-          <b>(_)</b>
-          {COLA}
-        </pre>
-      </div>
+      <Telon />
     </>
   )
 }
