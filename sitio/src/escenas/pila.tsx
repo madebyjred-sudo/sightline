@@ -1,6 +1,7 @@
 import { Phone, States, Stage, type Act, ACENTO } from './ss'
 import './marco.css'
 import './pila.css'
+import { t } from '../lang'
 
 // La pila: cómo elijo entre shadcn, macOS/iOS y Material 3. A phone in the
 // middle, run off the bottom: Cuaderno's note with its «Compartir» sheet at the
@@ -14,13 +15,13 @@ import './pila.css'
 type S = { capa: number }
 
 const CAPAS = [
-  { n: 1, nombre: 'shadcn', aporta: 'El código y el foco: el anillo, los estados, ARIA.' },
-  { n: 2, nombre: 'iOS', aporta: 'La interacción: hoja con agarre, filas de 44 pt.' },
-  { n: 3, nombre: 'Material 3', aporta: 'El sistema: superficie tonal, escala, estados como capa.' },
-  { n: 4, nombre: 'Marca', aporta: 'Lo único que se ve: Figtree, el blanco, la luz amarilla.' },
+  { n: 1, nombre: 'shadcn', aporta: t('El código y el foco: el anillo, los estados, ARIA.', 'The code and the focus: the ring, the states, ARIA.') },
+  { n: 2, nombre: 'iOS', aporta: t('La interacción: hoja con agarre, filas de 44 pt.', 'The interaction: a sheet with a grabber, 44 pt rows.') },
+  { n: 3, nombre: 'Material 3', aporta: t('El sistema: superficie tonal, escala, estados como capa.', 'The system: tonal surface, type scale, states as a layer.') },
+  { n: 4, nombre: t('Marca', 'Brand'), aporta: t('Lo único que se ve: Figtree, el blanco, la luz amarilla.', 'The only thing you see: Figtree, the white, the yellow light.') },
 ]
 
-const ACCIONES = ['Copiar enlace', 'Mensajes', 'Correo', 'Exportar PDF', 'Imprimir']
+const ACCIONES = t(['Copiar enlace', 'Mensajes', 'Correo', 'Exportar PDF', 'Imprimir'], ['Copy link', 'Messages', 'Mail', 'Export PDF', 'Print'])
 
 async function script(a: Act<S>) {
   await a.wait(1100)
@@ -66,7 +67,7 @@ export default function Pila() {
                 <div className="pil-velo" />
                 <div className="pil-hoja" data-capa={s.capa}>
                   <span className="pil-hoja__agarre" />
-                  <div className="pil-hoja__t">Compartir</div>
+                  <div className="pil-hoja__t">{t('Compartir', 'Share')}</div>
                   {ACCIONES.map((t, i) => (
                     <div key={t} className="pil-hoja__fila" data-primera={i === 0 || undefined}>
                       {t}

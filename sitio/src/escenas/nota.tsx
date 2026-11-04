@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Clock, Folder, NotebookText, Users } from 'l
 import { Stage, Text, Window, States, type Act, ACENTO } from './ss'
 import './marco.css'
 import './nota.css'
+import { t } from '../lang'
 
 // Demo 3 · a scene of Cuaderno in the page's one frame (Stageshow's
 // finder-glass chrome: macOS 26, floating sidebar, large lights, tall bar).
@@ -18,27 +19,51 @@ type S = { oax: boolean }
 const initial: S = { oax: false }
 const poster: S = { oax: true }
 
-const LIST: { t: string; d: string; target?: string }[] = [
-  { t: 'Lista del súper', d: 'Hoy', target: 'super' },
-  { t: 'Viaje a Oaxaca', d: 'Ayer', target: 'oax' },
-  { t: 'Hotel en Puerto', d: 'Lunes' },
-  { t: 'Vuelos de diciembre', d: '28 oct' },
-  { t: 'Mapa de Lisboa', d: '12 oct' },
-  { t: 'Maletas', d: '2 oct' },
-]
+const LIST: { t: string; d: string; target?: string }[] = t(
+  [
+    { t: 'Lista del súper', d: 'Hoy', target: 'super' },
+    { t: 'Viaje a Oaxaca', d: 'Ayer', target: 'oax' },
+    { t: 'Hotel en Puerto', d: 'Lunes' },
+    { t: 'Vuelos de diciembre', d: '28 oct' },
+    { t: 'Mapa de Lisboa', d: '12 oct' },
+    { t: 'Maletas', d: '2 oct' },
+  ],
+  [
+    { t: 'Groceries', d: 'Today', target: 'super' },
+    { t: 'Oaxaca trip', d: 'Yesterday', target: 'oax' },
+    { t: 'Hotel in Puerto', d: 'Monday' },
+    { t: 'December flights', d: 'Oct 28' },
+    { t: 'Lisbon map', d: 'Oct 12' },
+    { t: 'Packing', d: 'Oct 2' },
+  ],
+)
 
-const NOTES = {
-  super: {
-    t: 'Lista del súper',
-    d: 'Hoy, 9:12',
-    p: ['Tortillas, aguacates y limones.', 'Café de Chiapas, molido medio.', 'Queso Oaxaca para el domingo.', 'Flor de calabaza si hay.', 'Pan dulce para el desayuno.'],
+const NOTES = t(
+  {
+    super: {
+      t: 'Lista del súper',
+      d: 'Hoy, 9:12',
+      p: ['Tortillas, aguacates y limones.', 'Café de Chiapas, molido medio.', 'Queso Oaxaca para el domingo.', 'Flor de calabaza si hay.', 'Pan dulce para el desayuno.'],
+    },
+    oax: {
+      t: 'Viaje a Oaxaca',
+      d: 'Ayer, 18:40',
+      p: ['Mercado de Abastos el sábado temprano.', 'Reservar la visita a Monte Albán.', 'Probar el mole negro en el centro.', 'Hierve el Agua el domingo.', 'Volver con mezcal y chapulines.'],
+    },
   },
-  oax: {
-    t: 'Viaje a Oaxaca',
-    d: 'Ayer, 18:40',
-    p: ['Mercado de Abastos el sábado temprano.', 'Reservar la visita a Monte Albán.', 'Probar el mole negro en el centro.', 'Hierve el Agua el domingo.', 'Volver con mezcal y chapulines.'],
+  {
+    super: {
+      t: 'Groceries',
+      d: 'Today, 9:12 AM',
+      p: ['Tortillas, avocados and limes.', 'Chiapas coffee, medium grind.', 'Oaxaca cheese for Sunday.', 'Squash blossoms if they have them.', 'Pan dulce for breakfast.'],
+    },
+    oax: {
+      t: 'Oaxaca trip',
+      d: 'Yesterday, 6:40 PM',
+      p: ['Mercado de Abastos early on Saturday.', 'Book the visit to Monte Albán.', 'Try the mole negro downtown.', 'Hierve el Agua on Sunday.', 'Come back with mezcal and chapulines.'],
+    },
   },
-}
+)
 
 async function script(a: Act<S>) {
   await a.wait(900)
@@ -90,7 +115,7 @@ export default function Nota() {
                       <ChevronRight {...tb} className="nta-off" />
                     </span>
                   </span>
-                  <span className="nta-heading">Viajes</span>
+                  <span className="nta-heading">{t('Viajes', 'Trips')}</span>
                 </span>
               }
               body={{ className: 'nta-body', 'data-crop': true }}
@@ -150,13 +175,13 @@ function Sidebar({ wide }: { wide: boolean }) {
   )
   return (
     <div className="nta-side">
-      {item(<NotebookText {...ic} />, wide ? 'Todas las notas' : 'Todas')}
-      {item(<Clock {...ic} />, 'Recientes')}
-      {item(<Users {...ic} />, 'Compartidas')}
-      <Text className="nta-side__label">Carpetas</Text>
-      {item(<Folder {...ic} />, 'Viajes', true)}
-      {item(<Folder {...ic} />, 'Casa')}
-      {item(<Folder {...ic} />, 'Trabajo')}
+      {item(<NotebookText {...ic} />, wide ? t('Todas las notas', 'All notes') : t('Todas', 'All'))}
+      {item(<Clock {...ic} />, t('Recientes', 'Recent'))}
+      {item(<Users {...ic} />, t('Compartidas', 'Shared'))}
+      <Text className="nta-side__label">{t('Carpetas', 'Folders')}</Text>
+      {item(<Folder {...ic} />, t('Viajes', 'Trips'), true)}
+      {item(<Folder {...ic} />, t('Casa', 'Home'))}
+      {item(<Folder {...ic} />, t('Trabajo', 'Work'))}
       {item(<Folder {...ic} />, 'Ideas')}
     </div>
   )

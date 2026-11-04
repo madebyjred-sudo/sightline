@@ -1,5 +1,6 @@
 import { Prompt, Stage, Window, ACENTO } from './ss'
 import './hero.css'
+import { decimal, t } from '../lang'
 
 // The hero under the intro, as on benji.org/stageshow: real pieces of Taste
 // composed as one bento picture, built with the kit. A still: no script.
@@ -14,14 +15,14 @@ export default function Hero() {
         <div className="hro-grid">
           <div className="hro-tile hro-a">
             <div className="hro-crit">
-              <div className="hro-crit__t">Quita el texto de ayuda bajo el título</div>
+              <div className="hro-crit__t">{t('Quita el texto de ayuda bajo el título', 'Remove the helper text under the title')}</div>
               <div className="hro-crit__rule">
                 texto-de-ayuda-y-eslogan <span>· SOUL.md:18</span>
               </div>
               <div className="hro-crit__xs">
-                <span data-up>UX mejora</span>
-                <span>DX igual</span>
-                <span>AX igual</span>
+                <span data-up>{t('UX mejora', 'UX better')}</span>
+                <span>{t('DX igual', 'DX same')}</span>
+                <span>{t('AX igual', 'AX same')}</span>
               </div>
             </div>
           </div>
@@ -31,9 +32,9 @@ export default function Hero() {
               <span>Cuaderno</span>
               <span className="hro-chip">AA</span>
             </div>
-            <div className="hro-score__n">81,4</div>
+            <div className="hro-score__n">{decimal(81.4)}</div>
             <div className="hro-score__f">
-              <span className="delta">+9,4</span> 23 hallazgos
+              <span className="delta">+{decimal(9.4)}</span> {t('23 hallazgos', '23 findings')}
             </div>
           </div>
 
@@ -42,31 +43,31 @@ export default function Hero() {
               <div className="hro-term__body">
                 <Prompt path="~/cuaderno">taste auditar</Prompt>
                 <div className="ss-term__line">
-                  <span className="ok">✓ </span>Ajustes <span className="dim">diálogo</span>
+                  <span className="ok">✓ </span>{t('Ajustes', 'Settings')} <span className="dim">{t('diálogo', 'dialog')}</span>
                 </div>
                 <div className="ss-term__line">
-                  <span className="ok">✓ </span>checks <span className="dim">8 hallazgos</span>
+                  <span className="ok">✓ </span>checks <span className="dim">{t('8 hallazgos', '8 findings')}</span>
                 </div>
-                <div className="ss-term__line hro-term__out">A 92,3 · AA 81,4 · AAA 76,0</div>
+                <div className="ss-term__line hro-term__out">A {decimal(92.3)} · AA {decimal(81.4)} · AAA {decimal(76)}</div>
               </div>
             </Window>
           </div>
 
           <div className="hro-tile hro-d">
             <div className="hro-view">
-              <div className="hro-view__h">Notas</div>
-              <div className="hro-view__cut">Aquí puedes ver y organizar todas tus notas</div>
+              <div className="hro-view__h">{t('Notas', 'Notes')}</div>
+              <div className="hro-view__cut">{t('Aquí puedes ver y organizar todas tus notas', 'Here you can see and organize all your notes')}</div>
               <div className="hro-view__row">
-                <span>Viaje a Oaxaca</span>
-                <span>Ayer</span>
+                <span>{t('Viaje a Oaxaca', 'Oaxaca trip')}</span>
+                <span>{t('Ayer', 'Nov 2')}</span>
               </div>
               <div className="hro-view__row">
-                <span>Lista del súper</span>
-                <span>Hoy</span>
+                <span>{t('Lista del súper', 'Groceries')}</span>
+                <span>{t('Hoy', 'Today')}</span>
               </div>
               <div className="hro-view__row">
-                <span>Hotel en Puerto</span>
-                <span>Lunes</span>
+                <span>{t('Hotel en Puerto', 'Hotel in Puerto')}</span>
+                <span>{t('Lunes', 'Monday')}</span>
               </div>
             </div>
           </div>

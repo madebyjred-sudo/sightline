@@ -1,29 +1,49 @@
 import { Collapse, Stage, Window, type Act, ACENTO } from './ss'
 import './marco.css'
 import './cuaderno.css'
+import { t } from '../lang'
 
 // El ejemplo: Cuaderno, the made-up notes app every demo on the page works on,
 // as it is before Taste touches it. A line of yellow light runs down the
 // window, the way Taste walks a view; where it passes, the defects light up and
-// a card lists them: «Compartí» in voseo, a 22 px icon (less than a finger),
-// the helper text under the title. The same three the demos below fix. It
-// holds, then the marks fade and the light starts again. Poster: all three.
+// a card lists them: the Share button off-voice («Compartí», in voseo; in
+// English, a raw enum), a 22 px icon (less than a finger), the helper text
+// under the title. The same three the demos below fix. It holds, then the
+// marks fade and the light starts again. Poster: all three.
 
 type S = { linea: number; paso: number; viaje: boolean }
 
-const DEFECTOS = [
-  { n: 1, t: 'Botón en voseo: «Compartí»' },
-  { n: 2, t: 'Ícono de 22 px, más chico que un dedo' },
-  { n: 3, t: 'Texto de ayuda bajo el título' },
-]
+const BOTON = t('Compartí', 'SHARE_NOTE')
 
-const NOTAS = [
-  ['Viaje a Oaxaca', 'Ayer'],
-  ['Lista del súper', 'Hoy'],
-  ['Ideas para el taller', '28 oct'],
-  ['Libros pendientes', '21 oct'],
-  ['Cumpleaños de Ana', '12 oct'],
-]
+const DEFECTOS = t(
+  [
+    { n: 1, t: 'Botón en voseo: «Compartí»' },
+    { n: 2, t: 'Ícono de 22 px, más chico que un dedo' },
+    { n: 3, t: 'Texto de ayuda bajo el título' },
+  ],
+  [
+    { n: 1, t: 'Raw enum: SHARE_NOTE' },
+    { n: 2, t: 'A 22 px icon, smaller than a finger' },
+    { n: 3, t: 'Helper text under the title' },
+  ],
+)
+
+const NOTAS = t(
+  [
+    ['Viaje a Oaxaca', 'Ayer'],
+    ['Lista del súper', 'Hoy'],
+    ['Ideas para el taller', '28 oct'],
+    ['Libros pendientes', '21 oct'],
+    ['Cumpleaños de Ana', '12 oct'],
+  ],
+  [
+    ['Oaxaca trip', 'Yesterday'],
+    ['Groceries', 'Today'],
+    ['Workshop ideas', 'Oct 28'],
+    ['Books to read', 'Oct 21'],
+    ["Ana's birthday", 'Oct 12'],
+  ],
+)
 
 async function script(a: Act<S>) {
   await a.wait(500)
@@ -66,9 +86,9 @@ export default function Cuaderno() {
             barSize="tall"
             lead={
               <span className="cdn-lead">
-                <span className="cdn-titulo">Notas</span>
+                <span className="cdn-titulo">{t('Notas', 'Notes')}</span>
                 <span className="cdn-boton" data-visto={s.paso >= 1 || undefined}>
-                  Compartí
+                  {BOTON}
                   <i className="cdn-num">1</i>
                 </span>
                 <span className="cdn-icono" data-visto={s.paso >= 2 || undefined} aria-hidden="true">
@@ -80,7 +100,7 @@ export default function Cuaderno() {
           >
             <div className="cdn-lista">
               <div className="cdn-ayuda" data-visto={s.paso >= 3 || undefined}>
-                Aquí puedes ver y organizar todas tus notas
+                {t('Aquí puedes ver y organizar todas tus notas', 'Here you can see and organize all your notes')}
                 <i className="cdn-num">3</i>
               </div>
               {NOTAS.map(([t, d]) => (
@@ -95,7 +115,7 @@ export default function Cuaderno() {
           <span className="cdn-luz" data-linea={s.linea} data-viaje={s.viaje || undefined} />
 
           <div className="marco-sat cdn-ve" data-show={s.paso >= 1 || undefined}>
-            <div className="cdn-ve__t">Lo que Taste ve</div>
+            <div className="cdn-ve__t">{t('Lo que Taste ve', 'What Taste sees')}</div>
             {DEFECTOS.map((d) => (
               <Collapse key={d.n} open={s.paso >= d.n}>
                 <div className="cdn-ve__fila">

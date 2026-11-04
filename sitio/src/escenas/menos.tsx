@@ -1,6 +1,7 @@
 import { Collapse, Count, States, Stage, type Act, ACENTO } from './ss'
 import './marco.css'
 import './menos.css'
+import { t } from '../lang'
 
 // Menos, pero pensado. Taste's panel for Cuaderno's landing: every section and,
 // beside it, the problem it solves in one line, as the agent wrote it. One
@@ -13,16 +14,28 @@ type S = { quitada: boolean; muerta: number }
 const ANTES = 31
 const DESPUES = 18
 
-const SECCIONES = [
-  { s: 'Portada', p: 'Decidir en tres segundos si probarlo' },
-  { s: 'Funciones', p: 'Saber qué hace sin instalar nada' },
-  { s: 'Testimonios', p: null },
-  { s: 'Precios', p: 'Elegir un plan' },
-  { s: 'Preguntas', p: 'Resolver dudas antes de pagar' },
-  { s: 'Descarga', p: 'Instalarlo en su equipo' },
-  { s: 'Integraciones', p: 'Conectarlo con lo que ya usa' },
-  { s: 'Pie', p: 'Encontrar ayuda y contacto' },
-]
+const SECCIONES = t(
+  [
+    { s: 'Portada', p: 'Decidir en tres segundos si probarlo' },
+    { s: 'Funciones', p: 'Saber qué hace sin instalar nada' },
+    { s: 'Testimonios', p: null },
+    { s: 'Precios', p: 'Elegir un plan' },
+    { s: 'Preguntas', p: 'Resolver dudas antes de pagar' },
+    { s: 'Descarga', p: 'Instalarlo en su equipo' },
+    { s: 'Integraciones', p: 'Conectarlo con lo que ya usa' },
+    { s: 'Pie', p: 'Encontrar ayuda y contacto' },
+  ],
+  [
+    { s: 'Hero', p: 'Decide in three seconds whether to try it' },
+    { s: 'Features', p: 'Know what it does without installing' },
+    { s: 'Testimonials', p: null },
+    { s: 'Pricing', p: 'Pick a plan' },
+    { s: 'FAQ', p: 'Clear up doubts before paying' },
+    { s: 'Download', p: 'Install it on their machine' },
+    { s: 'Integrations', p: 'Connect it to what they already use' },
+    { s: 'Footer', p: 'Find help and a contact' },
+  ],
+)
 
 async function script(a: Act<S>) {
   await a.wait(1200)
@@ -38,7 +51,7 @@ async function script(a: Act<S>) {
   await a.wait(900)
 }
 
-const pct = (n: number) => `${Math.round(n)} %`
+const pct = (n: number) => t(`${Math.round(n)} %`, `${Math.round(n)}%`)
 
 export default function Menos() {
   return (
@@ -59,10 +72,10 @@ export default function Menos() {
             <div className="men-cabeza">
               <span className="men-cabeza__t">
                 <span className="men-cabeza__sitio">cuaderno.app ·</span>
-                <States value={s.quitada ? 'b' : 'a'} align="start" states={{ a: '8 secciones', b: '7 secciones' }} />
+                <States value={s.quitada ? 'b' : 'a'} align="start" states={{ a: t('8 secciones', '8 sections'), b: t('7 secciones', '7 sections') }} />
               </span>
               <span className="men-cabeza__m">
-                área muerta <Count className="men-cabeza__n" value={s.muerta} format={pct} duration={900} />
+                {t('área muerta', 'dead area')} <Count className="men-cabeza__n" value={s.muerta} format={pct} duration={900} />
                 <span className="delta" data-show={s.quitada || undefined}>
                   −{ANTES - DESPUES}
                 </span>
@@ -80,9 +93,9 @@ export default function Menos() {
                     <div className="men-fila" data-sin>
                       <span className="men-fila__s">{x.s}</span>
                       <span className="men-fila__p">
-                        <span className="men-sin">Ningún problema</span>
+                        <span className="men-sin">{t('Ningún problema', 'Solves nothing')}</span>
                         <span className="men-quitar" data-target="quitar" data-cursor="pointer">
-                          Quitar
+                          {t('Quitar', 'Remove')}
                         </span>
                       </span>
                     </div>

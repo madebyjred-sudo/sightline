@@ -1,6 +1,7 @@
 import { Collapse, Count, Prompt, Caret, Stage, Window, type Act, ACENTO } from './ss'
 import './marco.css'
 import './auditar.css'
+import { decimal, t } from '../lang'
 
 // Demo 1 · Auditar, in the page's one frame (550 × 440, window off the right
 // edge). The terminal is mid-session, never empty: the last audit of Cuaderno
@@ -17,34 +18,37 @@ const COMMAND = 'taste auditar --repo ~/cuaderno'
 type Line = { k: 'ok' | 'dim' | 'out' | 'cmd'; a: string; b?: string; wideOnly?: boolean }
 
 // What the terminal already shows when the scene starts
+// The views Cuaderno has, as the walk reports them
+const VISTAS: Line[] = [
+  { k: 'ok', a: '/', b: t('inicio', 'home') },
+  { k: 'ok', a: t('/notas', '/notes'), b: t('página', 'page') },
+  { k: 'ok', a: t('/notas/:id', '/notes/:id'), b: t('página', 'page') },
+  { k: 'ok', a: t('Compartir', 'Share'), b: t('hoja', 'sheet') },
+  { k: 'ok', a: t('Ajustes', 'Settings'), b: t('diálogo', 'dialog') },
+]
+const hallazgos = (n: number) => t(`${n} hallazgos`, `${n} findings`)
+const tiers = (a: number, aa: number, aaa: number) => `A ${decimal(a)} · AA ${decimal(aa)} · AAA ${decimal(aaa)}`
+
 const HISTORY: Line[] = [
   { k: 'cmd', a: 'taste auditar --repo ~/cuaderno' },
-  { k: 'dim', a: 'servidor', b: 'localhost:5173' },
-  { k: 'ok', a: '/', b: 'inicio' },
-  { k: 'ok', a: '/notas', b: 'página' },
-  { k: 'ok', a: '/notas/:id', b: 'página' },
-  { k: 'ok', a: 'Compartir', b: 'hoja' },
-  { k: 'ok', a: 'Ajustes', b: 'diálogo' },
-  { k: 'ok', a: 'transitions', b: '9 hallazgos' },
-  { k: 'ok', a: 'impeccable', b: '14 hallazgos' },
-  { k: 'ok', a: 'checks', b: '11 hallazgos' },
-  { k: 'out', a: 'A 86,0 · AA 72,0 · AAA 66,3' },
+  { k: 'dim', a: t('servidor', 'server'), b: 'localhost:5173' },
+  ...VISTAS,
+  { k: 'ok', a: 'transitions', b: hallazgos(9) },
+  { k: 'ok', a: 'impeccable', b: hallazgos(14) },
+  { k: 'ok', a: 'checks', b: hallazgos(11) },
+  { k: 'out', a: tiers(86, 72, 66.3) },
   { k: 'cmd', a: 'taste limpieza --repo ~/cuaderno' },
-  { k: 'ok', a: '12 criterios', b: '9 en taste/limpieza' },
+  { k: 'ok', a: t('12 criterios', '12 criteria'), b: t('9 en taste/limpieza', '9 in taste/limpieza') },
 ]
 
 const LINES: Line[] = [
-  { k: 'dim', a: 'servidor', b: 'localhost:5173', wideOnly: true },
-  { k: 'ok', a: '/', b: 'inicio' },
-  { k: 'ok', a: '/notas', b: 'página' },
-  { k: 'ok', a: '/notas/:id', b: 'página' },
-  { k: 'ok', a: 'Compartir', b: 'hoja' },
-  { k: 'ok', a: 'Ajustes', b: 'diálogo' },
-  { k: 'dim', a: 'ruido base', b: '0 vistas', wideOnly: true },
-  { k: 'ok', a: 'transitions', b: '6 hallazgos' },
-  { k: 'ok', a: 'impeccable', b: '9 hallazgos' },
-  { k: 'ok', a: 'checks', b: '8 hallazgos' },
-  { k: 'out', a: 'A 92,3 · AA 81,4 · AAA 76,0', wideOnly: true },
+  { k: 'dim', a: t('servidor', 'server'), b: 'localhost:5173', wideOnly: true },
+  ...VISTAS,
+  { k: 'dim', a: t('ruido base', 'baseline noise'), b: t('0 vistas', '0 views'), wideOnly: true },
+  { k: 'ok', a: 'transitions', b: hallazgos(6) },
+  { k: 'ok', a: 'impeccable', b: hallazgos(9) },
+  { k: 'ok', a: 'checks', b: hallazgos(8) },
+  { k: 'out', a: tiers(92.3, 81.4, 76), wideOnly: true },
 ]
 const BEFORE = 72
 const SCORE = 81.4
@@ -52,7 +56,6 @@ const SCORE = 81.4
 const initial: S = { cmd: '', run: false, lines: 0, card: false, score: BEFORE, dip: false }
 const poster: S = { cmd: COMMAND, run: true, lines: LINES.length, card: true, score: SCORE, dip: false }
 
-const fmt = (n: number) => n.toFixed(1).replace('.', ',')
 
 async function script(a: Act<S>) {
   await a.wait(500)
@@ -139,12 +142,12 @@ export default function Auditar() {
                 <span className="aud-card__app">Cuaderno</span>
                 <span className="aud-card__tier">AA</span>
               </div>
-              <Count className="aud-card__score" value={s.score} format={fmt} duration={900} />
+              <Count className="aud-card__score" value={s.score} format={decimal} duration={900} />
               <div className="aud-card__foot">
                 <span className="delta" data-show={s.score > BEFORE || undefined}>
-                  +9,4
+                  +{decimal(9.4)}
                 </span>{' '}
-                23 hallazgos
+                {hallazgos(23)}
               </div>
             </div>
           </>

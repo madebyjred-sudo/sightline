@@ -1,6 +1,7 @@
 import { Collapse, Count, States, Stage, Window, type Act, ACENTO } from './ss'
 import './marco.css'
 import './mapa.css'
+import { t } from '../lang'
 
 // Cada componente, su puntaje. Cuaderno's landing in a browser, and beside it
 // the vertical map Taste measures for it: one bar per section, its width the
@@ -63,8 +64,8 @@ export default function Mapa() {
           <Window url="cuaderno.app" className="marco-win map-win">
             <div className="map-pagina">
               <div className="map-s map-hero">
-                <div className="map-hero__t">Tus notas, en orden.</div>
-                <span className="map-hero__b">Empieza</span>
+                <div className="map-hero__t">{t('Tus notas, en orden.', 'Your notes, in order.')}</div>
+                <span className="map-hero__b">{t('Empieza', 'Start')}</span>
               </div>
               <div className="map-s map-medio" data-sel={s.abierto || undefined} data-decidida={s.decidida || undefined}>
                 <States
@@ -74,15 +75,17 @@ export default function Mapa() {
                   states={{
                     antes: (
                       <span className="map-medio__antes">
-                        <span className="map-medio__h">Todo en un lugar</span>
-                        <span className="map-medio__p">Guarda listas, viajes e ideas, y encuéntralas cuando las necesites.</span>
+                        <span className="map-medio__h">{t('Todo en un lugar', 'Everything in one place')}</span>
+                        <span className="map-medio__p">
+                          {t('Guarda listas, viajes e ideas, y encuéntralas cuando las necesites.', 'Keep lists, trips and ideas, and find them when you need them.')}
+                        </span>
                       </span>
                     ),
                     despues: (
                       <span className="map-medio__despues">
                         {[
-                          ['12', 'listas'],
-                          ['4', 'viajes'],
+                          ['12', t('listas', 'lists')],
+                          ['4', t('viajes', 'trips')],
                           ['31', 'ideas'],
                         ].map(([n, t]) => (
                           <span key={t} className="map-cifra">
@@ -97,17 +100,17 @@ export default function Mapa() {
               </div>
               <div className="map-s map-demo">
                 <div className="map-demo__ventana">
-                  <span className="map-demo__fecha">Ayer, 18:40</span>
-                  <span className="map-demo__t">Viaje a Oaxaca</span>
-                  <span className="map-demo__p">Mercado de Abastos el sábado temprano.</span>
+                  <span className="map-demo__fecha">{t('Ayer, 18:40', 'Yesterday, 6:40 PM')}</span>
+                  <span className="map-demo__t">{t('Viaje a Oaxaca', 'Oaxaca trip')}</span>
+                  <span className="map-demo__p">{t('Mercado de Abastos el sábado temprano.', 'Mercado de Abastos early on Saturday.')}</span>
                 </div>
               </div>
-              <div className="map-s map-pie">Precios · Ayuda · Contacto</div>
+              <div className="map-s map-pie">{t('Precios · Ayuda · Contacto', 'Pricing · Help · Contact')}</div>
             </div>
           </Window>
 
           <div className="map-panel">
-            <div className="map-panel__t">Mapa vertical</div>
+            <div className="map-panel__t">{t('Mapa vertical', 'Vertical map')}</div>
             <div className="map-barras">
               {SECCIONES.map((x) => {
                 const sin = x.rol === 'sin' && !s.decidida
@@ -128,7 +131,7 @@ export default function Mapa() {
             <Collapse open={s.abierto} reveal="drop">
               <div className="map-detalle">
                 <div className="map-detalle__rol">
-                  <States value={s.decidida ? 'c' : 's'} align="start" states={{ s: 'Sin decidir', c: 'Condensado' }} />
+                  <States value={s.decidida ? 'c' : 's'} align="start" states={{ s: t('Sin decidir', 'Undecided'), c: t('Condensado', 'Condensed') }} />
                 </div>
                 <div className="map-detalle__cifras">
                   <Count className="map-detalle__n" value={s.puntaje} format={fmt} duration={900} />
@@ -137,7 +140,7 @@ export default function Mapa() {
                   </span>
                 </div>
                 <span className="map-detalle__b" data-target="condensar" data-cursor="pointer" data-hecho={s.decidida || undefined}>
-                  Condensar
+                  {t('Condensar', 'Condense')}
                 </span>
               </div>
             </Collapse>

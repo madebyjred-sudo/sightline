@@ -2,6 +2,7 @@ import { Search } from 'lucide-react'
 import { Collapse, Count, Segmented, Stage, Window, type Act, ACENTO } from './ss'
 import './marco.css'
 import './criterio.css'
+import { decimal, t } from '../lang'
 
 // Demo 2 · Criterio y contrapropuesta, in the page's one frame. The window is
 // Taste's report in a browser; the rolling total a beat after the edit comes
@@ -21,7 +22,6 @@ const AFTER = 79.5
 const initial: S = { mark: true, card: false, after: false, score: BEFORE }
 const poster: S = { mark: false, card: true, after: true, score: AFTER }
 
-const fmt = (n: number) => n.toFixed(1).replace('.', ',')
 
 async function script(a: Act<S>) {
   await a.wait(900)
@@ -45,20 +45,36 @@ async function script(a: Act<S>) {
   await a.wait(300)
 }
 
-const NOTES = [
-  ['Viaje a Oaxaca', 'Ayer'],
-  ['Lista del súper', 'Lunes'],
-  ['Ideas para el taller', '28 oct'],
-  ['Libros pendientes', '21 oct'],
-  ['Cumpleaños de Ana', '12 oct'],
-]
+const NOTES = t(
+  [
+    ['Viaje a Oaxaca', 'Ayer'],
+    ['Lista del súper', 'Lunes'],
+    ['Ideas para el taller', '28 oct'],
+    ['Libros pendientes', '21 oct'],
+    ['Cumpleaños de Ana', '12 oct'],
+  ],
+  [
+    ['Oaxaca trip', 'Yesterday'],
+    ['Groceries', 'Monday'],
+    ['Workshop ideas', 'Oct 28'],
+    ['Books to read', 'Oct 21'],
+    ["Ana's birthday", 'Oct 12'],
+  ],
+)
 
 // The criteria already in the list, under the one that drops in
-const OTHERS = [
-  ['Tutea el botón Compartir', 'voseo-en-copy'],
-  ['Anima solo opacidad y posición', 'solo-opacity-y-transform'],
-  ['Agranda la zona de Ajustes', 'zona-tactil-menor-a-44'],
-]
+const OTHERS = t(
+  [
+    ['Tutea el botón Compartir', 'voseo-en-copy'],
+    ['Anima solo opacidad y posición', 'solo-opacity-y-transform'],
+    ['Agranda la zona de Ajustes', 'zona-tactil-menor-a-44'],
+  ],
+  [
+    ['Format the Share label', 'enums-crudos-nunca'],
+    ['Animate only opacity and position', 'solo-opacity-y-transform'],
+    ['Enlarge the Settings target', 'zona-tactil-menor-a-44'],
+  ],
+)
 
 export default function Criterio() {
   return (
@@ -81,28 +97,28 @@ export default function Criterio() {
                 <div className="cri-title">
                   <span className="cri-app">Cuaderno</span>
                   <span className="cri-sep">/</span>
-                  <span className="cri-view">Notas</span>
+                  <span className="cri-view">{t('Notas', 'Notes')}</span>
                 </div>
-                <Segmented className="cri-seg" items={['Antes', 'Después']} value={s.after ? 1 : 0} targets={['before', 'after']} cursor="pointer" />
+                <Segmented className="cri-seg" items={t(['Antes', 'Después'], ['Before', 'After'])} value={s.after ? 1 : 0} targets={['before', 'after']} cursor="pointer" />
                 <div className="cri-score">
                   <span className="cri-tier">AA</span>
-                  <Count className="cri-num" value={s.score} format={fmt} duration={800} />
+                  <Count className="cri-num" value={s.score} format={decimal} duration={800} />
                 </div>
               </div>
 
               <div className="cri-cols">
                 <div className="cri-shot" data-crop>
-                  <div className="cri-h">Notas</div>
+                  <div className="cri-h">{t('Notas', 'Notes')}</div>
                   <Collapse open={!s.after}>
                     <div className="cri-help-wrap">
                       <span className="cri-help" data-target="help" data-cursor="pointer" data-mark={s.mark || undefined}>
-                        Aquí puedes ver y organizar todas tus notas
+                        {t('Aquí puedes ver y organizar todas tus notas', 'Here you can see and organize all your notes')}
                       </span>
                     </div>
                   </Collapse>
                   <div className="cri-search">
                     <Search size={15} strokeWidth={1.75} />
-                    <span>Buscar</span>
+                    <span>{t('Buscar', 'Search')}</span>
                   </div>
                   <div className="cri-list">
                     {NOTES.map(([t, d]) => (
@@ -117,14 +133,14 @@ export default function Criterio() {
                 <div className="cri-side">
                   <Collapse open={s.card} reveal="drop">
                     <div className="cri-card">
-                      <div className="cri-card__t">Quita el texto de ayuda bajo el título</div>
+                      <div className="cri-card__t">{t('Quita el texto de ayuda bajo el título', 'Remove the helper text under the title')}</div>
                       <div className="cri-card__rule">
                         texto-de-ayuda-y-eslogan <span className="cri-card__src">SOUL.md:18</span>
                       </div>
                       <div className="cri-card__xs">
-                        <span data-up>UX mejora</span>
-                        <span>DX igual</span>
-                        <span>AX igual</span>
+                        <span data-up>{t('UX mejora', 'UX better')}</span>
+                        <span>{t('DX igual', 'DX same')}</span>
+                        <span>{t('AX igual', 'AX same')}</span>
                       </div>
                     </div>
                   </Collapse>

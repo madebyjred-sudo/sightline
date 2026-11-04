@@ -1,17 +1,28 @@
 import { useState } from 'react'
+import { t } from './lang'
 
 // Where Taste lives once published, and the two prompts that take it to
 // someone's own AI: the full one for a coding agent that can run commands
 // (copied), and a reading one for a chat that can only open links.
 export const REPO = 'https://github.com/madebyjred-sudo/taste'
 
-export const PROMPT_AGENTE = [
-  `Instala Taste en este equipo: clona ${REPO} en ~/taste, y dentro corre npm install, npx playwright install chromium y sh skill/instalar.sh.`,
-  'Después audita esta app con taste auditar --repo . y muéstrame el puntaje por tier y los hallazgos por vista, cada uno con su criterio.',
-  'No cambies nada de la app sin preguntarme.',
-].join(' ')
+export const PROMPT_AGENTE = t(
+  [
+    `Instala Taste en este equipo: clona ${REPO} en ~/taste, y dentro corre npm install, npx playwright install chromium y sh skill/instalar.sh.`,
+    'Después audita esta app con taste auditar --repo . y muéstrame el puntaje por tier y los hallazgos por vista, cada uno con su criterio.',
+    'No cambies nada de la app sin preguntarme.',
+  ],
+  [
+    `Install Taste on this machine: clone ${REPO} into ~/taste, and inside it run npm install, npx playwright install chromium and sh skill/instalar.sh.`,
+    'Then audit this app with taste auditar --repo . and show me the score by tier and the findings by view, each with its criterion, in English.',
+    "Don't change anything in the app without asking me.",
+  ],
+).join(' ')
 
-const PROMPT_CHAT = `Lee ${REPO} y ayúdame a usar Taste con mi app: qué hace, qué necesito tener instalado y los pasos para la primera auditoría.`
+const PROMPT_CHAT = t(
+  `Lee ${REPO} y ayúdame a usar Taste con mi app: qué hace, qué necesito tener instalado y los pasos para la primera auditoría.`,
+  `Read ${REPO} and help me use Taste with my app: what it does, what I need installed and the steps for the first audit.`,
+)
 
 const claude = `https://claude.ai/new?q=${encodeURIComponent(PROMPT_CHAT)}`
 const chatgpt = `https://chatgpt.com/?q=${encodeURIComponent(PROMPT_CHAT)}`
@@ -49,7 +60,7 @@ function Copiar({ texto, children, className }: { texto: string; children: strin
         setTimeout(() => setHecho(false), 1600)
       }}
     >
-      <span aria-live="polite">{hecho ? 'Copiado' : children}</span>
+      <span aria-live="polite">{hecho ? t('Copiado', 'Copied') : children}</span>
     </button>
   )
 }
@@ -59,13 +70,13 @@ export function Llevar() {
   return (
     <div className="llevar">
       <Copiar texto={PROMPT_AGENTE} className="boton boton--lleno">
-        Copiar para tu agente
+        {t('Copiar para tu agente', 'Copy for your agent')}
       </Copiar>
       <a className="boton" href={claude} target="_blank" rel="noreferrer">
-        Abrir en Claude <span aria-hidden="true">↗</span>
+        {t('Abrir en Claude', 'Open in Claude')} <span aria-hidden="true">↗</span>
       </a>
       <a className="boton" href={chatgpt} target="_blank" rel="noreferrer">
-        Abrir en ChatGPT <span aria-hidden="true">↗</span>
+        {t('Abrir en ChatGPT', 'Open in ChatGPT')} <span aria-hidden="true">↗</span>
       </a>
     </div>
   )
@@ -77,7 +88,7 @@ export function Prompt() {
     <div className="prompt">
       <p className="prompt__texto">{PROMPT_AGENTE}</p>
       <Copiar texto={PROMPT_AGENTE} className="boton boton--chico">
-        Copiar
+        {t('Copiar', 'Copy')}
       </Copiar>
     </div>
   )
