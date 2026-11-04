@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Fixture</title>
+<style>
+  .tab { transition: all .3s; padding: 8px 12px; }
+  [role=tabpanel][hidden] { display: none; }
+</style>
+</head>
+<body>
+  <h1>Panel — prueba</h1>
+  <div role="tablist">
+    <button role="tab" id="t1" aria-selected="true" aria-controls="p1" class="tab">Uno</button>
+    <button role="tab" id="t2" aria-selected="false" aria-controls="p2" class="tab">Dos</button>
+    <button role="tab" id="t3" aria-selected="false" aria-controls="p3" class="tab">Tres</button>
+  </div>
+  <section role="tabpanel" id="p1"><h2>Primero</h2></section>
+  <section role="tabpanel" id="p2" hidden><h2>Segundo</h2></section>
+  <section role="tabpanel" id="p3" hidden><h2>Tercero</h2></section>
+  <form><input name="x"><button>Guardar</button></form>
+  <a href="https://example.com">Fuera</a>
+  <script>
+    for (const t of document.querySelectorAll('[role=tab]')) t.addEventListener('click', () => {
+      for (const o of document.querySelectorAll('[role=tab]')) {
+        o.setAttribute('aria-selected', String(o === t))
+        document.getElementById(o.getAttribute('aria-controls')).hidden = o !== t
+      }
+    })
+  </script>
+</body>
+</html>

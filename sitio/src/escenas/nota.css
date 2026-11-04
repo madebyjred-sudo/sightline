@@ -1,0 +1,261 @@
+/* Demo 3 · Cuaderno. Frame from marco.css; macOS 26 chrome values copied
+   from Stageshow's finder-glass.css. */
+
+.nta .ss-stage {
+  --ss-text: #6e6f75;
+  --ss-text-strong: #1d1d1f;
+  --ss-text-faint: #a1a2a8;
+  --ss-icon: #3d3e44;
+  --ss-icon-faint: #b6b7bd;
+  --nta-glass: rgba(255, 255, 255, 0.9);
+  --nta-btn-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.07), inset 0 0.5px 0 rgba(255, 255, 255, 1), 0 1px 2px rgba(20, 30, 60, 0.05), 0 5px 16px rgba(20, 30, 60, 0.09);
+}
+
+.nta .nta-window .ss-window__main > .ss-window__bar {
+  padding-inline: 12px 14px;
+}
+
+.nta .nta-lead,
+.nta .nta-tools {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nta .nta-tools {
+  gap: 10px;
+}
+
+.nta .nta-cap,
+.nta .nta-round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 32px;
+  border-radius: 16px;
+  background: var(--nta-glass);
+  box-shadow: var(--nta-btn-shadow);
+  color: var(--ss-icon);
+}
+
+.nta .nta-round {
+  width: 32px;
+}
+
+.nta .nta-nav {
+  padding: 0 4px;
+}
+
+.nta .nta-nav__btn {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 32px;
+}
+
+.nta .nta-nav__rule {
+  width: 1px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.nta .nta-off {
+  color: var(--ss-icon-faint);
+}
+
+.nta .nta-heading {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ss-text-strong);
+  white-space: nowrap;
+}
+
+/* ---- Sidebar ---- */
+
+.nta .nta-side {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 8px 0;
+}
+
+.nta .nta-side__label {
+  display: block;
+  margin: 12px 10px 5px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 13px;
+  color: var(--ss-text);
+}
+
+.nta .nta-side__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 27px;
+  padding: 0 10px 0 9px;
+  border-radius: 9px;
+  font-size: 12.5px;
+  color: var(--ss-text-strong);
+  white-space: nowrap;
+}
+
+.nta .nta-side__icon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  color: var(--ss-icon);
+}
+
+.nta .nta-side__item[data-current] {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* ---- List and reading pane ---- */
+
+.nta .nta-body {
+  overflow: hidden;
+}
+
+.nta .nta-cols {
+  display: grid;
+  grid-template-columns: 152px minmax(0, 1fr);
+  height: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.nta .nta-list {
+  padding: 8px;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.nta .nta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  transition: background-color 0.16s ease;
+}
+
+.nta .nta-row__t {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 17px;
+  color: var(--ss-text-strong);
+  white-space: nowrap;
+  transition: color 0.16s ease;
+}
+
+.nta .nta-row__d {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ss-text);
+  transition: color 0.16s ease;
+}
+
+.nta .nta-row[data-sel] {
+  background: var(--ss-accent);
+}
+
+.nta .nta-row[data-sel] .nta-row__t {
+  color: #fff;
+}
+
+.nta .nta-row[data-sel] .nta-row__d {
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.nta .nta-pane {
+  padding: 22px 20px;
+  background: #fff;
+}
+
+.nta .nta-states {
+  display: grid;
+  width: 100%;
+}
+
+.nta .nta-note__d {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ss-text);
+}
+
+.nta .nta-note__t {
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 30px;
+  color: var(--ss-text-strong);
+}
+
+.nta .nta-note__t + .nta-note__p {
+  margin-top: 16px;
+}
+
+.nta .nta-note__p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #333336;
+  white-space: nowrap;
+}
+
+.nta .nta-rest {
+  position: absolute;
+  left: 470px;
+  top: 380px;
+  width: 1px;
+  height: 1px;
+}
+
+/* ---- Compact ---- */
+
+.nta .ss-stage[data-layout='compact'] .nta-side__label {
+  font-size: 11.5px;
+  line-height: 14px;
+}
+
+.nta .ss-stage[data-layout='compact'] .nta-side__item {
+  font-size: 13px;
+}
+
+.nta .ss-stage[data-layout='compact'] .nta-cols {
+  grid-template-columns: 136px minmax(0, 1fr);
+}
+
+.nta .ss-stage[data-layout='compact'] .nta-list {
+  padding: 6px;
+}
+
+.nta .ss-stage[data-layout='compact'] .nta-row {
+  padding: 8px 10px;
+}
+
+.nta .ss-stage[data-layout='compact'] .nta-row__t {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nta .ss-stage[data-layout='compact'] .nta-pane {
+  padding: 16px 18px;
+}
+
+.nta .ss-stage[data-layout='compact'] .nta-note__t {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.nta .ss-stage[data-layout='compact'] .nta-note__p {
+  font-size: 13px;
+  line-height: 19px;
+  white-space: normal;
+}
+
+.nta .ss-stage[data-layout='compact'] .nta-rest {
+  left: 300px;
+  top: 300px;
+}

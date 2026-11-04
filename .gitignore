@@ -1,0 +1,4 @@
+node_modules/
+sitio/node_modules/
+sitio/dist/
+.DS_Store

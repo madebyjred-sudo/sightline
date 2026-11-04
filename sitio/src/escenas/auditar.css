@@ -1,0 +1,142 @@
+/* Demo 1 · Auditar. Frame from marco.css; here only the terminal's content
+   and the score card. */
+
+
+/* The window runs 80px past the bottom like every frame on the page; the
+   feed sits on the stage's visible bottom (the padding carries those 80px),
+   so every new line pushes the history up and the pane is never empty. Lines
+   leaving at the top fade before the edge reaches them. */
+.aud .aud-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  overflow: hidden;
+  padding: 18px 20px 98px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 56px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 56px);
+  font-family: var(--ss-mono);
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.aud .aud-feed {
+  transition: opacity 0.3s ease;
+}
+
+.aud .aud-feed[data-dip] {
+  opacity: 0;
+  transition-duration: 0.28s;
+}
+
+.aud .aud-line {
+  display: grid;
+  grid-template-columns: 2.5ch 14ch auto;
+}
+
+.aud .aud-line[data-k='out'] .aud-a {
+  grid-column: 2 / -1;
+  font-weight: 600;
+  color: #fff;
+}
+
+.aud .aud-a,
+.aud .aud-b:not(.dim) {
+  color: #ececee;
+}
+
+/* ---- The score card ---- */
+
+.aud .aud-card {
+  top: 262px;
+  left: 364px;
+  width: 146px;
+  padding: 14px 16px 16px;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  will-change: transform;
+  transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.aud .aud-card[data-show] {
+  opacity: 1;
+  transform: none;
+}
+
+.aud .aud-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.aud .aud-card__app {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1d1d1f;
+}
+
+.aud .aud-card__tier {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--salvia-velo);
+  color: var(--ss-accent);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.aud .aud-card__score {
+  display: block;
+  margin-top: 8px;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--naranja-cifra);
+}
+
+.aud .aud-card__foot {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #6e6e73;
+}
+
+/* ---- Compact ---- */
+
+.aud .ss-stage[data-layout='compact'] .aud-body {
+  padding: 12px 16px 92px;
+  font-size: 11.5px;
+  line-height: 19px;
+}
+
+.aud .ss-stage[data-layout='compact'] .aud-line {
+  grid-template-columns: 2.5ch 13.5ch auto;
+}
+
+.aud .ss-stage[data-layout='compact'] .aud-card {
+  top: auto;
+  bottom: 28px;
+  left: auto;
+  right: 20px;
+  width: 124px;
+  padding: 12px 12px 13px;
+}
+
+.aud .ss-stage[data-layout='compact'] .aud-card__head {
+  gap: 6px;
+}
+
+.aud .ss-stage[data-layout='compact'] .aud-card__app {
+  font-size: 12px;
+}
+
+.aud .ss-stage[data-layout='compact'] .aud-card__score {
+  margin-top: 6px;
+  font-size: 32px;
+}
+
+.aud .ss-stage[data-layout='compact'] .aud-card__foot {
+  margin-top: 6px;
+  font-size: 11.5px;
+}

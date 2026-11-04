@@ -1,0 +1,29 @@
+/* The page's palette, from Pantone. Two colors that always go together, one
+   accent that keeps it interesting, and a white that isn't paper.
+
+   Bright White   PANTONE 11-0601 TCX   #f4f5f0   the ground; a white with a
+                                                  grey-green cast, never cream
+   Pino           PANTONE 3435 C        #154734   ink of the demos, selection,
+                                                  the ASCII
+   Salvia         PANTONE 7494 C        #9caf88   the light ground, tints
+   Naranja        PANTONE Orange 021 C  #fe5000   the accent: the mark, the
+                                                  prompt, one tile. As text it
+                                                  goes one step deeper (below) */
+
+:root {
+  --blanco: #f4f5f0;
+  --pino: #154734;
+  --salvia: #9caf88;
+  --naranja: #fe5000;
+
+  /* Derived, same families */
+  --blanco-hondo: #e9ebe3;
+  --salvia-velo: #e6ecdf;
+  --pino-tinta: #13261d;
+  --naranja-velo: #ffe7dc;
+  /* Orange as text, measured on Bright White and its deep variant: big
+     figures (24px and up, 3:1) and small text (4.5:1) */
+  --naranja-cifra: #e04600;
+  --naranja-tinta: #b83800;
+  --sombra-pino: 21, 71, 52;
+}

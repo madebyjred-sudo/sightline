@@ -1,0 +1,330 @@
+/* Demo 2 · Criterio. Frame from marco.css. Inside the browser: Taste's
+   report, a bar (view, Antes/Después, AA), the captured view on the left and
+   its criteria on the right. Real ink: dark text on white, the mark in the
+   accent, the criterion a white card with weight. */
+
+.cri .cri-report {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+}
+
+.cri .cri-bar {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: start;
+  align-items: center;
+  gap: 24px;
+  height: 56px;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cri .cri-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+}
+
+.cri .cri-app,
+.cri .cri-sep {
+  color: #6e6f75;
+}
+
+.cri .cri-view {
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.cri .cri-seg {
+  width: 168px;
+  font-size: 13px;
+}
+
+.cri .cri-score {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cri .cri-tier {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ss-accent);
+}
+
+.cri .cri-num {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--naranja-cifra);
+}
+
+.cri .cri-cols {
+  display: grid;
+  grid-template-columns: 218px 222px;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+  padding: 20px;
+  background: #f1f2f4;
+}
+
+/* ---- The captured view: Cuaderno's Notas ---- */
+
+.cri .cri-shot {
+  overflow: hidden;
+  padding: 20px 18px 0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(var(--sombra-pino), 0.06);
+}
+
+.cri .cri-h {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 32px;
+  color: #1d1d1f;
+}
+
+.cri .cri-help-wrap {
+  padding-top: 6px;
+  will-change: transform;
+}
+
+.cri .cri-help {
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #6e6e73;
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+  transition: outline-color 0.2s ease, background-color 0.2s ease;
+}
+
+.cri .cri-help[data-mark] {
+  outline-color: var(--naranja);
+}
+
+.cri .cri-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  margin-top: 18px;
+  padding: 0 12px;
+  border-radius: 9px;
+  background: #f1f2f4;
+  color: #6e6f75;
+  font-size: 13.5px;
+}
+
+.cri .cri-list {
+  margin-top: 6px;
+}
+
+.cri .cri-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 44px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 13.5px;
+}
+
+.cri .cri-row__t {
+  font-weight: 500;
+  color: #1d1d1f;
+}
+
+.cri .cri-row__d {
+  color: #6e6f75;
+  font-size: 13px;
+}
+
+/* ---- Criteria ---- */
+
+.cri .cri-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.cri .cri-card,
+.cri .cri-other {
+  margin-bottom: 10px;
+  padding: 14px 14px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.cri .cri-card {
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.12),
+    0 12px 28px -10px rgba(var(--sombra-pino), 0.35),
+    0 4px 10px -6px rgba(var(--sombra-pino), 0.2);
+}
+
+.cri .cri-other {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.cri .cri-other__t {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #1d1d1f;
+}
+
+.cri .cri-other__r {
+  font-size: 12px;
+  line-height: 16px;
+  color: #6e6f75;
+}
+
+.cri .cri-card__t {
+  text-wrap: balance;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #1d1d1f;
+}
+
+.cri .cri-card__rule {
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 16px;
+  color: var(--ss-accent);
+}
+
+.cri .cri-card__src {
+  display: block;
+  margin-top: 2px;
+  color: #6e6f75;
+}
+
+.cri .cri-card__xs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 14px;
+}
+
+.cri .cri-card__xs span {
+  padding: 3px 6px;
+  border-radius: 6px;
+  background: #f1f2f4;
+  font-size: 11.5px;
+  white-space: nowrap;
+  line-height: 16px;
+  color: #4a4b50;
+}
+
+.cri .cri-card__xs span[data-up] {
+  background: var(--salvia-velo);
+  color: var(--pino);
+  font-weight: 500;
+}
+
+.cri .cri-rest {
+  position: absolute;
+  left: 470px;
+  top: 400px;
+  width: 1px;
+  height: 1px;
+}
+
+/* ---- Compact: off the right and bottom; the bar keeps the control and the
+   score, the criterion lands over the list's lower rows ---- */
+
+.cri .ss-stage[data-layout='compact'] .cri-bar {
+  grid-template-columns: auto auto;
+  justify-content: start;
+  gap: 20px;
+  height: 50px;
+  padding: 0 14px;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-title {
+  display: none;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-seg {
+  width: 168px;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-cols {
+  position: relative;
+  grid-template-columns: 330px;
+  padding: 12px;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-shot {
+  padding: 16px 16px 0;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-h {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-help {
+  font-size: 12.5px;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-search {
+  display: none;
+}
+
+/* No room for the list under the criterion: the card takes its place
+   instead of slicing a row in half */
+.cri .ss-stage[data-layout='compact'] .cri-list {
+  display: none;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-row {
+  height: 36px;
+  font-size: 13px;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-side {
+  position: absolute;
+  top: 118px;
+  left: 28px;
+  width: 300px;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-card {
+  padding: 12px 14px;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-card__t {
+  font-size: 13.5px;
+  line-height: 18px;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-other {
+  display: none;
+}
+
+.cri .ss-stage[data-layout='compact'] .cri-rest {
+  left: 330px;
+  top: 300px;
+}
+
+.cri .ss-stage[data-layout="compact"] .cri-row:nth-child(n + 5) {
+  display: none;
+}
+
+.cri .ss-stage[data-layout="compact"] .cri-win .ss-window__url {
+  font-size: 11.5px;
+}

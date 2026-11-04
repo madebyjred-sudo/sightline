@@ -1,0 +1,1 @@
+{"repo": "sitio", "mundo": "personal", "perfil": "libre", "url": "http://localhost:5310", "arranque": "npm run dev -- --port 5310", "notas": "La landing de Taste (sitio/), auditada con Taste mismo."}

@@ -1,0 +1,4494 @@
+[
+  {
+    "id": "un-proposito-por-pantalla",
+    "titulo": "Un propósito por pantalla",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Cada pantalla resuelve una sola tarea; si hay dos, son dos pantallas.",
+    "bien": "Pantalla Pedidos: lista y detalle de pedidos",
+    "mal": "Pantalla con pedidos, configuración de correo y métricas a la vez",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 17
+    },
+    "tambien_en": [
+      {
+        "archivo": "producto-simple/SKILL.md",
+        "linea": 32
+      }
+    ]
+  },
+  {
+    "id": "texto-de-ayuda-y-eslogan",
+    "titulo": "Sin eslogan, texto de ayuda ni etiquetas secundarias",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "copy",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Quita eslogan, subtítulo explicativo y texto de ayuda; si la pantalla no se entiende sin ellos, arregla el layout.",
+    "bien": "Título «Pedidos» y la tabla",
+    "mal": "Título «Pedidos» + párrafo gris «Aquí puedes ver y gestionar todos tus pedidos»",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 18
+    },
+    "check": "checks/texto-de-ayuda-y-eslogan.mjs",
+    "tambien_en": [
+      {
+        "archivo": "producto-simple/SKILL.md",
+        "linea": 33
+      }
+    ]
+  },
+  {
+    "id": "quitar-antes-de-agregar",
+    "titulo": "Quitar antes de agregar",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Ante un problema de comprensión, prueba primero quitar o reordenar antes de sumar texto o piezas.",
+    "bien": "Subir la acción principal y borrar la nota",
+    "mal": "Agregar un tooltip que repite el botón",
+    "fuente": {
+      "archivo": "producto-simple/SKILL.md",
+      "linea": 33
+    }
+  },
+  {
+    "id": "arquitectura-minima",
+    "titulo": "Arquitectura mínima",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Menos piezas, capas y estados; reusa lo que ya existe antes de escribir algo nuevo.",
+    "bien": "Reusar el componente de detalle existente",
+    "mal": "Escribir un segundo mecanismo paralelo para lo mismo",
+    "fuente": {
+      "archivo": "producto-simple/SKILL.md",
+      "linea": 36
+    }
+  },
+  {
+    "id": "ux-dx-ax-a-la-vez",
+    "titulo": "Cada decisión mejora UX, DX y AX",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "ax",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Descarta la decisión que mejora a una de las tres experiencias y empeora otra.",
+    "bien": "Rutas predecibles que sirven al usuario y al agente",
+    "mal": "Estado solo legible adivinando texto en pantalla",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 20
+    },
+    "tambien_en": [
+      {
+        "archivo": "producto-simple/SKILL.md",
+        "linea": 38
+      }
+    ]
+  },
+  {
+    "id": "ax-rutas-y-estados-predecibles",
+    "titulo": "Operable por un agente",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "ax",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Expón rutas y estados predecibles y datos estructurados; nada debe depender de adivinar un texto.",
+    "bien": "data-estado=\"abierto\" y ruta /pedidos/123",
+    "mal": "Saber si está abierto leyendo el texto «Cerrar»",
+    "fuente": {
+      "archivo": "producto-simple/SKILL.md",
+      "linea": 41
+    }
+  },
+  {
+    "id": "sin-romper-nada",
+    "titulo": "Sin romper nada: prueba antes y después",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Mide lo que anda antes del cambio y repite la misma prueba después.",
+    "bien": "Clic en cada widget antes y después",
+    "mal": "«Debería funcionar» tras compilar",
+    "fuente": {
+      "archivo": "producto-simple/SKILL.md",
+      "linea": 44
+    },
+    "tambien_en": [
+      {
+        "archivo": "SOUL.md",
+        "linea": 22
+      }
+    ]
+  },
+  {
+    "id": "barrer-todos-los-controles",
+    "titulo": "Ejercitar cada control en cada estado",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Antes de entregar, clic en cada control de cada widget en cada estado; compilar no cuenta.",
+    "bien": "Barrido de controles tras el deploy",
+    "mal": "tsc verde y una captura de portada",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/barrer-todos-los-controles-antes-de-entregar.md",
+      "linea": 188
+    }
+  },
+  {
+    "id": "control-hace-lo-que-promete",
+    "titulo": "El control hace lo que su texto promete",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Cada control con texto de acción cambia ruta, título o alcance al pulsarlo; verifica que el handler llegue al sitio de montaje.",
+    "bien": "<Boton onClick={abrir}/> en cada montaje",
+    "mal": "<Boton /> sin onClick que se anima y no hace nada",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/barrer-todos-los-controles-antes-de-entregar.md",
+      "linea": 140
+    }
+  },
+  {
+    "id": "fondo-crema-por-defecto",
+    "titulo": "Sin fondo crema por defecto",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "No uses fondo crema, beige o ámbar claro si la marca no lo pide; usa la superficie neutra.",
+    "bien": "bg-background neutro",
+    "mal": "bg-[#faf5ec] o bg-amber-50 de fondo",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 125
+    },
+    "check": "checks/fondo-crema-por-defecto.mjs",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/correcciones-visuales-del-dueno.md",
+        "linea": 10
+      },
+      {
+        "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+        "linea": 44
+      },
+      {
+        "archivo": "producto-simple/SKILL.md",
+        "linea": 69
+      }
+    ],
+    "cubre_externo": "impeccable:cream-palette"
+  },
+  {
+    "id": "italica-de-acento-en-titulares",
+    "titulo": "Sin itálicas de acento en titulares",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "No metas una palabra en itálica dentro de un titular si la marca no lo pide.",
+    "bien": "<h1>Tus pedidos</h1>",
+    "mal": "<h1>Tus <em>pedidos</em></h1>",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 125
+    },
+    "check": "checks/italica-de-acento-en-titulares.mjs",
+    "tambien_en": [
+      {
+        "archivo": "producto-simple/SKILL.md",
+        "linea": 70
+      }
+    ],
+    "cubre_externo": "impeccable:italic-serif-display"
+  },
+  {
+    "id": "rotulos-numerados-01-02-03",
+    "titulo": "Sin rótulos 01/02/03",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "No numeres secciones o pasos con rótulos 01, 02, 03 si la marca no lo pide.",
+    "bien": "<h2>Cómo funciona</h2>",
+    "mal": "<span>01</span><h2>Cómo funciona</h2>",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 126
+    },
+    "check": "checks/rotulos-numerados-01-02-03.mjs",
+    "tambien_en": [
+      {
+        "archivo": "producto-simple/SKILL.md",
+        "linea": 70
+      }
+    ],
+    "cubre_externo": "impeccable:numbered-section-labels"
+  },
+  {
+    "id": "monospace-por-defecto",
+    "titulo": "Sin monospace en texto de interfaz",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Reserva la monospace para código; el texto de interfaz va en la fuente de la marca.",
+    "bien": "<code className=\"font-mono\">",
+    "mal": "<p className=\"font-mono\">Bienvenido</p>",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 126
+    },
+    "check": "checks/monospace-por-defecto.mjs",
+    "tambien_en": [
+      {
+        "archivo": "producto-simple/SKILL.md",
+        "linea": 70
+      }
+    ]
+  },
+  {
+    "id": "boton-pildora",
+    "titulo": "Sin botones píldora si la marca no los pide",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "No uses rounded-full en botones con texto salvo que la marca lo pida; la decisión final es de criterio.",
+    "bien": "<Button className=\"rounded-control\">",
+    "mal": "<Button className=\"rounded-full px-6\">Empezar</Button>",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 126
+    },
+    "check": "checks/boton-pildora.mjs",
+    "tambien_en": [
+      {
+        "archivo": "producto-simple/SKILL.md",
+        "linea": 71
+      }
+    ]
+  },
+  {
+    "id": "otro-default-se-nombra",
+    "titulo": "Todo default no pedido se nombra y se saca",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Si aparece otro default visual que nadie pidió, nómbralo en el informe y quítalo.",
+    "bien": "Informe: «degradado violeta por defecto, quitado»",
+    "mal": "Dejar un adorno genérico porque «se ve moderno»",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 127
+    }
+  },
+  {
+    "id": "degradado-de-dos-colores",
+    "titulo": "Sin degradados de dos colores",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Quita los degradados de dos paradas de color en fondos, tarjetas, bordes y brillos de hover.",
+    "bien": "Fondo sólido de la superficie",
+    "mal": "bg-gradient-to-r from-violet-500 to-pink-500",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/fondos-de-pantalla-completa-y-degradados.md",
+      "linea": 8
+    },
+    "cubre_externo": "impeccable:gradient-text (parcial)"
+  },
+  {
+    "id": "fuente-plataforma-distinta-tenant",
+    "titulo": "Fuente de plataforma distinta de la del tenant",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "La tipografía de la plataforma no viste el contenido del tenant ni al revés.",
+    "bien": "Panel en la fuente de la plataforma, página del artista en la suya",
+    "mal": "Vestir la plataforma con la tipografía de un artista",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 123
+    }
+  },
+  {
+    "id": "importar-leyes-no-look",
+    "titulo": "Importar leyes, nunca el look literal",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Toma las leyes de iOS y Material 3 pero no su aspecto; la marca es lo único que se ve.",
+    "bien": "Hoja inferior con la paleta de la marca",
+    "mal": "Azul de sistema de Apple o píldoras tonales de Google",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 10
+    }
+  },
+  {
+    "id": "paleta-neutros-mas-acento",
+    "titulo": "Paleta: neutros más el acento de la marca",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Usa solo neutros y el acento de la marca; sin azules, vino o café, ni crema de fondo.",
+    "bien": "neutral-* y el acento",
+    "mal": "Enlaces azules y avisos bg-amber-50",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 43
+    }
+  },
+  {
+    "id": "azules-en-la-paleta",
+    "titulo": "Sin azules de sistema",
+    "tier": "AAA",
+    "tipo": "determinista",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "No uses blue/sky/indigo/cyan para enlaces, foco o info; usa tinta subrayada o el acento.",
+    "bien": "text-foreground underline",
+    "mal": "text-blue-600 en un enlace",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 44
+    },
+    "check": "checks/azules-en-la-paleta.mjs"
+  },
+  {
+    "id": "gris-azulado-tailwind",
+    "titulo": "neutral-* en vez de gray/slate/zinc",
+    "tier": "AAA",
+    "tipo": "determinista",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En Tailwind v4 gray, slate y zinc tiran a azul: usa neutral-*.",
+    "bien": "bg-neutral-900",
+    "mal": "bg-slate-900",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 44
+    },
+    "check": "checks/gris-azulado-tailwind.mjs"
+  },
+  {
+    "id": "copy-sin-em-dash",
+    "titulo": "Cero em-dash en copy visible",
+    "tier": "A",
+    "tipo": "determinista",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "No uses «—» en texto visible; usa «·», coma, punto o dos puntos. Excepción: cita textual de un tercero.",
+    "bien": "Ventas · 34 de 46",
+    "mal": "Ventas — 34 de 46",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 121
+    },
+    "check": "checks/copy-sin-em-dash.mjs",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 132
+      },
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 85
+      }
+    ],
+    "cubre_externo": "impeccable:em-dash-overuse (solo exceso)"
+  },
+  {
+    "id": "voseo-en-copy",
+    "titulo": "Tuteo, no voseo",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El copy visible tutea: «Entra», «quieres»; nunca «Entrá», «querés».",
+    "bien": "Entra a tu panel",
+    "mal": "Entrá a tu panel",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 85
+    },
+    "check": "checks/voseo-en-copy.mjs",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/experiencia-de-compra-sonido-y-animacion.md",
+        "linea": 158
+      }
+    ]
+  },
+  {
+    "id": "jerga-interna-en-copy",
+    "titulo": "Cero jerga interna en pantalla",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Ninguna pantalla dice tenant, API, tiers, CRM, template ni payload.",
+    "bien": "Cómo van tus ventas",
+    "mal": "Métricas reales del tenant activo, directo de la API",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/copy-sin-jerga-en-el-panel.md",
+      "linea": 8
+    },
+    "check": "checks/jerga-interna-en-copy.mjs",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/limpieza-de-texto-redundante-en-landings.md",
+        "linea": 44
+      }
+    ]
+  },
+  {
+    "id": "enums-crudos-nunca",
+    "titulo": "Ningún valor crudo de la base en pantalla",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Enums en mayúsculas y fechas ISO pasan por una función de formato compartida.",
+    "bien": "En vivo · 8 sep",
+    "mal": "ACTIVE_LIVE · 2026-09-08",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 165
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/copy-sin-jerga-en-el-panel.md",
+        "linea": 26
+      }
+    ]
+  },
+  {
+    "id": "subtitulo-que-gana-el-usuario",
+    "titulo": "Subtítulo = qué gana el usuario",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un subtítulo dice qué gana el usuario, nunca de dónde viene el dato; si no hay nada que decir, se quita.",
+    "bien": "Quién te compra y quién te sigue",
+    "mal": "CRM de fans del tenant",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/limpieza-de-texto-redundante-en-landings.md",
+      "linea": 48
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/copy-sin-jerga-en-el-panel.md",
+        "linea": 30
+      }
+    ]
+  },
+  {
+    "id": "cada-dato-una-vez",
+    "titulo": "Cada dato una vez por pantalla",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Cada dato aparece una vez, en el lugar donde decide algo.",
+    "bien": "La ciudad solo en la tarjeta del evento",
+    "mal": "La ciudad en la tarjeta, en el mapa y en el pie",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/limpieza-de-texto-redundante-en-landings.md",
+      "linea": 14
+    },
+    "cubre_externo": "impeccable:repeated-container-text (parcial)"
+  },
+  {
+    "id": "porcentaje-con-denominador",
+    "titulo": "Porcentajes con denominador",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Todo porcentaje va con su denominador.",
+    "bien": "34 de 46 · 74 %",
+    "mal": "74 %",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 135
+    }
+  },
+  {
+    "id": "salvedad-pegada-al-dato",
+    "titulo": "Salvedades pegadas al dato",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "La salvedad va junto al dato que matiza, nunca al pie de página.",
+    "bien": "Cifra con nota «todavía crece» al lado",
+    "mal": "Asterisco y nota al pie",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 136
+    }
+  },
+  {
+    "id": "rotulo-de-grupo-no-nombra-miembro",
+    "titulo": "Un rótulo de grupo no lleva el nombre de un miembro",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Si una leyenda agrega varias entidades, nombra al grupo, no a una de ellas.",
+    "bien": "«Propias» (125)",
+    "mal": "«Marca X» con 125 piezas de tres marcas",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 142
+    }
+  },
+  {
+    "id": "conjuncion-y-e-o-u",
+    "titulo": "Enumeraciones respetan y/e y o/u",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Las enumeraciones del código usan «e» ante /i/ y «u» ante /o/ con una sola función de unión.",
+    "bien": "Facebook e Instagram",
+    "mal": "Facebook y Instagram",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 159
+    }
+  },
+  {
+    "id": "fechas-convencion-de-chat",
+    "titulo": "Fechas como en un chat",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En listas de conversaciones: hora si es hoy, «ayer», día de la semana, fecha corta después.",
+    "bien": "el martes",
+    "mal": "hace 47 h",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 156
+    }
+  },
+  {
+    "id": "un-solo-formateador-de-hora",
+    "titulo": "Un solo formateador de fecha y hora",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Todas las pantallas usan la misma función de formato de hora.",
+    "bien": "formatHora() en hero, ficha y pie",
+    "mal": "«17:00» en el hero y «5:00 PM» en la ficha",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/ios-web-lookalikes.md",
+      "linea": 101
+    }
+  },
+  {
+    "id": "vacio-dice-lo-que-falta",
+    "titulo": "El vacío nombra lo que la plataforma no tiene",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un estado vacío dice qué falta en la plataforma y un rótulo de subconjunto lo nombra.",
+    "bien": "«331 proyectos a debate»",
+    "mal": "«Proyectos» mostrando solo un subconjunto",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 138
+    }
+  },
+  {
+    "id": "panel-vacio-se-llena-con-dato",
+    "titulo": "El panel vacío se llena con dato",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Deriva el dato que falta antes de escribir un texto que explique el vacío.",
+    "bien": "Panel lleno con lo derivado y una línea discreta",
+    "mal": "«Falta X, ve a Y» con un botón",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/paneles-vacios-con-dato.md",
+      "linea": 1
+    }
+  },
+  {
+    "id": "copy-invita-no-se-disculpa",
+    "titulo": "El copy invita con un verbo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El estado vacío usa un verbo y el beneficio concreto, no una definición ni una disculpa.",
+    "bien": "Arma el primero",
+    "mal": "Los agentes son...",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/la-interfaz-no-cuenta-su-propia-historia.md",
+      "linea": 56
+    }
+  },
+  {
+    "id": "texto-calculado-no-generado",
+    "titulo": "El texto editorial se calcula de los números",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un insight recurrente se arma con reglas deterministas; sin nada que decir, devuelve null.",
+    "bien": "Cascada de lecturas con tests de copy",
+    "mal": "Párrafo pedido a un LLM en cada corrida",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 405
+    }
+  },
+  {
+    "id": "sin-superlativos",
+    "titulo": "Sin superlativos en copy generado",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El copy no usa superlativos (excelente, impresionante, récord, brutal).",
+    "bien": "Subió 12 % contra la semana anterior",
+    "mal": "Un resultado impresionante y récord",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 417
+    }
+  },
+  {
+    "id": "multiplo-sobre-900",
+    "titulo": "Variaciones enormes como múltiplo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Por encima de ~900 % muestra «×86» y deja la cifra exacta en el tooltip; compactos que escalan a millones.",
+    "bien": "×86 · 2.3M",
+    "mal": "+8538 % · 2251.9K",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 420
+    }
+  },
+  {
+    "id": "rotulos-completos",
+    "titulo": "Rótulos completos, nunca abreviados",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "No abrevies rótulos para que quepan; cambia el layout.",
+    "bien": "Asistencia",
+    "mal": "Asis",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/fichas-de-entidad-en-toda-la-interfaz.md",
+      "linea": 103
+    }
+  },
+  {
+    "id": "sin-dato-no-es-cero",
+    "titulo": "Sin dato es motivo, nunca 0",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "copy",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un dato ausente muestra el motivo, no un cero.",
+    "bien": "«Sin votaciones registradas»",
+    "mal": "0",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/fichas-de-entidad-en-toda-la-interfaz.md",
+      "linea": 106
+    }
+  },
+  {
+    "id": "estado-con-icono-y-texto",
+    "titulo": "Cada estado con ícono y texto",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "a11y",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un estado se comunica con ícono más texto, nunca solo con color.",
+    "bien": "Ícono de alerta + «Pago rechazado»",
+    "mal": "Punto rojo solo",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 86
+    }
+  },
+  {
+    "id": "pop-ups-modales",
+    "titulo": "Nada de pop-ups ni modales",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Formularios, confirmaciones y menús ocurren dentro del panel con animación, sin modal ni window.confirm.",
+    "bien": "Panel que desliza dentro del espacio",
+    "mal": "<AlertDialog> o window.confirm(\"¿Seguro?\")",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 119
+    },
+    "check": "checks/pop-ups-modales.mjs",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 95
+      }
+    ]
+  },
+  {
+    "id": "clic-afuera-y-escape-cierran",
+    "titulo": "Clic afuera y Escape cierran",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "a11y",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Todo panel o superficie flotante se cierra con Escape y con clic afuera.",
+    "bien": "onKeyDown Escape + listener de clic afuera",
+    "mal": "Solo se cierra con la X",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 97
+    }
+  },
+  {
+    "id": "detalle-sin-navegar",
+    "titulo": "El detalle no navega",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Abre el detalle dentro del espacio; navegar para ver un detalle pierde el lienzo.",
+    "bien": "Panel lateral con la ficha",
+    "mal": "router.push(\"/item/12\") desde la lista",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 97
+    }
+  },
+  {
+    "id": "flota-no-empuja",
+    "titulo": "El widget activo flota, no empuja",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El detalle se despega y flota; ningún vecino se corre ni cambia de tamaño.",
+    "bien": "Popover no modal con colisión",
+    "mal": "Acordeón que anima la altura y empuja lo de abajo",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/el-widget-activo-flota-no-empuja.md",
+      "linea": 31
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 99
+      },
+      {
+        "archivo": "integrated-dashboard-ux/references/correcciones-y-erratas.md",
+        "linea": 32
+      }
+    ]
+  },
+  {
+    "id": "flotante-se-voltea",
+    "titulo": "La superficie flotante se voltea sola",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Usa la detección de colisión del popover para abrir arriba cerca del borde inferior.",
+    "bien": "avoidCollisions del Popover",
+    "mal": "side=\"bottom\" fijo que se corta al final",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 106
+    }
+  },
+  {
+    "id": "paleta-de-comandos-excepcion",
+    "titulo": "La paleta de comandos es la única superposición",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Solo el buscador con atajo (⌘K) es superposición; igual cierra con Escape y clic afuera.",
+    "bien": "CommandDialog con ⌘K",
+    "mal": "Formulario dentro de un modal",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 111
+    }
+  },
+  {
+    "id": "detalle-reusa-componente-completo",
+    "titulo": "El detalle in-place reusa el componente",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El detalle en el sitio usa el mismo componente de perfil del resto de la app, sin mini-resumen duplicado.",
+    "bien": "<Perfil id={id}/> en el panel",
+    "mal": "Un ResumenPerfil copiado a mano",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 116
+    }
+  },
+  {
+    "id": "artefactos-en-panel-derecho",
+    "titulo": "Artefactos del chat en un panel derecho",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Los artefactos abren en un panel derecho con pestañas que empuja al chat; nunca modal ni segundo lienzo.",
+    "bien": "Tarjeta «Abrir» y panel desde la derecha",
+    "mal": "Modal con el documento encima del chat",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 18
+    }
+  },
+  {
+    "id": "formulario-detras-de-la-accion",
+    "titulo": "El formulario vive detrás de su acción",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un formulario no se ve de entrada: aparece al pulsar la acción que lo usa.",
+    "bien": "Botón «Agregar» que despliega el formulario",
+    "mal": "Formulario abierto permanente sobre la lista",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 765
+    }
+  },
+  {
+    "id": "quitar-va-a-papelera",
+    "titulo": "Quitar manda a una papelera",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Borrar lo que la persona generó lo manda a una papelera recuperable.",
+    "bien": "Papelera con restaurar",
+    "mal": "DELETE inmediato sin vuelta",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 793
+    }
+  },
+  {
+    "id": "deshacer-en-vez-de-confirmar",
+    "titulo": "Deshacer en lugar de confirmaciones",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En herramientas diarias: edición en el sitio y ⌘Z en lugar de diálogos de confirmación.",
+    "bien": "Toast con «Deshacer»",
+    "mal": "«¿Seguro que quieres borrar?»",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 70
+    }
+  },
+  {
+    "id": "segunda-barra-superior",
+    "titulo": "Una sola barra superior compartida",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Una sola barra superior para toda la app; nada de versiones por página ni dos navegaciones.",
+    "bien": "Un layout con un header fijo",
+    "mal": "Header fijo en el layout y otro sticky en la página",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 122
+    },
+    "check": "checks/segunda-barra-superior.mjs",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 173
+      },
+      {
+        "archivo": "integrated-dashboard-ux/references/barra-superior-y-estados-activos.md",
+        "linea": 7
+      }
+    ]
+  },
+  {
+    "id": "inventariar-antes-de-quitar-menu",
+    "titulo": "Inventariar antes de jubilar un menú",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Antes de quitar un menú, lista lo que solo vive ahí (cerrar sesión, cuenta) y constrúyelo antes.",
+    "bien": "Avatar con cerrar sesión en la barra nueva",
+    "mal": "Quitar la hamburguesa y perder el logout",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/barra-superior-y-estados-activos.md",
+      "linea": 14
+    }
+  },
+  {
+    "id": "modos-antes-que-tabs",
+    "titulo": "Modo en el mismo lienzo antes que tab nuevo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Antes de crear una ruta o tab, intenta un modo (estado local) sobre el mismo lienzo.",
+    "bien": "Botones de modo sobre el lienzo",
+    "mal": "Tab nuevo «para ir rápido»",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 90
+    }
+  },
+  {
+    "id": "navegacion-escribe-la-url",
+    "titulo": "Cambiar de vista escribe la dirección",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ax",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Toda navegación que cambia la vista actualiza la URL y la vista se reconstruye desde ella.",
+    "bien": "?vista=pedidos en la URL",
+    "mal": "Estado local que se pierde al recargar",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 776
+    }
+  },
+  {
+    "id": "barra-lateral-en-paneles-de-datos",
+    "titulo": "Paneles de datos: navegación al costado",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Si el trabajo es un panel de datos, la navegación va al costado y el lienzo toma todo el ancho.",
+    "bien": "Barra lateral + área a ancho completo",
+    "mal": "Barra superior con max-width que encajona el lienzo",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 177
+    }
+  },
+  {
+    "id": "estado-activo-no-bloque-macizo",
+    "titulo": "El estado activo no es un bloque macizo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Marca el activo con fondo tenue del color de marca, texto del mismo color y trazo interior.",
+    "bien": "bg-[COLOR]/[0.07] ring-1 ring-inset",
+    "mal": "bg-black text-white en el tab activo",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/barra-superior-y-estados-activos.md",
+      "linea": 36
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/estados-activos-y-tokens-de-la-casa.md",
+        "linea": 8
+      }
+    ]
+  },
+  {
+    "id": "iconos-sin-repetir-en-rail",
+    "titulo": "Sin glifos repetidos en un rail",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En una barra de destinos cada destino tiene su glifo propio.",
+    "bien": "Ocho íconos distintos",
+    "mal": "El mismo ícono para dos destinos",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/iconos-repetidos-y-logo-como-destino.md",
+      "linea": 20
+    }
+  },
+  {
+    "id": "navegacion-movil-existe",
+    "titulo": "Navegación alternativa en móvil",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Si el rail se oculta en móvil, debe existir otra navegación.",
+    "bien": "Barra inferior o menú en móvil",
+    "mal": "Rail max-md:hidden sin reemplazo",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/iconos-repetidos-y-logo-como-destino.md",
+      "linea": 126
+    }
+  },
+  {
+    "id": "cabecera-movil-cabe",
+    "titulo": "La cabecera cabe en 375 px",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "A 375 px ningún elemento del header sale del viewport; lo secundario se oculta antes que encoger los toques de 44.",
+    "bien": "Idioma solo con el código",
+    "mal": "Logo cortado y scroll horizontal al abrir el menú",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 65
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 37
+      }
+    ]
+  },
+  {
+    "id": "header-iphone-transparente",
+    "titulo": "Header fijo en iPhone sin fondo ni blur a ancho completo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El header fijo es transparente y pointer-events-none; solo las píldoras llevan su vidrio.",
+    "bien": "Píldoras .glass-sm sueltas",
+    "mal": "<header className=\"backdrop-blur bg-gradient-to-b ...\">",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 27
+    }
+  },
+  {
+    "id": "logo-por-tema",
+    "titulo": "Logo por tema en cada superficie",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Toda superficie usa el par de logos por tema; un img suelto queda oscuro sobre oscuro.",
+    "bien": "gc-logo--ink / gc-logo--white",
+    "mal": "<img src=\"logo.svg\"> fijo",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 44
+    }
+  },
+  {
+    "id": "contraste-wcag",
+    "titulo": "Contraste WCAG medido",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "a11y",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Texto normal ≥ 4.5:1, grande ≥ 3:1, componentes y bordes ≥ 3:1, componiendo los rgba sobre el fondo real.",
+    "bien": "--ink-3 al 55 % (4.5:1)",
+    "mal": "--ink-3 al 38 % (2.4:1) en texto de 10 px",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tokens-interactivos-y-contraste.md",
+      "linea": 11
+    },
+    "cubre_externo": "impeccable:low-contrast"
+  },
+  {
+    "id": "contraste-dos-temas",
+    "titulo": "Contraste medido en los dos temas",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "a11y",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Mide el contraste contra el fondo compuesto en claro y en oscuro y barre la regresión inversa.",
+    "bien": "ilegibles/textos por página en ambos temas",
+    "mal": "Arreglar oscuro y romper claro",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 1332
+    }
+  },
+  {
+    "id": "componente-no-toca-primitiva",
+    "titulo": "Un componente nunca toca una primitiva",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Los componentes usan roles semánticos; nada de hex ni rgba literales fuera de los tokens.",
+    "bien": "text-foreground",
+    "mal": "text-[#0e1745] o rgba(14,23,69,.4)",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tokens-interactivos-y-contraste.md",
+      "linea": 71
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 77
+      }
+    ],
+    "cubre_externo": "impeccable:design-system-color (requiere DESIGN.md)"
+  },
+  {
+    "id": "hex-en-componentes",
+    "titulo": "Grep de hex fuera de tokens da 0",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Ningún hex literal en componentes: los colores salen de tokens.",
+    "bien": "bg-primary",
+    "mal": "bg-[#1534dc]",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 77
+    },
+    "check": "checks/hex-en-componentes.mjs"
+  },
+  {
+    "id": "estados-interactivos-completos",
+    "titulo": "Cuatro estados en todo lo interactivo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Todo lo interactivo declara rest, hover, active y disabled como tokens.",
+    "bien": "--interactive-hover y -disabled",
+    "mal": "Solo color de reposo",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tokens-interactivos-y-contraste.md",
+      "linea": 65
+    }
+  },
+  {
+    "id": "focus-visible",
+    "titulo": "focus-visible en lo clicable",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "a11y",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Toda entidad clicable muestra foco visible y los filtros llevan aria-pressed.",
+    "bien": "focus-visible:ring-2 aria-pressed",
+    "mal": "div onClick sin foco",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 186
+    }
+  },
+  {
+    "id": "blur-es-decoracion",
+    "titulo": "El blur es decoración, la información no",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "a11y",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Lo atenuado por foco sigue siendo accesible: la información no depende del blur.",
+    "bien": "aria-hidden solo en lo decorativo",
+    "mal": "Datos solo legibles fuera del blur",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/foco-de-lista.md",
+      "linea": 60
+    }
+  },
+  {
+    "id": "panel-cerrado-fuera-del-tab",
+    "titulo": "Panel cerrado fuera del orden de Tab",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "a11y",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un panel que sale con translate sigue en el orden de Tab: ciérralo con inert o visibility.",
+    "bien": "inert cuando está cerrado",
+    "mal": "translate-x-full con botones enfocables",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 880
+    }
+  },
+  {
+    "id": "reduced-motion-ausente",
+    "titulo": "Respetar prefers-reduced-motion",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Toda animación tiene su variante con prefers-reduced-motion: reduce.",
+    "bien": "@media (prefers-reduced-motion: reduce){.animate-in{animation:none}}",
+    "mal": "Animaciones sin guardia",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/animaciones-que-no-existen.md",
+      "linea": 83
+    },
+    "cubre_externo": "transitions:no-reduced-motion"
+  },
+  {
+    "id": "nunca-editar-components-ui",
+    "titulo": "No editar la librería en components/ui",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "shadcn",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Sobrescribe en el componente propio con una clase; components/ui es código ajeno que se regenera.",
+    "bien": "className=\"py-2\" en el uso",
+    "mal": "Editar components/ui/list.tsx",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/auditar-el-aire-de-toda-la-app.md",
+      "linea": 55
+    }
+  },
+  {
+    "id": "usar-componente-de-la-casa",
+    "titulo": "Usar el componente que ya existe",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "shadcn",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Antes de maquetar un control, busca si el proyecto ya lo tiene (IconButton, Button).",
+    "bien": "<IconButton name=\"add\"/>",
+    "mal": "<button><Icon name=\"add\"/></button> armado a mano",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/barrer-todos-los-controles-antes-de-entregar.md",
+      "linea": 95
+    }
+  },
+  {
+    "id": "caja-solo-en-lo-presionable",
+    "titulo": "La caja es para lo presionable, en hover",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Íconos decorativos desnudos; lo clicable arranca plano y su caja aparece al pasar el mouse.",
+    "bien": "hover:bg-muted en el botón de ícono",
+    "mal": "Ícono de título dentro de un cuadro con fondo",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 286
+    }
+  },
+  {
+    "id": "accion-hover-existe-en-movil",
+    "titulo": "Lo que aparece en hover existe en el teléfono",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Las acciones ocultas hasta el hover deben verse en pantallas táctiles.",
+    "bien": "@media (hover:none){opacity:1}",
+    "mal": "Editar con opacity-0 hasta hover y nada en móvil",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 1290
+    }
+  },
+  {
+    "id": "zona-tactil-menor-a-44",
+    "titulo": "Zona táctil de 44 pt",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Todo control táctil tiene 44 pt de zona; si se ve más chico, crece con un pseudo-elemento.",
+    "bien": ".hit-44::before de 44x44",
+    "mal": "<button className=\"h-7 w-7\">",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 14
+    },
+    "check": "checks/zona-tactil-menor-a-44.mjs",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+        "linea": 12
+      }
+    ]
+  },
+  {
+    "id": "input-menor-a-16px",
+    "titulo": "Inputs de 16 px en móvil",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Los campos de texto usan 16 px en móvil para evitar el zoom de iOS.",
+    "bien": "text-base md:text-sm",
+    "mal": "<Input className=\"text-sm\">",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 12
+    },
+    "check": "checks/input-menor-a-16px.mjs",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+        "linea": 6
+      }
+    ]
+  },
+  {
+    "id": "hojas-en-movil",
+    "titulo": "Hojas inferiores en móvil",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En móvil, Dialog o Sheet lateral pasan a hoja inferior con agarre y arrastre; DropdownMenu a hoja de acciones.",
+    "bien": "Drawer con agarre en móvil",
+    "mal": "Sheet lateral en 390 px",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 12
+    }
+  },
+  {
+    "id": "resorte-no-fade",
+    "titulo": "Resorte en vez de fade en móvil",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Las entradas en móvil usan resorte, no fundido plano.",
+    "bien": "spring 400/30",
+    "mal": "fade lineal",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 12
+    }
+  },
+  {
+    "id": "acciones-al-alcance-del-pulgar",
+    "titulo": "Acciones al alcance del pulgar",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En móvil las acciones principales van abajo, no en una barra fija arriba.",
+    "bien": "Barra de acciones inferior",
+    "mal": "Acción primaria arriba a la derecha",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 12
+    }
+  },
+  {
+    "id": "telefono-primero",
+    "titulo": "Diseñar para 390 px y escalar",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Diseña para 390 px primero; cierre: scrollWidth ≤ 390 y tocables ≥ 44 en cada pantalla.",
+    "bien": "Playwright 390x844 sin scroll horizontal",
+    "mal": "Escritorio primero y móvil al final",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 79
+    }
+  },
+  {
+    "id": "panel-lateral-debajo-en-movil",
+    "titulo": "El panel lateral cae debajo en móvil",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Layouts de panel lateral usan flex-col en móvil y fila desde md.",
+    "bien": "flex-col md:flex-row",
+    "mal": "flex-row fijo que aprieta 390 px",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 184
+    }
+  },
+  {
+    "id": "filas-de-datos-apiladas-en-movil",
+    "titulo": "Filas de datos en dos filas en móvil",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En móvil apila identidad arriba y datos abajo con whitespace-nowrap.",
+    "bien": "flex-col sm:flex-row + nowrap",
+    "mal": "«15 de / nov de / 2026» partido",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/ios-web-lookalikes.md",
+      "linea": 128
+    }
+  },
+  {
+    "id": "nada-corto-se-parte-en-movil",
+    "titulo": "En móvil nada corto se parte",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Rótulos cortos, píldoras y pares «cifra · %» no se parten: whitespace-nowrap.",
+    "bien": "whitespace-nowrap en la píldora",
+    "mal": "% solo en la segunda línea",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 898
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 1294
+      }
+    ]
+  },
+  {
+    "id": "avisos-arriba-al-centro",
+    "titulo": "Avisos arriba al centro, sin X",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Los toasts van arriba al centro con offset de área segura, ícono por tipo y sin botón de cerrar.",
+    "bien": "Sonner top-center unstyled",
+    "mal": "Caja a un lado con color pleno y X",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/ios-web-lookalikes.md",
+      "linea": 9
+    }
+  },
+  {
+    "id": "sonidos-cortos-sin-silenciar",
+    "titulo": "Sonidos cortos y discretos, sin botón de silenciar",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Sonidos breves y sutiles; no se agrega botón de silenciar.",
+    "bien": "Pico −19 a −30 dBFS, cola ≤ 280 ms",
+    "mal": "Botón de mute en la tienda",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/experiencia-de-compra-sonido-y-animacion.md",
+      "linea": 36
+    },
+    "tambien_en": [
+      {
+        "archivo": "perfil-usuario-hermes",
+        "linea": 0
+      }
+    ]
+  },
+  {
+    "id": "sin-ventanas-flotantes-en-movil",
+    "titulo": "En celular no hay ventanas flotantes",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En móvil una app tipo ventana entra como hoja desde abajo.",
+    "bien": "Hoja inferior",
+    "mal": "Ventana arrastrable en 390 px",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/ventanas-tipo-macos.md",
+      "linea": 51
+    }
+  },
+  {
+    "id": "macos-tres-columnas",
+    "titulo": "Herramienta diaria: tres columnas y teclado",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En herramientas densas: barra lateral, lista, detalle; ⌘K, flechas y Esc.",
+    "bien": "Mail/Notes: lista + detalle + inspector",
+    "mal": "Pantallas de editar separadas",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 66
+    }
+  },
+  {
+    "id": "estados-que-conservan-estructura",
+    "titulo": "Vacío y carga conservan la estructura",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Los estados vacíos y de carga mantienen el layout; la ventana nunca salta.",
+    "bien": "Skeleton con la misma grilla",
+    "mal": "Spinner centrado que colapsa el panel",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 71
+    }
+  },
+  {
+    "id": "radios-concentricos",
+    "titulo": "Radios concéntricos",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Hoja 16 px, controles 10 px, mini 6 px; un hijo pegado a un borde curvo usa radio = exterior − separación.",
+    "bien": "Hoja 16, botón a 8 px con radio 8",
+    "mal": "Botón de 2-4 px recto junto a una esquina de 16",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 32
+    }
+  },
+  {
+    "id": "un-contenedor-un-tono",
+    "titulo": "Un contenedor, un tono",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Barra, panel y pie de la misma superficie comparten color; el vidrio se arma con el fondo de la marca.",
+    "bien": "rgba(35,31,31,.72) sobre #231f1f",
+    "mal": "Gris frío de iOS 28,28,30 sobre la marca",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 53
+    }
+  },
+  {
+    "id": "widget-pintado-sigue-el-tema",
+    "titulo": "Canvas y SVG siguen el tema",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Todo widget pintado a mano tiene paleta clara y oscura leída del tema; cero rgba literales en el dibujo.",
+    "bien": "paleta[tema].velo",
+    "mal": "Canvas con colores fijos de noche en tema claro",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 61
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 1342
+      }
+    ]
+  },
+  {
+    "id": "aire-por-familia",
+    "titulo": "El aire se audita por barrido",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Mide el padding de toda la app y unifica una medida por familia de componente.",
+    "bien": "Todas las tarjetas a 14 px",
+    "mal": "Arreglar un borde por reporte",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 487
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/auditar-el-aire-de-toda-la-app.md",
+        "linea": 41
+      }
+    ],
+    "cubre_externo": "impeccable:cramped-padding (parcial)"
+  },
+  {
+    "id": "pie-de-barra-no-apoyado",
+    "titulo": "Nada apoyado en el filo inferior",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El último hijo de una columna o área con scroll tiene padding inferior.",
+    "bien": "SidebarFooter pb-2.5",
+    "mal": "Pie de la barra lateral pegado al borde",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/auditar-el-aire-de-toda-la-app.md",
+      "linea": 51
+    }
+  },
+  {
+    "id": "celda-no-cambia-de-tamano",
+    "titulo": "Una celda de bento no cambia de tamaño",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Una celda puede cambiar de recorte y capa según su estado, nunca de tamaño en la grilla.",
+    "bien": "Tarjeta interna absolute con sombra",
+    "mal": "col-span-2 al activar",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/correcciones-y-erratas.md",
+      "linea": 31
+    }
+  },
+  {
+    "id": "tarjeta-resumen-no-crece",
+    "titulo": "Una tarjeta de resumen nunca crece con la data",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El «Ver los N» abre el detalle en el panel, no estira la tarjeta.",
+    "bien": "Ver los 40 abre el panel",
+    "mal": "La tarjeta se alarga con la lista",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/barra-lateral-y-lienzo.md",
+      "linea": 58
+    }
+  },
+  {
+    "id": "layout-sobre-el-area-de-trabajo",
+    "titulo": "El layout se calcula sobre el área de trabajo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Mide el contenedor real con ResizeObserver; un SVG se dibuja 1:1 con ese ancho.",
+    "bien": "viewBox = ancho medido",
+    "mal": "colPx constante y viewBox fijo que escala el texto",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 358
+    }
+  },
+  {
+    "id": "no-inicializar-medida-en-cero",
+    "titulo": "No inicializar la medida en 0",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Arranca con un ancho razonable y corrige; no bloquees el render hasta tener medida.",
+    "bien": "useState(800) y medir de inmediato",
+    "mal": "if (!ancho) return null",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 371
+    }
+  },
+  {
+    "id": "orden-vertical-de-la-tarea",
+    "titulo": "Un renglón de gráficos, el trabajo, el análisis plegado",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Arriba un renglón accionable, en el medio el espacio de trabajo, abajo el análisis plegado.",
+    "bien": "KPIs · chat · análisis cerrado",
+    "mal": "Tres renglones de gráficos antes del editor",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 238
+    }
+  },
+  {
+    "id": "widget-criterio-no-inventario",
+    "titulo": "Un widget aporta criterio, no inventario",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Cada celda responde una pregunta accionable; un conteo solo vive como denominador.",
+    "bien": "Cuántos siguen esperando respuesta",
+    "mal": "«N conversaciones»",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 188
+    }
+  },
+  {
+    "id": "medida-central-con-su-cola",
+    "titulo": "Una medida central va con su cola",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Muestra mediana con p75, o el percentil alto si ahí está la historia.",
+    "bien": "mediana 3 min · p75 41 min",
+    "mal": "Solo la mediana",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 195
+    }
+  },
+  {
+    "id": "metrica-defiende-frescura",
+    "titulo": "Ninguna métrica sin frescura ni origen",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Antes de mostrar una cifra, mide qué la mueve, cada cuánto se actualiza y cuántas filas están pobladas.",
+    "bien": "Conteo de filas no nulas antes de la celda",
+    "mal": "Contador del proveedor mostrado como operación del cliente",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 206
+    }
+  },
+  {
+    "id": "una-forma-por-pregunta",
+    "titulo": "Una forma por pregunta en gráficos",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Cada dato usa la forma que le corresponde; dos grupos en una escala son pirámide, no barras apiladas.",
+    "bien": "Pirámide edad × género",
+    "mal": "Seis barras horizontales iguales",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 247
+    }
+  },
+  {
+    "id": "grafico-explica-en-hover",
+    "titulo": "Todo gráfico explica cómo se lee, en hover",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un «?» junto al título abre la explicación de ejes y colores, no texto permanente.",
+    "bien": "HoverCard en el «?»",
+    "mal": "Párrafo fijo debajo del gráfico",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 267
+    }
+  },
+  {
+    "id": "icono-en-cada-widget",
+    "titulo": "Ícono en cada widget",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "La celda lleva ícono junto al título y los botones de acción el suyo.",
+    "bien": "Ícono + «Respuestas pendientes»",
+    "mal": "Widgets solo con texto",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 273
+    }
+  },
+  {
+    "id": "color-en-el-borde-cuerpo-velo",
+    "titulo": "El color vive en el borde; el cuerpo es un velo",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Piezas macizas de datos con borde del color y relleno tenue (alfa 0.16-0.28).",
+    "bien": "border-[c] bg-[c]/20",
+    "mal": "Barras rellenas al 100 %",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 306
+    }
+  },
+  {
+    "id": "paleta-de-datos-una-familia",
+    "titulo": "La paleta de datos es una familia",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Rampa continua de luminosidad pareja; dos lados enfrentados toman índices separados.",
+    "bien": "índigo → violeta → magenta → cian",
+    "mal": "Arcoíris de seis familias",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 317
+    },
+    "cubre_externo": "impeccable:ai-color-palette (parcial)"
+  },
+  {
+    "id": "color-de-marca-solo-de-la-marca",
+    "titulo": "El color de la marca propia es solo de ella",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un tercero nunca se pinta con el color de la marca propia.",
+    "bien": "Competidor en color propio de la paleta",
+    "mal": "Un tercero pintado con el color de la marca propia",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 326
+    }
+  },
+  {
+    "id": "color-de-serie-sale-del-dato",
+    "titulo": "El color de una serie sale del dato",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El color oficial de la entidad se guarda con ella; gris solo para el faltante.",
+    "bien": "partido.color",
+    "mal": "['bg-emerald','bg-amber'][i % 9]",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/barra-superior-y-estados-activos.md",
+      "linea": 106
+    }
+  },
+  {
+    "id": "techo-de-luminancia-en-oscuro",
+    "titulo": "Techo de luminancia en oscuro",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "a11y",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Sobre fondo oscuro, los colores de datos quedan bajo L ≈ 130 con un test sobre los tokens.",
+    "bien": "Bajar V en HSV manteniendo H",
+    "mal": "Paleta de 138-185 que se lee gris claro",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tokens-interactivos-y-contraste.md",
+      "linea": 103
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 332
+      }
+    ]
+  },
+  {
+    "id": "relieve-oscuro-sin-halo-blanco",
+    "titulo": "En oscuro la luz alta es tenue",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Las sombras heredadas del tema claro no ponen blanco ≥ 0.5 alrededor de tarjetas oscuras.",
+    "bien": "luz alta 0.04-0.06",
+    "mal": "rgba(255,255,255,.9) en box-shadow sobre oscuro",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tokens-interactivos-y-contraste.md",
+      "linea": 75
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 349
+      }
+    ],
+    "cubre_externo": "impeccable:dark-glow (parcial)"
+  },
+  {
+    "id": "trazo-insinuacion",
+    "titulo": "El trazo es una insinuación",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Líneas de serie al ~72 % de alfa y 1.1-1.6 px; el hover realza sin llegar al color pleno.",
+    "bien": "trazo 0.72 → 0.95",
+    "mal": "Línea de 2 px a color pleno",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 337
+    }
+  },
+  {
+    "id": "graficos-sobre-el-fondo",
+    "titulo": "Gráficos sobre el fondo, sin tarjeta",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Lo que genera la IA (gráficos, piezas) va sobre el fondo, sin tarjeta ni caja doble.",
+    "bien": "Gráfico suelto bajo la respuesta",
+    "mal": "Gráfico dentro de una tarjeta dentro de otra",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 21
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/burbujas-de-chat.md",
+        "linea": 26
+      },
+      {
+        "archivo": "perfil-usuario-hermes",
+        "linea": 0
+      }
+    ],
+    "cubre_externo": "impeccable:nested-cards (parcial)"
+  },
+  {
+    "id": "pulgares-chicos-sin-caja",
+    "titulo": "Pulgares chicos y discretos, sin caja",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Los controles de opinión son íconos de ~15 px, grises, sin borde ni caja, sin pregunta visible.",
+    "bien": "Dos íconos de 15 px grises",
+    "mal": "Botones-caja de 44 px con «¿Te sirvió?»",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 18
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/burbujas-de-chat.md",
+        "linea": 29
+      },
+      {
+        "archivo": "perfil-usuario-hermes",
+        "linea": 0
+      }
+    ]
+  },
+  {
+    "id": "chat-nombre-fuera-de-burbuja",
+    "titulo": "Nombre fuera de la burbuja, hora en hover",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En chats el nombre va encima de la burbuja y la hora aparece en hover con espacio reservado.",
+    "bien": "Nombre arriba; hora con opacity en hover",
+    "mal": "Nombre y hora dentro de la burbuja",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/burbujas-de-chat.md",
+      "linea": 16
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/burbujas-de-chat.md",
+        "linea": 19
+      },
+      {
+        "archivo": "perfil-usuario-hermes",
+        "linea": 0
+      }
+    ]
+  },
+  {
+    "id": "solo-usuario-en-burbuja",
+    "titulo": "En chat con IA solo el usuario va en burbuja",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "La respuesta del asistente va sobre el fondo, sin caja; la burbuja del usuario es fina.",
+    "bien": "rounded-lg px-3 py-2 solo para el usuario",
+    "mal": "Respuesta larga dentro de una caja con borde de marca",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/burbujas-de-chat.md",
+      "linea": 7
+    }
+  },
+  {
+    "id": "un-solo-interruptor-cliente",
+    "titulo": "El cliente ve un solo interruptor",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Una capacidad compleja se expone al cliente como un interruptor; los ejes viven en la consola interna.",
+    "bien": "Switch «Agente autónomo»",
+    "mal": "Matriz de permisos por eje en la vista del cliente",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/controles-de-cliente-vs-consola-interna.md",
+      "linea": 10
+    },
+    "tambien_en": [
+      {
+        "archivo": "perfil-usuario-hermes",
+        "linea": 0
+      }
+    ]
+  },
+  {
+    "id": "una-app-un-shell",
+    "titulo": "Una sola app coherente entre pantallas",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Todas las pantallas y maquetas comparten el mismo shell; un panel distinto entre pasos se ve improvisado.",
+    "bien": "Mismo marco en los cinco pasos",
+    "mal": "Cada paso con un layout distinto",
+    "fuente": {
+      "archivo": "perfil-usuario-hermes",
+      "linea": 0
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/barra-lateral-y-lienzo.md",
+        "linea": 23
+      }
+    ]
+  },
+  {
+    "id": "personas-con-foto",
+    "titulo": "Toda persona con foto en listas",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En listas, cada persona lleva su foto; sin foto, iniciales sobre el tinte del grupo.",
+    "bien": "Avatar con foto o iniciales",
+    "mal": "Lista de diputados solo con nombre",
+    "fuente": {
+      "archivo": "perfil-usuario-hermes",
+      "linea": 0
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+        "linea": 62
+      }
+    ]
+  },
+  {
+    "id": "espaciado-phi",
+    "titulo": "Espaciado en proporción φ",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Base = ancho del contenedor; lados y espaciados = base / φ^n (φ = 1.618).",
+    "bien": "Columnas 61.8 % / 38.2 %",
+    "mal": "Paddings arbitrarios sin relación",
+    "fuente": {
+      "archivo": "perfil-usuario-hermes",
+      "linea": 0
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/fondos-de-pantalla-completa-y-degradados.md",
+        "linea": 249
+      }
+    ]
+  },
+  {
+    "id": "efectos-muy-sutiles",
+    "titulo": "Efectos visuales muy sutiles",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Halos, blur y movimiento quedan apenas perceptibles.",
+    "bien": "Marca de agua opacity-[0.05]",
+    "mal": "Brillo que barre la tarjeta en cada hover",
+    "fuente": {
+      "archivo": "perfil-usuario-hermes",
+      "linea": 0
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/correcciones-visuales-del-dueno.md",
+        "linea": 24
+      }
+    ]
+  },
+  {
+    "id": "pila-de-estilo-por-capas",
+    "titulo": "shadcn código, HIG interacción, M3 sistema, marca lo visible",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Cada capa decide su dominio: shadcn código y a11y, HIG interacción, M3 color/tipo/estados, marca el aspecto.",
+    "bien": "Resolver un choque por dominio",
+    "mal": "Copiar el look de Material",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 3
+    },
+    "tambien_en": [
+      {
+        "archivo": "perfil-usuario-hermes",
+        "linea": 0
+      }
+    ]
+  },
+  {
+    "id": "sin-scrollbars-internos",
+    "titulo": "Sin scrollbars internas visibles",
+    "tier": "AA",
+    "tipo": "determinista",
+    "capa": "marca",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Toda franja con overflow-x-auto lleva no-scrollbar; la barra que queda es fina, sin carril.",
+    "bien": "overflow-x-auto no-scrollbar",
+    "mal": "overflow-x-auto con la barra gris nativa",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/correcciones-visuales-del-dueno.md",
+      "linea": 58
+    },
+    "check": "checks/sin-scrollbars-internos.mjs"
+  },
+  {
+    "id": "sin-svg-figurativo-aproximado",
+    "titulo": "Sin fondo figurativo aproximado",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un dibujo figurativo hecho a mano se lee peor que ninguno; usa el activo real o una marca tipográfica.",
+    "bien": "Logo real como marca de agua sutil",
+    "mal": "SVG casero del recinto",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/correcciones-visuales-del-dueno.md",
+      "linea": 21
+    }
+  },
+  {
+    "id": "banda-no-es-parrafo",
+    "titulo": "Un resumen es diseño, no un párrafo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un espacio de resumen muestra cifras, fotos y barras; un párrafo de texto no cumple.",
+    "bien": "Tarjeta por dimensión con cifra grande",
+    "mal": "Párrafo resumen en la banda",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/correcciones-visuales-del-dueno.md",
+      "linea": 50
+    }
+  },
+  {
+    "id": "color-como-barra-no-fondo",
+    "titulo": "El color de entidad va como barra, no como fondo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Identifica una entidad con una barra fina de color, no con un fondo teñido.",
+    "bien": "border-l-2 del color",
+    "mal": "bg-[color] detrás del texto",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/fichas-de-entidad-en-toda-la-interfaz.md",
+      "linea": 41
+    }
+  },
+  {
+    "id": "filtrar-atenua-no-oculta",
+    "titulo": "Filtrar atenúa, no oculta",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Al filtrar una escena, lo que no aplica baja a opacity-20 con transición y un conteo «16 de 56».",
+    "bien": "opacity-20 + «16 de 56 participan»",
+    "mal": "Ocultar las entidades filtradas",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 129
+    }
+  },
+  {
+    "id": "cifras-tabular-nums",
+    "titulo": "Cifras vivas con tabular-nums",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Las cifras que cambian usan tabular-nums y flechas en SVG.",
+    "bien": "tabular-nums",
+    "mal": "Cifras que bailan al actualizarse",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 1271
+    }
+  },
+  {
+    "id": "truncate-en-el-texto",
+    "titulo": "truncate va en el texto, no en la fila",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En una fila ícono + texto, truncate y min-w-0 van en el texto.",
+    "bien": "<span className=\"truncate min-w-0\">",
+    "mal": "truncate en el flex padre",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 1298
+    }
+  },
+  {
+    "id": "transition-all",
+    "titulo": "Sin transition-all",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Nombra las propiedades que cambian; transition-all anima layout y dispara reflow.",
+    "bien": "transition-[color,background-color,box-shadow,transform]",
+    "mal": "transition-all",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/animaciones-que-no-existen.md",
+      "linea": 117
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/barra-superior-y-estados-activos.md",
+        "linea": 53
+      }
+    ],
+    "cubre_externo": "transitions:transition-all"
+  },
+  {
+    "id": "solo-opacity-y-transform",
+    "titulo": "Animar solo opacity y transform",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Las animaciones de entrada usan opacity y transform; la altura se anima con grid-rows 0fr a 1fr.",
+    "bien": "grid-rows-[0fr] → [1fr]",
+    "mal": "animate-in sobre height:auto",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/animaciones-que-no-existen.md",
+      "linea": 86
+    }
+  },
+  {
+    "id": "animaciones-sin-css",
+    "titulo": "Una animación existe solo si está en el CSS compilado",
+    "tier": "A",
+    "tipo": "determinista",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Si usas animate-in, fade-in o slide-in, define las clases o instala su plugin.",
+    "bien": "@import \"tw-animate-css\"",
+    "mal": "animate-in en 12 archivos sin plugin",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/animaciones-que-no-existen.md",
+      "linea": 37
+    },
+    "check": "checks/animaciones-sin-css.mjs"
+  },
+  {
+    "id": "salida-animada-montada",
+    "titulo": "La salida también se anima",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un contenedor que abre y cierra queda montado y anima entre dos estados.",
+    "bien": "grid-rows con aria-hidden",
+    "mal": "{abierto && <div/>}",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/animaciones-que-no-existen.md",
+      "linea": 95
+    }
+  },
+  {
+    "id": "curva-de-salida",
+    "titulo": "Curva de salida en hover y despliegues",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Hover y despliegues con ~200 ms y curva de salida (0.22,1,0.36,1).",
+    "bien": "duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]",
+    "mal": "ease-linear 500 ms",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/barra-superior-y-estados-activos.md",
+      "linea": 62
+    },
+    "cubre_externo": "transitions:slow-duration (parcial)"
+  },
+  {
+    "id": "escalonado-sin-parpadeo",
+    "titulo": "Entrada escalonada sin parpadeo",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Una fila de destinos entra escalonada (~30 ms) con animationFillMode backwards.",
+    "bien": "animationDelay i*30ms + backwards",
+    "mal": "Escalonado que parpadea el primer cuadro",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/barra-superior-y-estados-activos.md",
+      "linea": 72
+    }
+  },
+  {
+    "id": "cifras-se-mueven",
+    "titulo": "Las cifras y los charts se mueven con el dato",
+    "tier": "AAA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Anima el dato (curva in-out ~900 ms), no el DOM; crecer desde 0 solo en la primera carga.",
+    "bien": "<Cifra valor/> con useVivo",
+    "mal": "Cifra que re-crece desde 0 en cada montaje",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/cifras-y-charts-que-se-mueven.md",
+      "linea": 18
+    }
+  },
+  {
+    "id": "no-animar-fechas-ni-ids",
+    "titulo": "No animar fechas, ids ni prosa",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Fechas, horas, ids, prosa y reordenamientos de ranking no se animan.",
+    "bien": "Fecha estática",
+    "mal": "Contador animado sobre un id",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/cifras-y-charts-que-se-mueven.md",
+      "linea": 38
+    }
+  },
+  {
+    "id": "sin-latido-en-contadores",
+    "titulo": "Sin latido en contadores",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El número de notificaciones no late; el color de prioridad alcanza.",
+    "bien": "Badge estático",
+    "mal": "animate-ping en la campanita",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 32
+    },
+    "cubre_externo": "impeccable:pulsing-dot"
+  },
+  {
+    "id": "contador-cuenta-lo-nuevo",
+    "titulo": "El contador cuenta lo nuevo",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "La campanita cuenta lo nuevo desde la última apertura; abrir la bandeja la pone en cero.",
+    "bien": "Badge vuelve a 0 al abrir",
+    "mal": "«99+» fijo",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 29
+    }
+  },
+  {
+    "id": "scroll-ease-respeta-reduced",
+    "titulo": "Scroll suave respeta reduced-motion y tacto",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "movimiento",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un scroll con ease deja pasar reduced-motion, Ctrl/Cmd, horizontal y el tacto.",
+    "bien": "Hook que salta directo con reduce",
+    "mal": "Lerp de wheel que bloquea el zoom",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 56
+    }
+  },
+  {
+    "id": "clases-tailwind-que-no-generan-css",
+    "titulo": "Clases de Tailwind que no generan CSS",
+    "tier": "A",
+    "tipo": "determinista",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Sin espacios dentro de valores arbitrarios y sin /NN sobre tokens hex o con alfa propio.",
+    "bien": "shadow-[0_4px_20px_rgba(35,31,31,.04)]",
+    "mal": "shadow-[0_4px_20px_rgba(35, 31, 31,0.04)] o bg-brand/70 con --brand hex",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tailwind-clases-que-no-generan-css.md",
+      "linea": 7
+    },
+    "check": "checks/clases-tailwind-que-no-generan-css.mjs",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/tailwind-clases-que-no-generan-css.md",
+        "linea": 27
+      },
+      {
+        "archivo": "integrated-dashboard-ux/references/fondos-de-pantalla-completa-y-degradados.md",
+        "linea": 78
+      }
+    ]
+  },
+  {
+    "id": "hoja-sin-capa-vs-visibilidad",
+    "titulo": "Visibilidad responsiva en un envoltorio",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "No mezcles md:hidden con una clase de hoja propia que fija display; la visibilidad va en un envoltorio.",
+    "bien": "<div className=\"md:hidden\"><nav className=\"rg-pestanas\">",
+    "mal": "<nav className=\"md:hidden rg-pestanas\">",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tailwind-clases-que-no-generan-css.md",
+      "linea": 32
+    }
+  },
+  {
+    "id": "puente-del-tema-tailwind4",
+    "titulo": "Puente del tema en Tailwind 4",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Cada token usado como bg-x tiene su --color-x en @theme inline; sin él la clase se descarta.",
+    "bien": "@theme inline { --color-x: var(--x) }",
+    "mal": "bg-x sin --color-x",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 393
+    }
+  },
+  {
+    "id": "utilidad-propia-no-pisa-framework",
+    "titulo": "Utilidades propias con nombre propio",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "No redefinas nombres que Tailwind ya emite (duration-*, ease-*, opacity-*, gap-*).",
+    "bien": "@utility dur-medio",
+    "mal": ".duration-300 { ... } propio",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/utilidades-propias-que-pisan-al-framework.md",
+      "linea": 57
+    }
+  },
+  {
+    "id": "escalas-tailwind-con-tope",
+    "titulo": "Las escalas de Tailwind tienen tope",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Más allá del tope de la escala usa un valor arbitrario; la clase inexistente no genera nada.",
+    "bien": "blur-[48px]",
+    "mal": "Clase de escala inexistente",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 1115
+    }
+  },
+  {
+    "id": "selector-global-no-captura",
+    "titulo": "Selectores globales de elemento con exclusión",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un selector global como .app a no debe pintar componentes nuevos; arréglalo con una exclusión en la regla global.",
+    "bien": ".app a:not([data-nav])",
+    "mal": "Parchear catorce lugares",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 395
+    }
+  },
+  {
+    "id": "tokens-en-archivos-propios",
+    "titulo": "Tokens en archivos propios",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Tokens y temas en archivos propios; los componentes consumen roles, nunca literales.",
+    "bien": "styles/tokens/*.css",
+    "mal": "Colores definidos en cada componente",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 75
+    }
+  },
+  {
+    "id": "next-themes-value",
+    "titulo": "next-themes con value para temas propios",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Con temas de nombre propio, pasa value={{light, dark}} a next-themes.",
+    "bien": "value={{ light: \"claro\", dark: \"nocturno\" }}",
+    "mal": "attribute=\"data-theme\" sin value",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 80
+    }
+  },
+  {
+    "id": "hooks-antes-de-return",
+    "titulo": "Hooks antes de cualquier return null",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Declara todos los hooks antes de un return temprano.",
+    "bien": "useState arriba y luego if (!x) return null",
+    "mal": "return null antes de un useEffect",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/paneles-flotantes.md",
+      "linea": 9
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/cifras-y-charts-que-se-mueven.md",
+        "linea": 39
+      }
+    ]
+  },
+  {
+    "id": "una-funcion-por-valor-pintado",
+    "titulo": "Un valor pintado en dos formas deriva de una función",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Si un valor se muestra en dos lugares, ambos leen la misma función.",
+    "bien": "formatoVentas() compartido",
+    "mal": "Dos cálculos que divergen",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 1308
+    }
+  },
+  {
+    "id": "estilo-fijo-no-se-pierde-con-props",
+    "titulo": "El tamaño fijado por style no se pierde con props",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Combina style propio con el recibido en vez de pisarlo con {...props}.",
+    "bien": "style={{...props.style, width:16}}",
+    "mal": "style fijo antes de {...props}",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 1096
+    }
+  },
+  {
+    "id": "moneda-del-workspace",
+    "titulo": "La moneda es del workspace",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Ninguna pantalla escribe «USD» a mano; la moneda sale del workspace.",
+    "bien": "useWorkspaceCurrency()",
+    "mal": "currency ?? \"USD\"",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/ios-web-lookalikes.md",
+      "linea": 112
+    }
+  },
+  {
+    "id": "rutas-publicas-sin-bootstrap",
+    "titulo": "Rutas públicas no esperan la sesión",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Renderiza las rutas públicas al instante; el spinner de sesión vive solo en RequireAuth.",
+    "bien": "Spinner dentro de RequireAuth",
+    "mal": "App.tsx bloqueado esperando /auth/refresh",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 28
+    }
+  },
+  {
+    "id": "plantillas-sin-backend-fuera",
+    "titulo": "Pantallas de plantilla sin backend se eliminan",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Las pantallas de plantilla sin datos reales se quitan del menú y del router.",
+    "bien": "Ruta eliminada",
+    "mal": "User Settings en inglés con datos falsos",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/copy-sin-jerga-en-el-panel.md",
+      "linea": 31
+    }
+  },
+  {
+    "id": "rotulo-de-cliente-quemado",
+    "titulo": "Sin nombre de cliente quemado",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Los rótulos con el nombre del cliente salen de su configuración, no del código.",
+    "bien": "tenant.nombre",
+    "mal": "El nombre del cliente escrito en el JSX",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 1102
+    }
+  },
+  {
+    "id": "ver-mas-solo-si-cortado",
+    "titulo": "«Ver más» solo si el texto está cortado",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "m3",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Muestra «Ver más» solo cuando scrollHeight supera clientHeight.",
+    "bien": "Botón condicionado a la medida",
+    "mal": "«Ver más» en textos cortos",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 1236
+    }
+  },
+  {
+    "id": "plegable-no-esconde-schema",
+    "titulo": "Un plegable no esconde texto del schema",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un acordeón sobre contenido de JSON-LD mantiene el texto en el DOM.",
+    "bien": "grid-rows 0fr con el texto montado",
+    "mal": "display:none sobre el FAQ",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 429
+    }
+  },
+  {
+    "id": "widget-global-una-entrada",
+    "titulo": "Un widget global tiene una sola entrada",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un asistente global se abre por un contexto o evento compartido que acepta el mensaje inicial.",
+    "bien": "useAsistente().abrir(msg)",
+    "mal": "Cada página monta su copia",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 439
+    }
+  },
+  {
+    "id": "diseno-externo-a-escala",
+    "titulo": "Diseño externo a la escala del producto",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Un diseño que llega de afuera se construye a la escala del producto, midiendo columnas.",
+    "bien": "Columnas equilibradas al ancho real",
+    "mal": "Copiar el tamaño del HTML recibido",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 24
+    }
+  },
+  {
+    "id": "handoff-manda",
+    "titulo": "El handoff de diseño manda",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Si el handoff difiere del brief, se construye el handoff y la diferencia se anota como pregunta.",
+    "bien": "Pregunta anotada",
+    "mal": "Inventar una tercera versión",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 71
+    }
+  },
+  {
+    "id": "medir-lo-que-pide-el-dueno",
+    "titulo": "Medir la arquitectura pedida, no proponer otra",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Cuando el dueño describe la arquitectura, mide qué existe y construye la pieza que falta.",
+    "bien": "Medición + pieza faltante",
+    "mal": "Contrapropuesta que reemplaza el pedido",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 228
+    }
+  },
+  {
+    "id": "grepear-antes-de-no-se-puede",
+    "titulo": "Grepear la capacidad antes de decir que no se puede",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Antes de declarar algo imposible o muerto, busca la capacidad en el repo.",
+    "bien": "grep -rn importar_hoja",
+    "mal": "«Ese .xlsx es un archivo muerto»",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/SKILL.md",
+      "linea": 298
+    }
+  },
+  {
+    "id": "verificar-con-captura-recortada",
+    "titulo": "Detalle visual verificado a resolución completa",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Mira la imagen completa y recorta la zona a resolución completa; lo juzgado en miniatura no está verificado.",
+    "bien": "Recorte a deviceScaleFactor 3",
+    "mal": "Juzgar una miniatura",
+    "fuente": {
+      "archivo": "SOUL.md",
+      "linea": 128
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 1247
+      }
+    ]
+  },
+  {
+    "id": "animacion-verificada-en-navegador",
+    "titulo": "Verificar en el navegador, no en el código",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Confirma estilos con getComputedStyle en los dos temas; leer el JSX no prueba que exista.",
+    "bien": "getComputedStyle(el).animationName",
+    "mal": "Dar por hecho porque la clase está escrita",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tailwind-clases-que-no-generan-css.md",
+      "linea": 46
+    },
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/animaciones-que-no-existen.md",
+        "linea": 49
+      }
+    ]
+  },
+  {
+    "id": "activo-de-marca-no-se-sustituye",
+    "titulo": "No sustituir un activo que nadie pidió cambiar",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "marca",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Si el activo de marca existente no es parte del pedido, se conserva.",
+    "bien": "Mismo logo y foto",
+    "mal": "Cambiar el fondo de marca de paso",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/fondos-de-pantalla-completa-y-degradados.md",
+      "linea": 183
+    }
+  },
+  {
+    "id": "scroll-horizontal-cero",
+    "titulo": "Cero scroll horizontal",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "ios",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Ninguna pantalla desborda en horizontal a 390 px ni a 1280 px.",
+    "bien": "scrollWidth ≤ clientWidth",
+    "mal": "Tabla que empuja el body",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tailwind-clases-que-no-generan-css.md",
+      "linea": 50
+    },
+    "cubre_externo": "impeccable:text-overflow (parcial)"
+  },
+  {
+    "id": "grilla-minmax-0",
+    "titulo": "Columnas flexibles con minmax(0,1fr)",
+    "tier": "A",
+    "tipo": "criterio",
+    "capa": "dx",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Una grilla con columna fija y contenido ancho usa minmax(0,1fr); tablas con anchos fijos, table-fixed.",
+    "bien": "grid-cols-[minmax(0,1fr)_400px]",
+    "mal": "grid-cols-[1fr_400px] con contenido ancho",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/tailwind-clases-que-no-generan-css.md",
+      "linea": 52
+    }
+  }
+]
