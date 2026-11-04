@@ -1,6 +1,6 @@
 ---
 name: sightline
-description: Use when auditing or cleaning a web app's UI with sightline.
+description: Use when auditing, cleaning or polishing the UI of a running web app. Walks every view on desktop and mobile, scores it against 178 design rules, maps each section's role and proposes fixes in a clone with before and after captures.
 ---
 
 # sightline
