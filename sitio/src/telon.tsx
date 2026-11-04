@@ -37,7 +37,7 @@ function dibujar(ancho: number) {
   lienzo.height = Math.ceil(LINEAS.length * interlinea)
   x.font = `700 ${tam}px ${MONO}`
   x.textBaseline = 'top'
-  x.lineWidth = tam * 0.14
+  x.lineWidth = tam * 0.08
   x.lineJoin = 'round'
   const izq = (ancho - marca) / 2
   LINEAS.forEach((l, i) => {
