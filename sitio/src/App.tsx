@@ -3,6 +3,9 @@ import Hero from './escenas/hero'
 import Auditar from './escenas/auditar'
 import Criterio from './escenas/criterio'
 import Nota from './escenas/nota'
+import Pila from './escenas/pila'
+import Mapa from './escenas/mapa'
+import Menos from './escenas/menos'
 import { Llevar, Prompt, REPO } from './llevar'
 
 // The title in ASCII (figlet, Small Slant), its period in the accent
@@ -16,7 +19,10 @@ const MARCA = [
 const SECCIONES = [
   ['instalar', 'Instalar'],
   ['que-revisa', 'Qué revisa'],
+  ['pila', 'La pila'],
   ['criterio', 'Criterio'],
+  ['mapa', 'El mapa vertical'],
+  ['menos', 'Menos, pero pensado'],
   ['modos', 'Los cinco modos'],
   ['escenas', 'Escenas'],
   ['como-se-hizo', 'Cómo se hizo'],
@@ -143,6 +149,54 @@ export default function App() {
           estricto nunca toca tokens ni marca.
         </p>
 
+        <h2 id="pila">La pila</h2>
+        <p>
+          Taste no elige entre shadcn, macOS o Material 3: usa los tres, cada uno en lo suyo, y la marca encima. shadcn
+          pone el código y la accesibilidad. macOS e iOS ponen la interacción: 44 puntos, hojas con agarre, resortes,
+          teclado. Material 3 pone el sistema: roles de color, escala tipográfica, estados como capas. La marca es lo
+          único que se ve.
+        </p>
+
+        <figure className="demo" id="demo-pila">
+          <Pila />
+          <figcaption>La misma hoja de Compartir, capa por capa. La marca entra al final y es lo único que se ve.</figcaption>
+        </figure>
+
+        <p>
+          Cuando dos chocan, gana la del dominio del choque. Y se importan las leyes, nunca el look: si una pantalla se ve
+          Apple o se ve Google, falló la marca. Cuánto pesa cada una depende del producto:
+        </p>
+        <table className="modos">
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Manda</th>
+              <th scope="col">Por qué</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Herramienta</td>
+              <td>macOS e iOS</td>
+              <td>La experiencia es la interacción: tres columnas, teclado, editar en el sitio.</td>
+            </tr>
+            <tr>
+              <td>Vitrina</td>
+              <td>La marca</td>
+              <td>Lo que se ve es el producto; iOS pone solo las leyes táctiles.</td>
+            </tr>
+            <tr>
+              <td>Mixto</td>
+              <td>Cada vista</td>
+              <td>Las vistas de trabajo como herramienta, las de presentación como vitrina.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Si un repo todavía no tiene estas decisiones, <code>taste fundar</code> las deduce del código y las escribe.
+          Desde ahí, cada auditoría las usa como vara.
+        </p>
+
         <h2 id="criterio">Criterio y contrapropuesta</h2>
         <p>
           Por cada hallazgo, tu agente escribe un criterio: una frase, la regla, su fuente y qué pasa con la experiencia
@@ -155,6 +209,41 @@ export default function App() {
           <Criterio />
           <figcaption>Un clic en lo marcado abre su criterio. Después lo quita y el título respira.</figcaption>
         </figure>
+
+        <h2 id="mapa">El mapa vertical</h2>
+        <p>
+          Taste corta cada vista en secciones, de arriba abajo, y a cada una le mide tres cosas: cuánto golpea, cuánta
+          información carga y qué tan cinematográfica es. Con eso cada sección tiene un rol: golpe, condensado o sin
+          decidir, el gris medio que nadie pensó.
+        </p>
+
+        <figure className="demo" id="demo-mapa">
+          <Mapa />
+          <figcaption>La sección sin decidir se condensa y su puntaje pasa de 58 a 86.</figcaption>
+        </figure>
+
+        <p>
+          Cada componente tiene su puntaje. La mitad es calidad medida en la página, como el contraste o el texto más
+          chico; la otra mitad es composición, qué tan bien cumple el rol de su sección. En un golpe pesa el cine; en un
+          condensado, que lo denso se lea. Cada auditoría deja un <code>mapa.html</code> con la tira de cada vista.
+        </p>
+
+        <h2 id="menos">Menos, pero pensado</h2>
+        <p>
+          Lo que mueve a Taste es la Bauhaus: menos es más, pero entendido desde el problema que se resuelve. Antes de
+          proponer, tu agente escribe en una frase qué problema resuelve cada sección. La que no resuelve ninguno se
+          propone quitar.
+        </p>
+
+        <figure className="demo" id="demo-menos">
+          <Menos />
+          <figcaption>Testimonios no resuelve ningún problema: se va, y el área muerta baja.</figcaption>
+        </figure>
+
+        <p>
+          Taste también mide el área muerta, lo que no ocupa nada. En una herramienta, más de un 25 % es espacio perdido;
+          en una vitrina, el aire es intencional hasta el 60 %. Y siempre se prueba quitar antes de agregar.
+        </p>
 
         <h2 id="modos">Los cinco modos</h2>
         <table className="modos">

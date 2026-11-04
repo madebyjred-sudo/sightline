@@ -32,7 +32,9 @@ export default function Hero() {
               <span className="hro-chip">AA</span>
             </div>
             <div className="hro-score__n">81,4</div>
-            <div className="hro-score__f">desde 72,0 · 23 hallazgos</div>
+            <div className="hro-score__f">
+              <span className="delta">+9,4</span> 23 hallazgos
+            </div>
           </div>
 
           <div className="hro-tile hro-c">

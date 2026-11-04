@@ -91,5 +91,8 @@ test('recorrido del fixture: 3 pestanas = 3 vistas internas con captura doble', 
       assert.equal(v.pasos.length, v.origen === 'router' ? 0 : 1)
     }
     assert.ok(!internas.some((v) => /Guardar|Fuera/.test(v.nombre)))
+    // Mapa vertical: cada vista queda medida en escritorio, con secciones y su caja.
+    assert.ok(vistas[0].medida?.secciones?.length >= 1, JSON.stringify(vistas[0].medida).slice(0, 200))
+    assert.ok(vistas[0].medida.secciones.every((s) => s.caja.h > 0 && Array.isArray(s.componentes)))
   } finally { srv.close(); rmSync(dir, { recursive: true }) }
 })

@@ -66,7 +66,7 @@ export default function Nota() {
       accent={ACENTO}
       greys="cool"
       cursor={{ at: 'rest' }}
-      className="marco nta"
+      className="marco nta oscuro"
     >
       {(s, _rect, layout) => {
         const wide = layout === 'wide'

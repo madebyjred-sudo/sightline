@@ -1,6 +1,6 @@
 // Grounds for the demo stages, drawn in ASCII instead of gradients: a grid of
-// monospace glyphs whose density carries finder-glass's light (bright at the
-// top left, deep at the bottom right). One SVG per color family, 550 × 440,
+// monospace glyphs in the palette's yellow, the page's light, whose density
+// carries finder-glass's light (bright at the top left, gone at the bottom right). One SVG per color family, 550 × 440,
 // deterministic (seeded), so the files only change when this script does.
 // Usage: node herramientas/fondos-ascii.mjs
 
@@ -18,9 +18,8 @@ const RAMP = ' .·:-=+*#%'
 
 // Ground, glyph color, glyph opacity, and where the glyphs gather
 const FAMILIAS = {
-  salvia: { fondo: '#9caf88', tinta: '#f4f5f0', alfa: 0.5, hacia: 'arriba' },
-  pino: { fondo: '#154734', tinta: '#9caf88', alfa: 0.4, hacia: 'arriba' },
-  naranja: { fondo: '#fe5000', tinta: '#f4f5f0', alfa: 0.3, hacia: 'arriba' },
+  claro: { fondo: '#d9d9d6', tinta: '#ffcd00', alfa: 1, hacia: 'arriba' },
+  grafito: { fondo: '#53565a', tinta: '#ffcd00', alfa: 0.7, hacia: 'arriba' },
 }
 
 // Small seeded hash for the dither, so neighbouring cells don't band

@@ -12,11 +12,12 @@ const AYUDA = [
   `${NOMBRE} <recorrer|detectar|auditar> [--repo RUTA] [--tier A|AA|AAA] [--solo RUTA_URL] [--sin-servidor] [--sin-ruido]`,
   `${NOMBRE} <correccion|limpieza|mejora|edicion|creacion> [--repo RUTA] [--tier T] [--solo VISTA] [--agente ninguno|claude] [--pedido TEXTO] [--corrida RUTA_EXISTENTE]`,
   `${NOMBRE} comparar --corrida RUTA [--sin-servidor]`,
+  `${NOMBRE} fundar [--repo RUTA] [--tipo herramienta|vitrina|mixto]`,
 ].join('\n')
 const MODOS = ['correccion', 'limpieza', 'mejora', 'edicion', 'creacion']
 
 function flags(argv) {
-  const f = { repo: process.cwd(), tier: 'AA', solo: null, sinServidor: false, sinRuido: false, agente: 'ninguno', pedido: null, corrida: null }
+  const f = { repo: process.cwd(), tier: 'AA', solo: null, sinServidor: false, sinRuido: false, agente: 'ninguno', pedido: null, corrida: null, tipo: null }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
     if (a === '--repo') f.repo = argv[++i]
@@ -27,9 +28,11 @@ function flags(argv) {
     else if (a === '--agente') f.agente = argv[++i]
     else if (a === '--pedido') f.pedido = argv[++i]
     else if (a === '--corrida') f.corrida = argv[++i]
+    else if (a === '--tipo') f.tipo = argv[++i]
     else throw new Error(`flag desconocida: ${a}`)
   }
   if (!['A', 'AA', 'AAA'].includes(f.tier)) throw new Error('--tier debe ser A, AA o AAA')
+  if (f.tipo && !['herramienta', 'vitrina', 'mixto'].includes(f.tipo)) throw new Error('--tipo debe ser herramienta, vitrina o mixto')
   return f
 }
 
@@ -51,6 +54,8 @@ async function correr(modo, f, modoCorrida = 'auditoria') {
   let vistas = []
   let hallazgos = []
   let cobertura = { impeccable_vivo: [] }
+  let criterios = null
+  let composicion = []
   let servidor = { vivo: false, apagar: async () => {} }
   let previo = { cerrar: async () => {} }
   const recorre = modo !== 'detectar'
@@ -95,6 +100,15 @@ async function correr(modo, f, modoCorrida = 'auditoria') {
         vistas = rutas.map((r) => ({ id: r.id, ruta: r.ruta, nombre: r.nombre, tipo: 'pagina', padre: null, origen: 'router', pasos: [], capturas: { escritorio: null, movil: null }, error: 'sin servidor: no capturada' }))
       }
     }
+    // Mapa vertical por vista y criterios del repo (guardados por taste fundar o deducidos al vuelo).
+    if (vistas.some((v) => v.medida)) {
+      const { componerVistas } = await import('../src/composicion/analizar.mjs')
+      const { criteriosDe } = await import('../src/fundar.mjs')
+      criterios = criteriosDe(info, [])
+      composicion = componerVistas(vistas, criterios.tipo)
+      notas.push(`criterios: ${criterios.tipo} (${criterios.origen}), manda ${criterios.manda}`)
+      notas.push(`composicion: ${vistas.filter((v) => v.mapa?.secciones).length} vistas con mapa vertical, ${composicion.length} hallazgos`)
+    }
     if (modo !== 'recorrer') {
       const { correrTransitions } = await import('../src/detectar/transitions.mjs')
       const { correrImpeccable } = await import('../src/detectar/impeccable.mjs')
@@ -103,7 +117,7 @@ async function correr(modo, f, modoCorrida = 'auditoria') {
       const urls = servidor.vivo ? (vistas.length ? vistas.filter((v) => v.tipo === 'pagina' && v.capturas.escritorio) : descubrirRutas(info.ruta_repo, info.stack.framework).filter((r) => !r.dinamica)).map((v) => ({ url: info.url + v.ruta, vista: v.id })) : []
       log(`detectar: impeccable (${urls.length} urls)`); const i = correrImpeccable({ repo: info.ruta_repo, dirCorrida: dir, urls }); notas.push(i.nota); cobertura = { impeccable_vivo: i.escaneadas || [] }
       log('detectar: checks'); const c = await correrChecks({ repo: info.ruta_repo, perfil: info.perfil }); notas.push(c.nota)
-      hallazgos = [...t.hallazgos, ...i.hallazgos, ...c.hallazgos].map((h, n) => ({ id: `h-${String(n + 1).padStart(4, '0')}`, ...h }))
+      hallazgos = [...t.hallazgos, ...i.hallazgos, ...c.hallazgos, ...composicion].map((h, n) => ({ id: `h-${String(n + 1).padStart(4, '0')}`, ...h }))
     }
   } finally {
     await servidor.apagar()
@@ -113,10 +127,15 @@ async function correr(modo, f, modoCorrida = 'auditoria') {
   const corrida = {
     version: 0, repo: info.repo, ruta_repo: info.ruta_repo, rama: info.rama, sha: info.sha, sucio: info.sucio,
     mundo: info.mundo, perfil: info.perfil, modo: modoCorrida, tier: f.tier, stack: info.stack, url: info.url,
-    vistas, hallazgos, cobertura, puntaje: puntaje(hallazgos, vistas, { notas }), notas,
+    vistas, hallazgos, cobertura, criterios, puntaje: puntaje(hallazgos, vistas, { notas }), notas,
   }
   if (modo !== 'auditar') notas.push(`subcomando ${modo}: corrida parcial`)
   writeFileSync(join(dir, 'corrida.json'), JSON.stringify(corrida, null, 2))
+  let mapaHtml = null
+  if (vistas.some((v) => v.mapa?.secciones)) {
+    const { escribirMapa } = await import('../src/composicion/mapa-html.mjs')
+    mapaHtml = escribirMapa({ dir, corrida })
+  }
   const porFuente = hallazgos.reduce((a, h) => ({ ...a, [h.fuente]: (a[h.fuente] || 0) + 1 }), {})
   const conCaptura = vistas.filter((v) => v.capturas.escritorio && v.capturas.movil).length
   const lineas = [
@@ -125,6 +144,8 @@ async function correr(modo, f, modoCorrida = 'auditoria') {
     `hallazgos: ${hallazgos.length} ${JSON.stringify(porFuente)}`,
     `puntaje A ${corrida.puntaje.A} · AA ${corrida.puntaje.AA} · AAA ${corrida.puntaje.AAA} (tier pedido ${f.tier}: ${corrida.puntaje[f.tier]})`,
     `servidor: ${servidor.vivo ? (servidor.propio ? 'arrancado y apagado' : 'ya estaba') : 'no disponible'}`,
+    ...(criterios ? [`criterios: ${criterios.tipo} · manda ${criterios.manda} (${criterios.origen})`] : []),
+    ...(mapaHtml ? [`mapa vertical: ${mapaHtml}`] : []),
     `corrida: ${join(dir, 'corrida.json')}`,
   ]
   console.log(lineas.slice(0, 10).join('\n'))
@@ -174,6 +195,19 @@ async function proponer(modo, f) {
   console.log(`pega en tu agente: ${frase}`)
 }
 
+async function fundarCmd(f) {
+  const { fundar } = await import('../src/fundar.mjs')
+  const info = reconocer(f.repo)
+  const { criterios, archivo } = fundar(info, { tipo: f.tipo })
+  console.log([
+    `${NOMBRE} fundar · ${info.repo}: ${criterios.tipo} (${criterios.origen})`,
+    ...criterios.razones.map((r) => `  ${r}`),
+    `manda ${criterios.manda} · orden ${criterios.orden.join(' > ')}`,
+    `criterios: ${archivo}`,
+    `legible: ${archivo.replace(/\.json$/, '.md')}`,
+  ].join('\n'))
+}
+
 async function compararCmd(f) {
   if (!f.corrida) throw new Error('comparar necesita --corrida RUTA')
   const { comparar } = await import('../src/proponer/comparar.mjs')
@@ -196,5 +230,6 @@ try {
   if (['recorrer', 'detectar', 'auditar'].includes(cmd)) await correr(cmd, flags(resto))
   else if (MODOS.includes(cmd)) await proponer(cmd, flags(resto))
   else if (cmd === 'comparar') await compararCmd(flags(resto))
+  else if (cmd === 'fundar') await fundarCmd(flags(resto))
   else { console.log(AYUDA); process.exitCode = cmd ? 1 : 0 }
 } catch (e) { console.error(`${NOMBRE}: ${e.message}`); process.exitCode = 1 }

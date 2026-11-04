@@ -1,7 +1,7 @@
 # reglas
 
 Catálogo de Taste: 169 reglas, 19 con check determinista. Formato: `docs/ESPEC.md`.
-Cada regla guarda el archivo y la línea de la corrección que la originó, en las notas privadas del autor. Las fuentes no vienen en este repo; la línea sirve para que el autor las rastree.
+Cada regla guarda el archivo y la línea de la corrección que la originó, en las notas privadas del autor (las de `docs/` sí vienen en este repo). La línea sirve para rastrearla.
 
 ## Extensiones al formato
 - `tambien_en`: otras fuentes con la misma idea (lista de `{archivo, linea}`).

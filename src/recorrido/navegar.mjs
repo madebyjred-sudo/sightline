@@ -1,6 +1,7 @@
 import { chromium } from 'playwright'
 import { mkdirSync } from 'node:fs'
 import { join } from 'node:path'
+import { medirEnPagina } from '../composicion/medir.mjs'
 
 export const ESCRITORIO = { viewport: { width: 1440, height: 900 } }
 export const MOVIL = { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 1 }
@@ -92,9 +93,15 @@ async function abrirLimpio(p, url) {
   await abrir(p, url)
 }
 
+// Un paso cuyo control no se ve en este tamano (un indice lateral oculto en movil) no es un error de
+// la app: la vista no existe en ese tamano.
+export class PasoInvisible extends Error {}
+
 async function reproducir(p, pasos) {
   for (const paso of pasos) {
-    await p.locator(paso.selector).first().click({ timeout: 4000 })
+    const loc = p.locator(paso.selector).first()
+    if (!(await loc.isVisible().catch(() => false))) throw new PasoInvisible(`paso invisible: ${paso.texto || paso.selector}`)
+    await loc.click({ timeout: 4000 })
     await p.waitForLoadState('networkidle', { timeout: 3000 }).catch(() => {})
     await p.waitForTimeout(350)
   }
@@ -171,9 +178,14 @@ export async function recorrer({ url, rutas, dirCorrida, log = () => {}, lectura
             await abrir(p, url + vista.ruta)
             await reproducir(p, pasos)
             await p.screenshot({ path: join(dirCorrida, rel), timeout: 30000 })
+            // Mapa vertical (docs/COMPOSICION.md): se mide en escritorio, sobre la misma pagina capturada.
+            if (tam === 'escritorio') vista.medida = await p.evaluate(medirEnPagina).catch((e) => ({ error: String(e.message).split('\n')[0].slice(0, 160) }))
           })(), tope]).finally(() => clearTimeout(reloj))
           vista.capturas[tam] = rel
-        } catch (e) { if (intento === 2) errores.push(`${tam}: ${String(e.message).split('\n')[0].slice(0, 200)} (2 intentos)`) }
+        } catch (e) {
+          if (e instanceof PasoInvisible) { (vista.no_aplica ||= []).push(tam); break }
+          if (intento === 2) errores.push(`${tam}: ${String(e.message).split('\n')[0].slice(0, 200)} (2 intentos)`)
+        }
         finally { await p.close(); await ctx.close() }
       }
     }

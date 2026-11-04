@@ -47,6 +47,12 @@ export async function comparar({ dir, log = () => {}, sinServidor = false }) {
     } else vistas = antes.vistas.map((v) => ({ ...v, capturas: { escritorio: null, movil: null }, error: 'sin servidor del arbol: no capturada' }))
     const urls = servidor.vivo ? vistas.filter((v) => v.tipo === 'pagina' && v.capturas.escritorio).map((v) => ({ url: url + v.ruta, vista: v.id })) : []
     det = await detectarTodo({ raiz: arbol, dirCorrida: dir, urls, perfil: antes.perfil, log })
+    // Mismo mapa vertical que el antes, con los mismos criterios: la composicion se compara pareja.
+    if (vistas.some((v) => v.medida)) {
+      const { componerVistas } = await import('../composicion/analizar.mjs')
+      const extra = componerVistas(vistas, antes.criterios?.tipo ?? 'mixto')
+      det.hallazgos = [...det.hallazgos, ...extra.map((h, n) => ({ id: `h-c${String(n + 1).padStart(4, '0')}`, ...h }))]
+    }
   } finally {
     await servidor.apagar()
     await previo.cerrar()

@@ -1,0 +1,317 @@
+/* Cada componente, su puntaje. The page's window leaves the right of the
+   stage to the map panel, so here the window runs off the bottom only. */
+
+/* The window runs off the right and bottom like every frame; the page keeps
+   its content in the left column, under which the map panel floats */
+.map .map-s > * {
+  max-width: 262px;
+}
+
+.map .ss-stage[data-layout='compact'] .map-s > * {
+  max-width: 196px;
+}
+
+.map .map-pagina {
+  display: grid;
+  background: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1d1d1f;
+}
+
+.map .map-s {
+  position: relative;
+  padding: 0 18px;
+  transition: box-shadow var(--dur-corta) ease;
+}
+
+.map .map-hero {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  height: 118px;
+}
+
+.map .map-hero__t {
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.map .map-hero__b {
+  justify-self: start;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* The undecided section: medium heading, medium paragraph, default spacing */
+.map .map-medio {
+  display: flex;
+  align-items: center;
+  height: 96px;
+}
+
+.map .map-medio[data-sel] {
+  box-shadow: inset 0 0 0 2px var(--amarillo-hondo);
+}
+
+.map .map-medio[data-sel][data-decidida] {
+  box-shadow: inset 0 0 0 2px var(--lima);
+}
+
+.map .map-medio__estados {
+  display: grid;
+  width: 100%;
+}
+
+.map .map-medio__antes {
+  display: grid;
+  gap: 4px;
+}
+
+.map .map-medio__h {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.map .map-medio__p {
+  font-size: 13px;
+  line-height: 18px;
+  color: #6e6f75;
+}
+
+.map .map-medio__despues {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.map .map-cifra {
+  display: grid;
+  gap: 1px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f1f2f4;
+  font-size: 11.5px;
+  color: #6e6f75;
+}
+
+.map .map-cifra b {
+  font-size: 17px;
+  color: #1d1d1f;
+}
+
+.map .map-demo {
+  display: grid;
+  place-items: center;
+  height: 132px;
+  background: #ecedea;
+}
+
+.map .map-demo__ventana {
+  display: grid;
+  gap: 8px;
+  width: 78%;
+  padding: 14px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.25);
+}
+
+.map .map-demo__ventana {
+  gap: 3px;
+}
+
+.map .map-demo__fecha {
+  font-size: 11.5px;
+  color: #6e6f75;
+}
+
+.map .map-demo__t {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.map .map-demo__p {
+  font-size: 11.5px;
+  color: #333336;
+}
+
+.map .map-pie {
+  display: flex;
+  align-items: center;
+  height: 46px;
+  font-size: 11.5px;
+  color: #6e6f75;
+}
+
+/* ---- The map panel ---- */
+
+.map .map-panel {
+  position: absolute;
+  top: 64px;
+  bottom: -80px;
+  left: 340px;
+  width: 170px;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--blanco);
+  font-family: 'Figtree Variable', system-ui, sans-serif;
+  box-shadow: 0 18px 40px -12px rgba(var(--sombra), 0.5);
+}
+
+.map .map-panel__t {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+.map .map-barras {
+  display: grid;
+  gap: 4px;
+}
+
+.map .map-barra {
+  display: block;
+  border-radius: 4px;
+  background: #8b8e92;
+  transition: width var(--dur-lenta) cubic-bezier(0.2, 0.8, 0.2, 1), background-color var(--dur-media) ease, box-shadow var(--dur-corta) ease;
+}
+
+.map .map-barra[data-rol='golpe'] {
+  background: var(--tinta);
+}
+
+.map .map-barra[data-rol='sin'] {
+  background: var(--amarillo);
+}
+
+.map .map-barra[data-sel] {
+  box-shadow: 0 0 0 2px var(--blanco), 0 0 0 3.5px var(--tinta);
+}
+
+.map .map-detalle {
+  display: grid;
+  gap: 8px;
+  padding-top: 12px;
+}
+
+.map .map-detalle__rol {
+  display: grid;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gris);
+}
+
+.map .map-detalle__cifras {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map .map-detalle__n {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--tinta);
+}
+
+.map .delta {
+  opacity: 0;
+  transition: opacity var(--dur-media) ease;
+}
+
+.map .delta[data-show] {
+  opacity: 1;
+}
+
+.map .map-detalle__b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--tinta);
+  color: var(--blanco);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: inset 0 -3px 0 var(--amarillo);
+  transition: opacity var(--dur-media) ease;
+}
+
+.map .map-detalle__b[data-hecho] {
+  opacity: 0.35;
+}
+
+.map .map-reposo {
+  position: absolute;
+  left: 470px;
+  top: 410px;
+  width: 1px;
+  height: 1px;
+}
+
+/* ---- Compact ---- */
+
+.map .ss-stage[data-layout='compact'] .map-demo__fecha,
+.map .ss-stage[data-layout='compact'] .map-demo__p {
+  display: none;
+}
+
+.map .ss-stage[data-layout='compact'] .map-panel {
+  top: 44px;
+  left: 240px;
+  width: 140px;
+  padding: 12px;
+}
+
+.map .ss-stage[data-layout='compact'] .map-hero__t {
+  font-size: 19px;
+}
+
+.map .ss-stage[data-layout='compact'] .map-medio__p {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.map .ss-stage[data-layout='compact'] .map-cifra {
+  padding: 6px 7px;
+}
+
+.map .ss-stage[data-layout='compact'] .map-cifra b {
+  font-size: 14px;
+}
+
+.map .ss-stage[data-layout='compact'] .map-detalle__n {
+  font-size: 28px;
+}
+
+.map .ss-stage[data-layout='compact'] .map-reposo {
+  left: 330px;
+  top: 320px;
+}
+
+/* The compact page is shorter so the demo card sits whole inside the crop */
+.map .ss-stage[data-layout='compact'] .map-hero {
+  height: 92px;
+}
+
+.map .ss-stage[data-layout='compact'] .map-medio {
+  height: 82px;
+}
+
+.map .ss-stage[data-layout='compact'] .map-demo {
+  align-items: start;
+  padding-top: 18px;
+}
+
+.map .map-win .ss-window__url {
+  font-size: 11.5px;
+}

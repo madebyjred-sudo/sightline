@@ -5,9 +5,9 @@ description: Use when auditing or cleaning a web app's UI with taste.
 
 # taste
 
-Audita una app web viva (capturas por vista, hallazgos con fuente, puntaje por tier) y produce una
-contrapropuesta en un clon con rama propia, con informe antes y después. Nunca escribe en el repo
-analizado.
+Audita una app web viva (capturas por vista, hallazgos con fuente, puntaje por tier, mapa vertical con
+puntaje por componente) y produce una contrapropuesta en un clon con rama propia, con informe antes y después.
+Nunca escribe en el repo analizado.
 
 ## Cuándo usarlo
 - Te piden revisar, limpiar, corregir o mejorar la interfaz de un repo con servidor de desarrollo.
@@ -33,6 +33,31 @@ analizado.
 | mejora | pule dentro del esquema actual |
 | edicion | solo lo pedido en `--pedido TEXTO` |
 | creacion | pantalla o componente nuevo desde la biblioteca |
+
+## Antes de todo: los criterios (taste fundar)
+Un repo sin decisiones de diseño se funda primero: `taste fundar --repo RUTA [--tipo herramienta|vitrina|mixto]`.
+- Deduce el tipo de producto por el código (tablas, formularios, barra lateral y sesión contra hero, imágenes y
+  marketing; ignora kits de ilustración y pruebas). Si el dueño lo sabe, `--tipo` lo fija.
+- Escribe `perfiles/REPO.criterios.json` y `.md`: la pila (shadcn el código, macOS/iOS la interacción, Material 3 el
+  sistema, la marca lo visible), cuál manda según el tipo (herramienta: macOS/iOS; vitrina: la marca; mixto: por
+  vista), qué capa decide cada pieza y cómo se combinan: cada una en su dominio, en un choque gana la del dominio,
+  se importan las leyes y nunca el look literal.
+- Sin criterios guardados, la auditoría los deduce al vuelo y lo dice en la corrida. Método en `docs/COMPOSICION.md`.
+
+## El mapa vertical y el puntaje por componente
+Cada vista se mide en escritorio, sección por sección de arriba abajo: **fuerza** (escala, contraste, peso visual,
+movimiento), **densidad** (información por área) y **cine** (escala, aire, encuadre, movimiento). Con eso cada
+sección tiene un rol: golpe, condensado, saturado o **sin decidir** (el gris medio que nadie pensó).
+- Cada componente de la sección tiene su puntaje: mitad calidad medida en el DOM (contraste, texto mínimo), mitad
+  composición (en un golpe pesa el cine; en un condensado, la legibilidad de lo denso). Una sección sin decidir no
+  pasa de 60.
+- Hallazgos (fuente `taste`, con `vista` y `seccion`): `seccion-sin-decidir`, `seccion-saturada`, `golpes-seguidos`,
+  `apertura-segun-el-producto`, `cine-donde-golpea`, `area-muerta`. Una vista interna con la misma composición que su
+  padre (un ancla) no los repite.
+- `CORRIDA/mapa.html`: la tira de cada vista (el ancho de la barra es la fuerza, lo sin decidir en amarillo), con
+  el puntaje por sección y sus componentes más débiles.
+- En el paquete de cada vista va el mapa. Antes de escribir criterios, di en una frase qué problema resuelve cada
+  sección; la que no resuelve ninguno se propone quitar (`seccion-con-problema`). Menos, pero pensado.
 
 ## De punta a punta
 1. `taste MODO --repo RUTA --tier AA [--solo VISTA] [--agente ninguno|claude] [--pedido TEXTO]`

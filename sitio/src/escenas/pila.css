@@ -1,0 +1,286 @@
+/* La pila. The phone is the hero, centred and run off the bottom; the four
+   layers are chips on its left and what the current one brings sits on its
+   right, both narrower than the phone so the stage keeps one gutter. Inside
+   the phone, sizes are iPhone points: the kit scales the screen to the
+   phone's width. */
+
+.pil .pil-telefono {
+  position: absolute;
+  left: 160px;
+  top: 40px;
+  filter: drop-shadow(0 24px 40px rgba(var(--sombra), 0.35));
+}
+
+.pil .pil-pantalla {
+  position: relative;
+  height: 100%;
+  background: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.pil .pil-nota {
+  padding: 10px 24px 0;
+}
+
+.pil .pil-nota__t {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1d1d1f;
+}
+
+.pil .pil-nota__p {
+  margin-top: 8px;
+  font-size: 21px;
+  line-height: 28px;
+  color: #333336;
+}
+
+.pil .pil-velo {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+/* ---- The sheet: one element, four layers ---- */
+
+.pil .pil-hoja {
+  --t: 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 16px;
+  padding: 24px 24px 26px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14);
+  color: #111;
+  font-size: 21px;
+  will-change: transform;
+  transition: left var(--t), right var(--t), bottom var(--t), padding var(--t), border-radius var(--t), background-color var(--t), box-shadow var(--t);
+}
+
+.pil .pil-hoja__agarre {
+  display: block;
+  width: 40px;
+  height: 0;
+  margin: 0 auto;
+  border-radius: 3px;
+  background: #c7c7cc;
+  opacity: 0;
+  transition: height var(--t), margin var(--t), opacity var(--t);
+}
+
+.pil .pil-hoja__t {
+  margin: 0 0 8px 6px;
+  font-size: 22px;
+  font-weight: 600;
+  transition: font-size var(--t), margin var(--t), color var(--t);
+}
+
+.pil .pil-hoja__fila {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 8px;
+  transition: height var(--t), background-color var(--t), border-radius var(--t), box-shadow var(--t);
+}
+
+/* 1 · shadcn: the bones. A plain card, the focus ring on the first action */
+.pil .pil-hoja[data-capa='1'] .pil-hoja__fila[data-primera] {
+  box-shadow: inset 0 0 0 2px #232426;
+}
+
+/* 2 · iOS: a bottom sheet with its grabber, 44 pt rows, edge to edge */
+.pil .pil-hoja:not([data-capa='1']) {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px 20px 34px;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.pil .pil-hoja:not([data-capa='1']) .pil-hoja__agarre {
+  height: 5px;
+  margin: 2px auto 12px;
+  opacity: 1;
+}
+
+.pil .pil-hoja:not([data-capa='1']) .pil-hoja__t {
+  margin: 0 0 6px 2px;
+  font-size: 24px;
+}
+
+.pil .pil-hoja:not([data-capa='1']) .pil-hoja__fila {
+  height: 58px;
+  border-radius: 0;
+  box-shadow: inset 0 -0.5px 0 rgba(0, 0, 0, 0.14);
+}
+
+/* 3 · Material 3: a tonal surface, the type scale, the state as a layer */
+.pil .pil-hoja[data-capa='3'],
+.pil .pil-hoja[data-capa='4'] {
+  background: #ecedea;
+  box-shadow: none;
+}
+
+.pil .pil-hoja[data-capa='3'] .pil-hoja__t,
+.pil .pil-hoja[data-capa='4'] .pil-hoja__t {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.pil .pil-hoja[data-capa='3'] .pil-hoja__fila[data-primera] {
+  border-radius: 16px;
+  background: rgba(83, 86, 90, 0.14);
+  box-shadow: none;
+}
+
+/* 4 · the brand: Figtree, Bright White, the primary action lit in yellow */
+.pil .pil-hoja[data-capa='4'] {
+  background: var(--blanco);
+  color: var(--tinta);
+  font-family: 'Figtree Variable', system-ui, sans-serif;
+}
+
+.pil .pil-hoja[data-capa='4'] .pil-hoja__t {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.pil .pil-hoja[data-capa='4'] .pil-hoja__fila {
+  font-size: 22px;
+  box-shadow: inset 0 -0.5px 0 var(--gris-claro);
+}
+
+.pil .pil-hoja[data-capa='4'] .pil-hoja__fila[data-primera] {
+  border-radius: 14px;
+  background: var(--amarillo);
+  font-weight: 600;
+  box-shadow: none;
+}
+
+/* ---- The layers: chips on the left ---- */
+
+.pil .pil-capas {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 112px;
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  font-family: 'Figtree Variable', system-ui, sans-serif;
+}
+
+.pil .pil-capa {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 10px 0 8px;
+  border-radius: 12px;
+  background: var(--blanco);
+  color: var(--tinta);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: box-shadow var(--dur-corta) ease;
+}
+
+.pil .pil-capa[data-activa] {
+  box-shadow: 0 0 0 2px var(--amarillo);
+}
+
+.pil .pil-capa__marca {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--blanco-hondo);
+  color: var(--gris);
+  font-size: 11px;
+  font-weight: 700;
+  transition: background-color var(--dur-corta) ease, color var(--dur-corta) ease;
+}
+
+.pil .pil-capa[data-activa] .pil-capa__marca {
+  background: var(--amarillo);
+  color: var(--tinta);
+}
+
+.pil .pil-capa[data-hecha] .pil-capa__marca {
+  background: var(--lima);
+  color: var(--lima-tinta);
+}
+
+/* ---- What the current layer brings: on the right ---- */
+
+.pil .pil-aporta {
+  position: absolute;
+  top: 40px;
+  left: 410px;
+  width: 100px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--blanco);
+  color: var(--tinta);
+  font-family: 'Figtree Variable', system-ui, sans-serif;
+  font-size: 12.5px;
+  line-height: 17px;
+}
+
+.pil .pil-aporta .ss-states {
+  display: grid;
+}
+
+.pil .pil-reposo {
+  position: absolute;
+  left: 90px;
+  top: 330px;
+  width: 1px;
+  height: 1px;
+}
+
+/* ---- Compact: chips in a row above the phone ---- */
+
+.pil .ss-stage[data-layout='compact'] .pil-telefono {
+  left: 100px;
+  top: 76px;
+}
+
+.pil .ss-stage[data-layout='compact'] .pil-capas {
+  top: 20px;
+  left: 20px;
+  width: auto;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.pil .ss-stage[data-layout='compact'] .pil-capa {
+  height: 34px;
+  padding: 0 10px 0 8px;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.pil .ss-stage[data-layout='compact'] .pil-reposo {
+  left: 50px;
+  top: 300px;
+}
+
+/* The compact phone shows less of the screen: the sheet sits higher, at the
+   medium detent, so its title and first rows stay in the crop */
+.pil .ss-stage[data-layout='compact'] .pil-hoja:not([data-capa='1']) {
+  padding-bottom: 170px;
+}
+
+.pil .ss-stage[data-layout='compact'] .pil-hoja[data-capa='1'] {
+  bottom: 150px;
+}

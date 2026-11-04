@@ -1,7 +1,7 @@
 /* Hero bento: 550 × 372, the column's width as on benji.org. Two rows
-   (200 + 164, gap 8), columns 334 + 208. Tiles radius 12: pino and salvia
-   carry the demos' ASCII grounds, the neutral one is the deep white, and the
-   naranja one is the page's single accent tile. */
+   (200 + 164, gap 8), columns 334 + 208. Tiles radius 12: grafito and light
+   grey carry the demos' ASCII grounds, the score sits on the deep white, and
+   the yellow one is the page's single lit tile. */
 
 .hro .ss-stage {
   overflow: visible;
@@ -22,12 +22,12 @@
   border-radius: 12px;
 }
 
-/* A · the criterion on demo 2's pino */
+/* A · the criterion on demo 2's grafito, lit by its yellow glyphs */
 .hro .hro-a {
   display: flex;
   align-items: center;
   padding: 0 20px;
-  background: var(--pino) url('./fondos/pino.svg') 0 0 / 550px 440px no-repeat;
+  background: var(--grafito) url('./fondos/grafito.svg') 0 0 / 550px 440px no-repeat;
 }
 
 .hro .hro-crit {
@@ -37,8 +37,8 @@
   background: #fff;
   box-shadow:
     0 0 0 0.5px rgba(0, 0, 0, 0.12),
-    0 18px 40px -12px rgba(var(--sombra-pino), 0.45),
-    0 6px 14px -8px rgba(var(--sombra-pino), 0.3);
+    0 18px 40px -12px rgba(var(--sombra), 0.45),
+    0 6px 14px -8px rgba(var(--sombra), 0.3);
 }
 
 .hro .hro-crit__t {
@@ -76,8 +76,8 @@
 }
 
 .hro .hro-crit__xs span[data-up] {
-  background: var(--salvia-velo);
-  color: var(--pino);
+  background: var(--lima-velo);
+  color: var(--lima-tinta);
   font-weight: 500;
 }
 
@@ -101,7 +101,7 @@
 .hro .hro-chip {
   padding: 2px 8px;
   border-radius: 6px;
-  background: var(--salvia-velo);
+  background: var(--blanco);
   color: var(--ss-accent);
   font-size: 11.5px;
   font-weight: 600;
@@ -114,7 +114,7 @@
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
-  color: var(--naranja-cifra);
+  color: var(--tinta);
 }
 
 .hro .hro-score__f {
@@ -123,16 +123,16 @@
   color: var(--gris);
 }
 
-/* C · the terminal on demo 1's salvia, pinned top-left and off the right
+/* C · the terminal on demo 1's light grey, pinned top-left and off the right
    and bottom */
 .hro .hro-c {
-  background: var(--salvia) url('./fondos/salvia.svg') 0 0 / 550px 440px no-repeat;
+  background: var(--gris-claro) url('./fondos/claro.svg') 0 0 / 550px 440px no-repeat;
 }
 
 .hro .hro-term {
   box-shadow:
     0 0 0 0.5px rgba(0, 0, 0, 0.16),
-    0 18px 40px -12px rgba(var(--sombra-pino), 0.45);
+    0 18px 40px -12px rgba(var(--sombra), 0.45);
 }
 
 .hro .hro-term__out {
@@ -157,10 +157,10 @@
   white-space: nowrap;
 }
 
-/* D · the one accent tile: the view after the cut on naranja, the helper
+/* D · the one yellow tile, all light: the view after the cut, the helper
    text struck out */
 .hro .hro-d {
-  background: var(--naranja) url('./fondos/naranja.svg') 0 0 / 550px 440px no-repeat;
+  background: var(--amarillo);
 }
 
 .hro .hro-view {
@@ -172,7 +172,7 @@
   padding: 16px 18px;
   border-radius: 12px;
   background: #fff;
-  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.12), 0 18px 40px -12px rgba(var(--sombra-pino), 0.4);
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.12), 0 18px 40px -12px rgba(var(--sombra), 0.4);
 }
 
 .hro .hro-view__h {
@@ -189,7 +189,7 @@
   line-height: 16px;
   color: #6e6f75;
   text-decoration: line-through;
-  text-decoration-color: var(--naranja);
+  text-decoration-color: var(--amarillo-hondo);
   text-decoration-thickness: 1.5px;
 }
 

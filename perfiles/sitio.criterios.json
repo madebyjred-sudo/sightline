@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "repo": "sitio",
+  "tipo": "vitrina",
+  "origen": "deducido por taste fundar",
+  "razones": [
+    "trabajo 5 (tablas 1, formularios 0, barra lateral 1, sesión 0)",
+    "vitrina 14 (hero 7, imágenes grandes 0, palabras de marketing 0)"
+  ],
+  "capas": {
+    "shadcn": "Código y accesibilidad de componentes: foco, estados, ARIA. La base del repo, nunca la norma visual.",
+    "hig": "macOS / iOS: leyes de interacción y sensación. 44 pt, hojas inferiores, resortes, teclado, tres columnas.",
+    "m3": "Material 3: sistema y estructura. Roles de color, escala tipográfica, elevación tonal, estados como capas, layouts por clase de ventana.",
+    "marca": "Dirección artística: tipografía, paleta, foto y tono. Lo único que se ve."
+  },
+  "manda": "marca",
+  "orden": [
+    "marca",
+    "hig",
+    "m3",
+    "shadcn"
+  ],
+  "razon": "En una vitrina manda la dirección artística; macOS/iOS solo pone las leyes táctiles.",
+  "metodo": [
+    "Se usan las cuatro capas a la vez, cada una en su dominio.",
+    "Cuando dos chocan, gana la del dominio del choque: una hoja en móvil la decide macOS/iOS; un color, la marca sobre los roles de Material 3; el foco, shadcn.",
+    "Se importan las leyes, nunca el look literal: si una pantalla «se ve Apple» o «se ve Google», falló la marca."
+  ],
+  "choques_movil": [
+    [
+      "Dialog o Sheet lateral",
+      "hoja inferior con agarre"
+    ],
+    [
+      "DropdownMenu",
+      "hoja de acciones"
+    ],
+    [
+      "zona táctil de 32 a 36 px",
+      "44 pt"
+    ],
+    [
+      "input de 14 px",
+      "16 px"
+    ],
+    [
+      "barra fija arriba",
+      "acciones al alcance del pulgar"
+    ],
+    [
+      "fade",
+      "resorte"
+    ]
+  ],
+  "decisiones": [
+    {
+      "pieza": "Navegación",
+      "capa": "marca",
+      "regla": "Una barra, la de la marca; sin segunda barra superior."
+    },
+    {
+      "pieza": "Hojas, menús y diálogos en móvil",
+      "capa": "hig",
+      "regla": "Hoja inferior con agarre; menú como hoja de acciones; nada de pop-ups salvo la paleta de comandos."
+    },
+    {
+      "pieza": "Botones y controles",
+      "capa": "shadcn",
+      "regla": "Código y estados de shadcn; forma y color de la marca; 44 pt de zona táctil aunque se vean más chicos."
+    },
+    {
+      "pieza": "Formularios",
+      "capa": "shadcn",
+      "regla": "Accesibilidad de shadcn; inputs de 16 px en móvil (iOS); edición en el sitio en vez de pantallas de editar."
+    },
+    {
+      "pieza": "Color",
+      "capa": "marca",
+      "regla": "Roles de Material 3 (fondo, superficie, acento, estados) llenados con la paleta de la marca: neutros más su acento."
+    },
+    {
+      "pieza": "Tipografía",
+      "capa": "m3",
+      "regla": "Escala de Material 3; familia de la marca."
+    },
+    {
+      "pieza": "Elevación y estados",
+      "capa": "m3",
+      "regla": "Capas tonales y estados como capas (hover, pressed, focus); un contenedor, un tono."
+    },
+    {
+      "pieza": "Movimiento",
+      "capa": "hig",
+      "regla": "Resortes con causa (iOS) y propósito (Material 3); cifras que se mueven con el dato; nada sin reduced-motion."
+    },
+    {
+      "pieza": "Layout",
+      "capa": "m3",
+      "regla": "Una columna con ritmo de golpe y condensado."
+    },
+    {
+      "pieza": "Teclado",
+      "capa": "hig",
+      "regla": "Lo básico: foco visible y Esc."
+    }
+  ],
+  "fuente": "docs/COMPOSICION.md"
+}

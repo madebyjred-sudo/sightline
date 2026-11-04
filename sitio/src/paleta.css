@@ -1,29 +1,29 @@
-/* The page's palette, from Pantone. Two colors that always go together, one
-   accent that keeps it interesting, and a white that isn't paper.
+/* The page's palette, from Pantone: grey is the structure, yellow is the
+   light, lime marks what got better. Yellow and lime are never ink (they
+   don't reach contrast as text): they live as glyphs, marks and surfaces.
 
-   Bright White   PANTONE 11-0601 TCX   #f4f5f0   the ground; a white with a
-                                                  grey-green cast, never cream
-   Pino           PANTONE 3435 C        #154734   ink of the demos, selection,
-                                                  the ASCII
-   Salvia         PANTONE 7494 C        #9caf88   the light ground, tints
-   Naranja        PANTONE Orange 021 C  #fe5000   the accent: the mark, the
-                                                  prompt, one tile. As text it
-                                                  goes one step deeper (below) */
+   Bright White   PANTONE 11-0601 TCX   #f4f5f0   the ground
+   Grafito        PANTONE Cool Gray 11 C #53565a  buttons, selection, dark grounds
+   Gris claro     PANTONE Cool Gray 1 C  #d9d9d6  the light grounds of the scenes
+   Amarillo       PANTONE 116 C         #ffcd00   the light: ASCII glyphs, the
+                                                  highlight on what's marked
+   Lima           PANTONE 382 C         #c4d600   what improved: deltas, «mejora» */
 
 :root {
   --blanco: #f4f5f0;
-  --pino: #154734;
-  --salvia: #9caf88;
-  --naranja: #fe5000;
+  --grafito: #53565a;
+  --gris-claro: #d9d9d6;
+  --amarillo: #ffcd00;
+  --lima: #c4d600;
 
-  /* Derived, same families */
-  --blanco-hondo: #e9ebe3;
-  --salvia-velo: #e6ecdf;
-  --pino-tinta: #13261d;
-  --naranja-velo: #ffe7dc;
-  /* Orange as text, measured on Bright White and its deep variant: big
-     figures (24px and up, 3:1) and small text (4.5:1) */
-  --naranja-cifra: #e04600;
-  --naranja-tinta: #b83800;
-  --sombra-pino: 21, 71, 52;
+  /* Derived, same families, each pair measured for contrast */
+  --tinta: #232426; /* 14:1 on blanco */
+  --gris: #5f6266; /* secondary text, 4.5:1 on blanco and on blanco-hondo */
+  --blanco-hondo: #e6e7e3;
+  --amarillo-velo: #fff3bf; /* highlight behind text: tinta on it 13.9:1 */
+  --amarillo-hondo: #d9a900; /* yellow strokes on white (non-text) */
+  --lima-velo: #eef3b8;
+  --lima-tinta: #4a5200; /* on lima-velo 7.3:1 */
+  --terminal: #1f2022;
+  --sombra: 30, 31, 33;
 }

@@ -282,7 +282,7 @@
       },
       {
         "archivo": "producto-simple/SKILL.md",
-        "linea": 69
+        "linea": 71
       }
     ],
     "cubre_externo": "impeccable:cream-palette"
@@ -314,7 +314,7 @@
     "tambien_en": [
       {
         "archivo": "producto-simple/SKILL.md",
-        "linea": 70
+        "linea": 72
       }
     ],
     "cubre_externo": "impeccable:italic-serif-display"
@@ -346,7 +346,7 @@
     "tambien_en": [
       {
         "archivo": "producto-simple/SKILL.md",
-        "linea": 70
+        "linea": 72
       }
     ],
     "cubre_externo": "impeccable:numbered-section-labels"
@@ -378,7 +378,7 @@
     "tambien_en": [
       {
         "archivo": "producto-simple/SKILL.md",
-        "linea": 70
+        "linea": 72
       }
     ]
   },
@@ -409,7 +409,7 @@
     "tambien_en": [
       {
         "archivo": "producto-simple/SKILL.md",
-        "linea": 71
+        "linea": 73
       }
     ]
   },
@@ -3503,6 +3503,273 @@
     "fuente": {
       "archivo": "integrated-dashboard-ux/SKILL.md",
       "linea": 1298
+    }
+  },
+  {
+    "id": "peso-de-capa-por-producto",
+    "titulo": "El peso de cada capa depende del tipo de producto",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En una herramienta de trabajo diario manda macOS/iOS; en una vitrina manda la marca; en un producto mixto se decide por vista.",
+    "bien": "CRM en tres columnas con teclado; landing donde manda la marca",
+    "mal": "Landing con la densidad de un panel, o panel con la escenografía de una landing",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/pila-de-estilo.md",
+      "linea": 64
+    },
+    "tambien_en": [
+      {
+        "archivo": "docs/COMPOSICION.md",
+        "linea": 28
+      }
+    ]
+  },
+  {
+    "id": "seccion-sin-decidir",
+    "titulo": "Ninguna sección sin decidir",
+    "tier": "AA",
+    "tipo": "medida",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Cada sección golpea o condensa; la que queda en el gris medio, ni fuerte ni densa, nadie la pensó.",
+    "bien": "Un titular que golpea, una tabla que condensa",
+    "mal": "Un bloque de texto mediano con espaciado por defecto entre dos secciones",
+    "fuente": {
+      "archivo": "docs/COMPOSICION.md",
+      "linea": 57
+    },
+    "medida": "composicion",
+    "tambien_en": [
+      {
+        "archivo": "docs/COMPOSICION.md",
+        "linea": 8
+      }
+    ]
+  },
+  {
+    "id": "seccion-saturada",
+    "titulo": "Una sección no golpea y carga a la vez",
+    "tier": "AA",
+    "tipo": "medida",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Si una sección es fuerte y densa a la vez, separa lo que golpea de lo que se consulta.",
+    "bien": "Golpe arriba, el detalle condensado debajo",
+    "mal": "Un titular enorme encima de una tabla apretada en la misma banda",
+    "fuente": {
+      "archivo": "docs/COMPOSICION.md",
+      "linea": 52
+    },
+    "medida": "composicion"
+  },
+  {
+    "id": "golpes-seguidos",
+    "titulo": "Golpes seguidos se anulan",
+    "tier": "AAA",
+    "tipo": "medida",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "El ritmo vertical alterna: golpe, condensado, golpe. Dos golpes contiguos y ninguno pesa.",
+    "bien": "Hero, lista condensada, demo",
+    "mal": "Hero, otro hero, otra banda a sangre",
+    "fuente": {
+      "archivo": "docs/COMPOSICION.md",
+      "linea": 58
+    },
+    "medida": "composicion"
+  },
+  {
+    "id": "apertura-segun-el-producto",
+    "titulo": "La apertura depende del producto",
+    "tier": "AA",
+    "tipo": "medida",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Una vitrina abre con un golpe; una herramienta abre con el trabajo: lo accionable arriba, el análisis abajo y plegado.",
+    "bien": "Herramienta: un renglón accionable y la lista",
+    "mal": "Herramienta que abre con un hero decorativo",
+    "fuente": {
+      "archivo": "docs/COMPOSICION.md",
+      "linea": 59
+    },
+    "medida": "composicion",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/SKILL.md",
+        "linea": 238
+      }
+    ]
+  },
+  {
+    "id": "cine-donde-golpea",
+    "titulo": "Lo cinematográfico va donde golpea",
+    "tier": "AAA",
+    "tipo": "medida",
+    "capa": "marca",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En una sección que debe golpear se exige contraste de escala, aire y encuadre; en una condensada, no.",
+    "bien": "Demo a sangre con aire alrededor",
+    "mal": "Banda grande y plana: mucha superficie, ningún encuadre",
+    "fuente": {
+      "archivo": "docs/COMPOSICION.md",
+      "linea": 61
+    },
+    "medida": "composicion",
+    "tambien_en": [
+      {
+        "archivo": "docs/COMPOSICION.md",
+        "linea": 11
+      }
+    ]
+  },
+  {
+    "id": "area-muerta",
+    "titulo": "Área muerta acotada",
+    "tier": "AA",
+    "tipo": "medida",
+    "capa": "producto",
+    "perfiles": [
+      "libre",
+      "estricto"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "En una herramienta, más de un 25 % de área que no ocupa nada es espacio perdido; en una vitrina el aire es intencional hasta el 60 %.",
+    "bien": "Panel con el espacio lleno de trabajo real",
+    "mal": "Columnas vacías al costado de una tabla corta",
+    "fuente": {
+      "archivo": "docs/COMPOSICION.md",
+      "linea": 78
+    },
+    "medida": "composicion",
+    "tambien_en": [
+      {
+        "archivo": "integrated-dashboard-ux/references/auditoria-de-espacio-y-bloques-shadcnio.md",
+        "linea": 40
+      }
+    ]
+  },
+  {
+    "id": "seccion-con-problema",
+    "titulo": "Cada sección resuelve un problema",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "Escribe en una frase qué problema resuelve cada sección; la que no resuelve ninguno se propone quitar.",
+    "bien": "«Muestra el puntaje para decidir si seguir»",
+    "mal": "Una banda que está porque las landings la tienen",
+    "fuente": {
+      "archivo": "docs/COMPOSICION.md",
+      "linea": 76
+    },
+    "tambien_en": [
+      {
+        "archivo": "docs/COMPOSICION.md",
+        "linea": 5
+      },
+      {
+        "archivo": "producto-simple/SKILL.md",
+        "linea": 33
+      }
+    ]
+  },
+  {
+    "id": "lo-raro-no-va-arriba",
+    "titulo": "Lo raro no va arriba",
+    "tier": "AA",
+    "tipo": "criterio",
+    "capa": "producto",
+    "perfiles": [
+      "libre"
+    ],
+    "modos": [
+      "correccion",
+      "limpieza",
+      "mejora",
+      "edicion",
+      "creacion"
+    ],
+    "regla": "La jerarquía la manda la frecuencia de uso, no la novedad del hallazgo: lo llamativo va en una celda chica.",
+    "bien": "Lo de todos los días arriba",
+    "mal": "Encabezar con el hallazgo curioso de la semana",
+    "fuente": {
+      "archivo": "integrated-dashboard-ux/references/bento-multi-estado.md",
+      "linea": 88
     }
   },
   {

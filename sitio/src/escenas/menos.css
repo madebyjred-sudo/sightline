@@ -1,0 +1,161 @@
+/* Menos, pero pensado. Taste's own panel (Figtree, Bright White) in the
+   page's frame: one gutter in from the top and left, off the right and bottom. */
+
+.men .men-panel {
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--blanco);
+  font-family: 'Figtree Variable', system-ui, sans-serif;
+  color: var(--tinta);
+}
+
+.men .men-cabeza {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 470px;
+  height: 56px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--gris-claro);
+  font-size: 13.5px;
+}
+
+.men .men-cabeza__t,
+.men .men-cabeza__m {
+  white-space: nowrap;
+}
+
+.men .men-cabeza__t {
+  display: flex;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.men .men-cabeza__t .ss-states {
+  display: inline-grid;
+  font-weight: 400;
+  color: var(--gris);
+}
+
+.men .men-cabeza__m {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gris);
+}
+
+.men .men-cabeza__n {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+.men .delta {
+  opacity: 0;
+  transition: opacity var(--dur-media) ease;
+}
+
+.men .delta[data-show] {
+  opacity: 1;
+}
+
+.men .men-filas {
+  width: 470px;
+  padding: 6px 20px 0;
+}
+
+.men .men-fila {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  height: 44px;
+  border-bottom: 1px solid var(--blanco-hondo);
+  font-size: 14px;
+  will-change: transform;
+}
+
+.men .men-fila__s {
+  font-weight: 600;
+}
+
+.men .men-fila__p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--gris);
+}
+
+.men .men-sin {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--amarillo);
+  color: var(--tinta);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.men .men-quitar {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--tinta);
+  color: var(--blanco);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.men .men-reposo {
+  position: absolute;
+  left: 470px;
+  top: 400px;
+  width: 1px;
+  height: 1px;
+}
+
+/* ---- Compact: the problem drops under the section's name ---- */
+
+.men .ss-stage[data-layout='compact'] .men-cabeza,
+.men .ss-stage[data-layout='compact'] .men-filas {
+  width: 360px;
+}
+
+.men .ss-stage[data-layout='compact'] .men-cabeza {
+  height: 48px;
+  padding: 0 14px;
+  font-size: 12.5px;
+}
+
+.men .ss-stage[data-layout='compact'] .men-filas {
+  padding: 4px 14px 0;
+}
+
+.men .ss-stage[data-layout='compact'] .men-cabeza__sitio {
+  display: none;
+}
+
+.men .ss-stage[data-layout='compact'] .men-cabeza__n {
+  font-size: 17px;
+}
+
+.men .ss-stage[data-layout='compact'] .men-fila {
+  grid-template-columns: 1fr;
+  align-content: center;
+  gap: 2px;
+  height: 52px;
+  font-size: 13px;
+}
+
+.men .ss-stage[data-layout='compact'] .men-fila__p {
+  font-size: 12px;
+}
+
+.men .ss-stage[data-layout='compact'] .men-reposo {
+  left: 330px;
+  top: 310px;
+}

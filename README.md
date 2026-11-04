@@ -25,6 +25,7 @@ Eso deja la skill en Claude Code (y en Hermes, si lo usas) y el comando `taste` 
 más y una app con servidor de desarrollo.
 
 ```sh
+taste fundar --repo ~/tu-app
 taste auditar --repo ~/tu-app
 ```
 
@@ -34,7 +35,12 @@ taste auditar --repo ~/tu-app
   cada vista en escritorio (1440 × 900) y en móvil (390 × 844), dos veces, para separar el ruido de un cambio real.
 - **Detecta:** con tres fuentes: [transitions-agent](https://transitions.dev) para el movimiento,
   [Impeccable](https://impeccable.style) como detector y los checks propios de Taste.
-- **Juzga:** cada hallazgo cae en una de 169 reglas, en tres tiers (A, AA, AAA). 19 tienen un check determinista; el
+- **Funda los criterios:** `taste fundar` deduce si el producto es una herramienta, una vitrina o un mixto, y deja
+  escrita la pila: shadcn el código, macOS e iOS la interacción, Material 3 el sistema, la marca lo que se ve, y cuál
+  manda según el producto.
+- **Mide la composición:** corta cada vista en secciones y le mide a cada una cuánto golpea, cuánto condensa y qué tan
+  cinematográfica es. Cada componente tiene su puntaje y ninguna sección queda sin decidir. Deja un `mapa.html`.
+- **Juzga:** cada hallazgo cae en una de 178 reglas, en tres tiers (A, AA, AAA). 19 tienen un check determinista; el
   resto es criterio que escribe tu agente: una frase, la regla, su fuente y qué pasa con UX, DX y AX.
 - **Propone:** lo que queda se aplica en un clon con rama propia, nunca en tu repo, con un informe antes y después.
 
@@ -51,6 +57,12 @@ Cada repo puede declarar el suyo en `perfiles/NOMBRE-DEL-REPO.json`:
 
 `libre` puede proponer piezas nuevas; `estricto` nunca toca tokens ni marca. Sin archivo, Taste es conservador: perfil
 estricto, mundo personal. Ver `perfiles/sitio.json`, el de la landing.
+
+## La composición
+
+`docs/COMPOSICION.md` explica el método: cómo se elige y se combina la pila, el mapa vertical (golpe, condensado, sin
+decidir) y el puntaje por componente. Lo mueve la Bauhaus: menos es más, entendido desde el problema que resuelve
+cada sección.
 
 ## Las reglas
 

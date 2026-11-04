@@ -1,6 +1,6 @@
 # Biblioteca de taste (externa)
 
-Índice de componentes externos (shadcn y recetas de transitions) por patrón. Tu biblioteca propia va en `biblioteca/personal/` con el mismo formato. Las capturas de inspiración del autor no se publican (no son redistribuibles).
+Formato: docs/ESPEC.md (seccion Biblioteca). Patron `tokens` agregado y declarado.
 
 ## Por mundo
 

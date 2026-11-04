@@ -89,6 +89,27 @@ export function textoPaquete({ corrida, vista, hallazgos, reglas, inspo, compone
   L.push(`- capturas: ${vista.capturas?.escritorio ?? 'sin captura'} · ${vista.capturas?.movil ?? 'sin captura'} (relativas a la corrida)`)
   if (vista.error) L.push(`- error al capturar: ${vista.error}`)
   L.push(`- modo ${modo} · tier ${tier} · perfil ${corrida.perfil} · mundo ${corrida.mundo}`, `- patrones: ${patrones.join(', ')}`, '')
+  const c = corrida.criterios
+  if (c) {
+    L.push('## Criterios del repo (docs/COMPOSICION.md)', '', `- tipo de producto: ${c.tipo} (${c.origen}). ${c.razon}`, `- manda: ${c.manda} · orden: ${c.orden.join(' > ')}`)
+    for (const m of c.metodo) L.push(`- ${m}`)
+    for (const d of c.decisiones) L.push(`- ${d.pieza}: decide ${d.capa}. ${d.regla}`)
+    L.push('')
+  }
+  const m = vista.mapa
+  if (m?.secciones?.length) {
+    L.push('## Mapa vertical', '')
+    if (m.igual_a) L.push(`Misma composición que ${m.igual_a}: el mapa y sus hallazgos están en su paquete.`, '')
+    else {
+      L.push(`Área muerta ${Math.round(m.area_muerta * 100)} %. Rol de cada sección de arriba abajo (fuerza, densidad, cine de 0 a 1; puntaje de 0 a 100):`, '')
+      for (const s of m.secciones) {
+        const debiles = [...s.componentes].sort((a, b) => a.puntaje - b.puntaje).slice(0, 3).map((x) => `${x.etiqueta} ${x.puntaje} (calidad ${x.calidad}, composición ${x.composicion})`)
+        L.push(`- ${s.id} «${s.etiqueta}» · ${s.rol} · fuerza ${s.fuerza} · densidad ${s.densidad} · cine ${s.cine} · puntaje ${s.puntaje}${debiles.length ? ` · débiles: ${debiles.join('; ')}` : ''}`)
+      }
+      L.push('', '### Menos, pero pensado', '',
+        'Antes de los criterios, escribe para cada sección, en una frase, qué problema resuelve. La que no resuelve ninguno se propone quitar (regla seccion-con-problema). Una sección sin decidir se decide: golpe o condensado, nunca el gris medio. Lo cinematográfico solo donde golpea.', '')
+    }
+  }
   const porRegla = new Map()
   for (const h of hallazgos) { if (!porRegla.has(h.regla)) porRegla.set(h.regla, []); porRegla.get(h.regla).push(h) }
   L.push(`## Hallazgos (${hallazgos.length})`, '')

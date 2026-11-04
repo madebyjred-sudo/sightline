@@ -140,7 +140,12 @@ export default function Auditar() {
                 <span className="aud-card__tier">AA</span>
               </div>
               <Count className="aud-card__score" value={s.score} format={fmt} duration={900} />
-              <div className="aud-card__foot">23 hallazgos</div>
+              <div className="aud-card__foot">
+                <span className="delta" data-show={s.score > BEFORE || undefined}>
+                  +9,4
+                </span>{' '}
+                23 hallazgos
+              </div>
             </div>
           </>
         )
